@@ -39,7 +39,7 @@ export function ProcessSection() {
 
       <Container>
         <div className="mb-24 max-w-3xl">
-          <SectionLabel number="03" title={dict.common.step} />
+          <SectionLabel number="05" title={dict.common.step} />
 
           <TextReveal
             as="h2"

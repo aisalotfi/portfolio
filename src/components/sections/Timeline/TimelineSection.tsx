@@ -38,7 +38,7 @@ export function TimelineSection() {
 
       <Container>
         <div className="mb-20 max-w-3xl">
-          <SectionLabel number="06" title={dict.nav.experience} />
+          <SectionLabel number="08" title={dict.nav.experience} />
 
           <TextReveal
             as="h2"

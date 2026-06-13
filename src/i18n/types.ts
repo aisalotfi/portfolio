@@ -2,6 +2,7 @@ export interface Dictionary {
   meta: {
     title: string;
     description: string;
+    keywords: string;
   };
   nav: {
     about: string;
@@ -11,6 +12,7 @@ export interface Dictionary {
     contact: string;
     portfolio: string;
     toggleMenu: string;
+    resume: string;
   };
   common: {
     scroll: string;
@@ -36,12 +38,12 @@ export interface Dictionary {
     description: string;
     cta1: string;
     cta2: string;
-    currentlyBuilding: string;
-    buildingLine1: string;
-    buildingLine2: string;
-    recognition: string;
+    currentFocus: string;
+    focusLine1: string;
+    focusLine2: string;
+    opportunity: string;
     dash: string;
-    awaitingFirst: string;
+    opportunityDesc: string;
     stats: {
       yearsOfCraft: string;
       shippedProducts: string;
@@ -85,6 +87,49 @@ export interface Dictionary {
     description: string;
     layers: { title: string; text: string }[];
   };
+  techStack: {
+    title: string;
+    subtitle: string;
+    categories: { name: string; items: string[] }[];
+  };
+  currentFocusSection: {
+    title: string;
+    description: string;
+    items: string[];
+  };
+  openToWork: {
+    title: string;
+    description: string;
+    roles: string[];
+    availability: string;
+  };
+  featuredProject: {
+    title: string;
+    subtitle: string;
+    description: string;
+    techStack: string[];
+    liveLink: string;
+  };
+  caseStudy: {
+    projectOverview: string;
+    problem: string;
+    solution: string;
+    responsibilities: string[];
+    techStack: string[];
+    challenges: { title: string; text: string }[];
+    outcome: string;
+    lessonsLearned: string[];
+  };
+  testimonials: {
+    title: string;
+    subtitle: string;
+    placeholder: string;
+  };
+  githubCta: {
+    title: string;
+    description: string;
+    button: string;
+  };
   timeline: {
     headline1: string;
     headline2: string;
@@ -93,6 +138,11 @@ export interface Dictionary {
     currentRole: string;
     currentRoleDescription: string;
     currentRoleAchievements: string[];
+  };
+  buildLog: {
+    title: string;
+    description: string;
+    entries: { date: string; text: string }[];
   };
   contact: {
     headline1: string;
@@ -119,8 +169,33 @@ export interface Dictionary {
       response: string;
       languages: string;
     };
+    social: {
+      github: string;
+      linkedin: string;
+      email: string;
+    };
+    resumeDownload: string;
     closingLine1: string;
     closingLine2: string;
+  };
+  notFound: {
+    title: string;
+    description: string;
+    cta: string;
+  };
+  resumePage: {
+    meta: { title: string; description: string };
+    introduction: string;
+    skillsTitle: string;
+    skillCategories: { name: string; items: string[] }[];
+    backToHome: string;
+    educationTitle: string;
+    projectsTitle: string;
+    experienceTitle: string;
+    education: { degree: string; school: string; year: string };
+    projects: { name: string; tech: string[] }[];
+    experience: { role: string; period: string; description: string }[];
+    downloadCta: string;
   };
   footer: {
     crafted: string;

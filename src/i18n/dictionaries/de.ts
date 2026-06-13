@@ -2,19 +2,22 @@ import type { Dictionary } from "../types";
 
 const de: Dictionary = {
   meta: {
-    title: "Aisa Lotfi — Full-Stack-Entwicklerin",
+    title: "Aisa Lotfi — Webentwicklerin",
     description:
-      "Full-Stack-Entwicklerin, die erstklassige digitale Erlebnisse an der Schnittstelle von technischer Präzision und Designgespür erschafft.",
+      "Frontend-orientierte Webentwicklerin mit Fokus auf React, Next.js und TypeScript.",
+    keywords:
+      "Frontend-Entwicklerin, React-Entwicklerin, Next.js-Entwicklerin, Webentwicklerin, TypeScript, Iran, Portfolio, Junior-Entwicklerin, UI-Entwicklerin, Aisa Lotfi",
   },
 
   nav: {
     about: "Über mich",
     work: "Arbeiten",
-    process: "Prozess",
+    process: "Vorgehen",
     experience: "Erfahrung",
     contact: "Kontakt",
-    portfolio: "Portfolio",
+    portfolio: "Aisa Lotfi",
     toggleMenu: "Menü öffnen/schließen",
+    resume: "Lebenslauf",
   },
 
   common: {
@@ -22,10 +25,10 @@ const de: Dictionary = {
     selected: "Ausgewählt",
     outcomes: "Ergebnisse",
     role: "Rolle",
-    duration: "Zeitraum",
+    duration: "Dauer",
     of: "von",
     switchLanguage: "Sprache wechseln",
-    liveSite: "Live-Seite",
+    liveSite: "Live-Website",
     github: "GitHub",
     caseStudy: "Fallstudie",
     step: "Schritt",
@@ -33,200 +36,320 @@ const de: Dictionary = {
   },
 
   hero: {
-    badge: "Verfügbar · Offen für Projekte",
-    title: "Full-Stack-Entwicklerin",
-    line1: "Digitale Erlebnisse",
-    line2: "gestalten, die sich",
-    line3: "unvermeidlich",
-    line3After: "anfühlen.",
+    badge: "Für Projekte offen",
+    title: "Webentwickler mit Fokus auf React & Next.js",
+    line1: "Moderne",
+    line2: "Weboberflächen",
+    line3: "mit React",
+    line3After: "& Next.js.",
     description:
-      "Ich entwickle erstklassige digitale Produkte — dort, wo technische Präzision auf Designgespür trifft. Jede Interaktion, jedes Pixel, jede Bewegung — bewusst gestaltet.",
-    cta1: "Ausgewählte Arbeiten ansehen",
-    cta2: "Projekt starten",
-    currentlyBuilding: "Aktuell im Bau",
-    buildingLine1: "Ein erstklassiges Portfolio-",
-    buildingLine2: "Erlebnis",
-    recognition: "Auszeichnungen",
+      "Junger Webentwickler mit Schwerpunkt auf React, Next.js und TypeScript. Saubere, schnelle und benutzerfreundliche Interfaces.",
+    cta1: "Meine Arbeiten",
+    cta2: "Kontakt",
+    currentFocus: "Aktueller Fokus",
+    focusLine1: "React & Next.js",
+    focusLine2: "TypeScript — UI/UX",
+    opportunity: "Möglichkeiten",
     dash: "—",
-    awaitingFirst: "Erster Eintrag ausstehend",
+    opportunityDesc: "Auf der Suche nach Frontend-Projekten",
     stats: {
-      yearsOfCraft: "Jahre Handwerk",
-      shippedProducts: "Veröffentlichte Produkte",
-      industriesServed: "Bediente Branchen",
+      yearsOfCraft: "Jahre aktiv",
+      shippedProducts: "Reale Projekte",
+      industriesServed: "Branchen",
     },
   },
 
   about: {
-    headline: "Digitale Erlebnisse gestalten, die nachklingen.",
-    subheadline: "Wo technische Präzision auf Designgespür trifft.",
+    headline: "Über mich",
+    subheadline: "Webentwicklerin · Informatik-Studentin",
     bio1:
-      "Ich bin Aisa Lotfi, Full-Stack-Entwicklerin aus Hamedan, Iran. Ich entwickle digitale Produkte von Anfang bis Ende — vom Datenmodell bis zum ausgelieferten Pixel — mit einer Leidenschaft für Klarheit und Handwerkskunst.",
+      "Ich bin Aisa Lotfi, Informatikstudentin und Webentwicklerin aus Hamedan, Iran. Mein Fokus liegt auf Frontend-Entwicklung mit React, Next.js und TypeScript.",
     bio2:
-      "Mein Ansatz verbindet architektonisches Denken mit künstlerischer Sensibilität. Ich baue nicht einfach Oberflächen; ich choreografiere Erlebnisse, die sich unvermeidlich, intuitiv und zutiefst menschlich anfühlen.",
+      "Meine Leidenschaft für Frontend entdeckte ich, weil es mir erlaubt, Kreativität mit Code zu verbinden. Jedes Projekt bringt neue Erkenntnisse, und ich bin entschlossen, mich täglich zu verbessern.",
     bio3:
-      "Ich versesse mich auf Details, die die meisten Menschen bewusst nie wahrnehmen — die Kurve einer Spring-Animation, der Rhythmus eines Layouts, das Gewicht einer typografischen Hierarchie. Diese unsichtbaren Entscheidungen sind es, die Produkte teuer, intentional und zutiefst menschlich wirken lassen.",
-    quote: "~ Das Handwerk ist die Botschaft.",
+      "Derzeit vertiefe ich meine Kenntnisse in React und Next.js und erkunde nebenbei Backend-Entwicklung mit Node.js. Mein Ziel ist es, Produkte zu schaffen, die nicht nur funktional, sondern auch eine Freude in der Nutzung sind.",
+    quote: "~ Code ist Handwerk.",
     disciplines: {
       title: "Disziplinen",
       items: [
-        "Frontend-Engineering",
-        "Backend-Engineering",
-        "API-Design",
-        "Datenbankdesign",
-        "UI-Engineering",
-        "Motion-Systeme",
-        "Performance",
-        "Barrierefreiheit",
+        "React & Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "JavaScript",
+        "HTML & CSS",
+        "Node.js",
+        "Git",
+        "UI/UX",
       ],
     },
     principles: {
       title: "Grundsätze",
       items: [
-        "Zurückhaltung als Luxus — Jedes entfernte Element verdient seine Stille.",
-        "Bewegung mit Absicht — Animation choreografiert Bedeutung, niemals Lärm.",
-        "Details auf jeder Ebene — Von Kerning bis Architektur, dieselbe Sorgfalt.",
+        "Sauberer Code — lesbar, wartbar, ehrlich.",
+        "Stetiges Lernen — jeden Tag ein Schritt weiter.",
+        "Klare Kommunikation — verstehen, bevor man baut.",
       ],
     },
   },
 
   projects: {
     sectionLabel: "Ausgewählte Arbeiten",
-    headline1: "Digitale",
-    headline2: "Artefakte.",
+    headline1: "Aktuelle",
+    headline2: "Projekte.",
     description:
-      "Jedes Projekt ist eine Partnerschaft, in der Design-Thinking und handwerkliche Ingenieurskunst zu etwas Außergewöhnlichem verschmelzen.",
+      "Eine Auswahl an Projekten, die zeigen, was ich kann und wie ich Probleme löse.",
     yearRange: "Auswahl · 2024 — 26",
   },
 
   process: {
-    headline1: "Wie die Arbeit",
-    headline2: "entsteht.",
+    headline1: "Mein",
+    headline2: "Vorgehen.",
     description:
-      "Ein strukturierter, dennoch fließender Ansatz. Zu gleichen Teilen Research, Design, Engineering und Verfeinerung — alles im Dienst eines Gefühls.",
+      "Ein unkomplizierter Prozess. Vom ersten Gespräch bis zur Auslieferung — klar und strukturiert.",
     steps: [
       {
-        title: "Entdecken",
-        text: "Zuerst zuhören. Nutzer, Problem und den geschäftlichen Kontext darum herum kartieren. Research in eine klare Richtung verdichten.",
+        title: "Gespräch",
+        text: "Zuerst höre ich zu. Ihre Anforderungen, Zielgruppe und Erwartungen helfen uns, die richtige Richtung zu finden.",
       },
       {
-        title: "Gestalten",
-        text: "Die Strategie in greifbare Interfaces übersetzen. Schnell iterieren — Wireframes, High-Fidelity-Entwürfe, Motion-Studien — bis es sich unvermeidlich anfühlt.",
+        title: "Planung",
+        text: "Basierend auf den Anforderungen plane ich Struktur und Design. Prototypen stellen sicher, dass wir vor dem Coding einer Meinung sind.",
       },
       {
-        title: "Entwickeln",
-        text: "Bauen, als ob es ein Jahrzehnt halten muss. Saubere Architektur, Motion-Choreografie, Barrierefreiheit von Grund auf — keine Nachgedanken.",
+        title: "Entwicklung",
+        text: "Ich entwickle mit React und Next.js. Sauber, modular und mit Fokus auf Leistung und Benutzererfahrung.",
       },
       {
-        title: "Verfeinern",
-        text: "Veröffentlichen, dann schärfen. Usability, Performance, Politur — bis das Produkt ohne ein Wort teuer wirkt.",
+        title: "Auslieferung",
+        text: "Das Projekt wird ausgeliefert und auf Funktion geprüft. Support und Fehlerbehebung nach der Übergabe inklusive.",
       },
     ],
   },
 
   engineering: {
-    headline1: "Engineering",
+    headline1: "Engineering,",
     headline2: "als Handwerk.",
     description:
-      "Saubere Architektur und filmische Ausführung. Jede Komponente ist eine Chance auf Exzellenz — und eine Möglichkeit, eine Zeile zu entfernen.",
-    aggregate: "Gesamt",
+      "Coding ist nicht nur Zeilen schreiben — es ist das Bauen eines sauberen, qualitativ hochwertigen Produkts.",
+    aggregate: "Übersicht",
     metrics: [
-      { value: "98", label: "Ø Lighthouse-Score" },
-      { value: "<2s", label: "Time to Interactive" },
-      { value: "0", label: "Axe-Verstöße" },
-      { value: "AA+", label: "WCAG-Baseline" },
+      { value: "85+", label: "Performance" },
+      { value: "92+", label: "Accessibility" },
+      { value: "88+", label: "Best Practices" },
+      { value: "95+", label: "SEO" },
     ],
     pillars: [
       {
-        title: "Komponentenarchitektur",
-        text: "Komposierbare, skalierbare Systeme — entwickelt für Klarheit, Wiederverwendbarkeit und die lange Lebensdauer eines Produkts.",
+        title: "Sauberer Code",
+        text: "Lesbar, modular, wartbar. Code, der auch nach Monaten noch verständlich ist.",
       },
       {
-        title: "Motion-Systeme",
-        text: "Filmische Choreografie. Spring-Physik, Stagger, scroll-gebundenes Storytelling — niemals Dekoration.",
-      },
-      {
-        title: "Interaktionsdesign",
-        text: "Taktile Micro-Interactions, die kommunizieren, führen und erfreuen — ohne je zu schreien.",
+        title: "Benutzererfahrung",
+        text: "Intuitive Oberflächen, die keiner Erklärung bedürfen.",
       },
       {
         title: "Performance",
-        text: "Ladezeiten unter einer Sekunde, schlanke Bundles, Edge-Rendering. Geschwindigkeit ist ein Feature, kein Nachpolieren.",
+        text: "Schnelle Ladezeiten, optimierte Bundles, SSR mit Next.js.",
+      },
+      {
+        title: "Responsives Design",
+        text: "Funktioniert auf jedem Gerät — vom Smartphone bis zum 4K-Monitor.",
       },
       {
         title: "Barrierefreiheit",
-        text: "WCAG 2.2 AA+ als Baseline. Universeller Zugang, ohne jemals beim Handwerk Kompromisse einzugehen.",
+        text: "Das Web sollte für alle funktionieren. Grundlegende Accessibility-Prinzipien.",
       },
       {
-        title: "Responsives Engineering",
-        text: "Fließende Layouts, die filmische Qualität vom 320-px-Smartphone bis zum 4K-Studio-Display bewahren.",
+        title: "Moderne Werkzeuge",
+        text: "TypeScript, Tailwind, Framer Motion — Werkzeuge, die Freude am Coding machen.",
       },
     ],
   },
 
   fullstack: {
-    headline1: "Vom Schema bis",
-    headline2: "zum Pixel.",
+    headline1: "Von der Datenbank",
+    headline2: "zum Browser.",
     description:
-      "Vier Ebenen, ein Handwerk. Jede Schicht entwickelt für Resilienz, Geschwindigkeit und Klarheit, die ein Jahr voller Änderungen übersteht.",
+      "Mein Fokus liegt auf Frontend, aber ich verstehe den gesamten Webentwicklungs-Stack.",
     layers: [
       {
-        title: "Interface / Pixel",
-        text: "Die Oberfläche, die der Nutzer wirklich spürt — Typografie, Motion, Micro-Interactions, Barrierefreiheit.",
+        title: "UI-Ebene",
+        text: "React und Next.js für moderne, responsive Oberflächen.",
       },
       {
-        title: "Edge / Auslieferung",
-        text: "Streaming, Caching und Personalisierung — so nah am Nutzer, wie es die Physik erlaubt.",
+        title: "API-Ebene",
+        text: "REST-APIs mit Node.js — Verbindung zwischen Frontend und Backend.",
       },
       {
-        title: "API / Vertrag",
-        text: "Typsichere Service-Schicht — REST und GraphQL, ausgelegt auf Resilienz und Entwicklerfreude.",
+        title: "Datenebene",
+        text: "Datenbank-Grundlagen und Arbeit mit strukturierten Daten.",
       },
       {
-        title: "Daten / Schema",
-        text: "Relationale und dokumentbasierte Datenspeicher, modelliert für die Frage, nicht die Bequemlichkeit.",
+        title: "Bereitstellung",
+        text: "Erfahrung mit Vercel und grundlegenden Deployment-Konzepten.",
       },
     ],
   },
 
-  timeline: {
-    headline1: "Ein",
-    headline2: "Jahrzehnt",
-    headline3: "voller Entscheidungen.",
+  techStack: {
+    title: "Technologien",
+    subtitle: "mit denen ich arbeite.",
+    categories: [
+      {
+        name: "Frontend",
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
+      },
+      {
+        name: "Backend",
+        items: ["Node.js", "Express"],
+      },
+      {
+        name: "Datenbank",
+        items: ["MongoDB"],
+      },
+      {
+        name: "Werkzeuge",
+        items: ["Git", "GitHub", "Vercel", "Figma"],
+      },
+    ],
+  },
+
+  currentFocusSection: {
+    title: "Aktueller Fokus",
+    description: "Woran ich arbeite und meine Fähigkeiten vertiefe.",
+    items: [
+      "Fortgeschrittene React Patterns",
+      "Next.js Architektur",
+      "TypeScript vertiefen",
+      "Frontend Performance Optimierung",
+      "Barrierefreie UI-Entwicklung",
+      "Backend Grundlagen",
+    ],
+  },
+
+  openToWork: {
+    title: "Offen für Projekte",
+    description: "Auf der Suche nach neuen Frontend-Möglichkeiten.",
+    roles: [
+      "Frontend-Entwicklerin",
+      "React-Entwicklerin",
+      "Next.js Projekte",
+      "Freiberufliche Arbeit",
+      "Remote-Möglichkeiten",
+    ],
+    availability: "Jetzt verfügbar — kontaktieren Sie mich",
+  },
+
+  featuredProject: {
+    title: "Referenzprojekt",
+    subtitle: "Sadaf Stone",
     description:
-      "Digitale Erlebnisse in Teams und mit Kunden gestalten — jede Rolle ein Wendepunkt, jede Lektion ehrlich verdient.",
-    currentRole: "Full-Stack-Entwicklerin — Freiberuflich — 2024 — Heute",
+      "Offizielle Website der Sadaf Stone GmbH — entwickelt mit Next.js und Tailwind CSS. Modernes Design, hohe Leistung, flüssige UX.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    liveLink: "https://sadafstonee.ir",
+  },
+
+  caseStudy: {
+    projectOverview:
+      "Die offizielle Website der Sadaf Stone GmbH ist ein reales Projekt für ein Unternehmen der Natursteinbranche. Die Website wurde entwickelt, um Produkte und Dienstleistungen professionell zu präsentieren.",
+    problem:
+      "Dem Unternehmen fehlte eine professionelle Website zur Präsentation ihrer Produkte und Kundenkommunikation. Die vorherige Seite war veraltet, nicht responsiv und optisch unattraktiv.",
+    solution:
+      "Eine moderne Website wurde mit Next.js und Tailwind CSS entwickelt. Der Fokus lag auf Geschwindigkeit, Responsivität und professioneller Produktpräsentation.",
+    responsibilities: [
+      "Komplettes UI-Design und -Implementierung",
+      "Frontend-Architektur mit Next.js",
+      "Performance- und SEO-Optimierung",
+      "Vercel Deployment",
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    challenges: [
+      {
+        title: "Produktgalerie",
+        text: "Entwicklung einer schnell ladenden, optisch ansprechenden Bildergalerie für Steinproduktfotos.",
+      },
+      {
+        title: "Responsivität",
+        text: "Sicherstellung der optimalen Darstellung auf allen Geräten bei hochwertigen Produktbildern.",
+      },
+      {
+        title: "SEO",
+        text: "Suchmaschinenoptimierung mit Next.js SSR-Funktionen.",
+      },
+    ],
+    outcome:
+      "Die Website wurde erfolgreich mit positiver Rückmeldung des Kunden gestartet. Kurze Ladezeiten und modernes Design waren die Hauptstärken.",
+    lessonsLearned: [
+      "Erfahrung mit einem kompletten End-to-End-Projekt",
+      "Praktische Herausforderungen bei Deployment und Domain-Einrichtung",
+      "Bedeutung klarer Kommunikation mit dem Kunden",
+      "Zeitmanagement und termingerechte Lieferung",
+    ],
+  },
+
+  testimonials: {
+    title: "Referenzen",
+    subtitle: "Was andere sagen",
+    placeholder: "In Kürze...",
+  },
+
+  githubCta: {
+    title: "Code auf GitHub",
+    description:
+      "Alle Projekte sind auf GitHub verfügbar. Sauberer Code, dokumentiert und einsehbar.",
+    button: "GitHub ansehen",
+  },
+
+  timeline: {
+    headline1: "Mein",
+    headline2: "bisheriger",
+    headline3: "Weg.",
+    description:
+      "Vom Erlernen der Grundlagen bis zu ersten Projekten — jeder Schritt hat mich weitergebracht.",
+    currentRole: "Webentwicklerin — Freiberuflich — 2025 — Heute",
     currentRoleDescription:
-      "End-to-End-Webprodukte für Kunden aus verschiedenen Branchen. Frontend-Systeme, Backend-APIs und die Deploy-Pipeline, die alles Wirklichkeit werden lässt.",
+      "Beginn der professionellen Frontend-Tätigkeit. Schwerpunkt auf React und Next.js für moderne Benutzeroberflächen.",
     currentRoleAchievements: [
-      "Mehrere produktive Webplattformen veröffentlicht",
-      "Ein persönliches, motion-first Komponentensystem entwickelt",
-      "Eine Portfolio-Engine mit i18n und RTL von Tag eins an aufgebaut",
+      "Entwicklung und Launch der offiziellen Website für Sadaf Stone",
+      "Mehrere persönliche Projekte zur Präsentation der Fähigkeiten",
+      "Fundierte Erfahrung mit React, Next.js und TypeScript",
+    ],
+  },
+
+  buildLog: {
+    title: "Entwicklungslog",
+    description: "Regelmäßige Updates zu Projekten und Lernfortschritt.",
+    entries: [
+      { date: "Juni 2026", text: "Portfolio-Redesign gestartet" },
+      { date: "Mai 2026", text: "Sadaf Stone Website gestartet" },
+      { date: "April 2026", text: "Fortgeschrittenes TypeScript-Lernen begonnen" },
+      { date: "März 2026", text: "E-Commerce-Projekt abgeschlossen" },
     ],
   },
 
   contact: {
     headline1: "Lass uns",
     headline2: "etwas",
-    headline3: "Unvermeidliches",
-    headline4: "erschaffen.",
-    badge: "Verfügbar · Offen für Projekte",
+    headline3: "Gemeinsames",
+    headline4: "bauen.",
+    badge: "Für Projekte offen",
     description:
-      "Ob du ein konkretes Projekt im Kopf hast oder einfach erkunden möchtest, was möglich ist — ich freue mich, von dir zu hören.",
+      "Haben Sie ein Projekt oder möchten einfach nur plaudern? Ich freue mich auf Ihre Nachricht.",
     formTitle: "Nachricht senden",
     fields: {
-      name: "Dein Name",
-      email: "Deine E-Mail",
-      message: "Deine Nachricht",
+      name: "Ihr Name",
+      email: "Ihre E-Mail",
+      message: "Ihre Nachricht",
     },
     placeholders: {
-      name: "Wie heißt du?",
-      email: "Wie kann ich dich erreichen?",
-      message: "Erzähl mir von deiner Vision…",
+      name: "Wie heißen Sie?",
+      email: "E-Mail oder Telefon",
+      message: "Erzählen Sie von Ihrem Projekt...",
     },
     submit: "Nachricht senden",
     info: {
-      connect: "Verbinden",
-      studio: "Studio",
+      connect: "Vernetzen",
+      studio: "Info",
       location: "Standort",
       timezone: "Zeitzone",
       response: "Antwortzeit",
@@ -235,15 +358,62 @@ const de: Dictionary = {
     details: {
       location: "Hamedan, Iran",
       timezone: "UTC+3:30 (IRST)",
-      response: "Innerhalb von 48 Stunden",
-      languages: "EN · FA · DE",
+      response: "Innerhalb 24h",
+      languages: "DE · EN · FA",
     },
-    closingLine1: "Jedes großartige Produkt beginnt als Gespräch.",
-    closingLine2: "Lass uns deins starten.",
+    social: {
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      email: "E-Mail",
+    },
+    resumeDownload: "Lebenslauf",
+    closingLine1: "Eine Nachricht kann der Beginn von etwas Großem sein.",
+    closingLine2: "Ich freue mich auf Ihre Nachricht.",
+  },
+
+  notFound: {
+    title: "Seite nicht gefunden",
+    description: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    cta: "Zurück zur Startseite",
+  },
+
+  resumePage: {
+    meta: {
+      title: "Lebenslauf — Aisa Lotfi",
+      description: "Lebenslauf von Aisa Lotfi — Frontend-orientierte Webentwicklerin",
+    },
+    introduction:
+      "Frontend-orientierte Webentwicklerin und Informatikstudentin. Praktische Erfahrung in der Entwicklung moderner Anwendungen mit React und Next.js.",
+    backToHome: "Zurück zur Startseite",
+    educationTitle: "Ausbildung",
+    projectsTitle: "Projekte",
+    experienceTitle: "Erfahrung",
+    skillsTitle: "Kenntnisse",
+    skillCategories: [
+      { name: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS"] },
+      { name: "Backend", items: ["Node.js", "Express", "REST API"] },
+      { name: "Datenbank", items: ["MongoDB", "PostgreSQL"] },
+      { name: "Werkzeuge", items: ["Git", "GitHub", "Vercel", "Figma", "VS Code"] },
+    ],
+    education: {
+      degree: "B.Sc. Informatik",
+      school: "Universität — Hamedan",
+      year: "2022 — heute",
+    },
+    projects: [
+      { name: "Sadaf Stone", tech: ["Next.js", "TypeScript", "Tailwind CSS"] },
+      { name: "E-Commerce", tech: ["React", "Node.js", "MongoDB"] },
+      { name: "Admin-Dashboard", tech: ["React", "TypeScript"] },
+      { name: "Anime-Website", tech: ["Next.js", "Tailwind CSS"] },
+    ],
+    experience: [
+      { role: "Webentwicklerin", period: "2025 — heute", description: "Freiberufliche Frontend-Entwicklung mit React und Next.js" },
+    ],
+    downloadCta: "Lebenslauf herunterladen (PDF)",
   },
 
   footer: {
-    crafted: "Mit obsessiver Sorgfalt gefertigt",
+    crafted: "Mit Sorgfalt gebaut",
     allRights: "Alle Rechte vorbehalten",
   },
 };

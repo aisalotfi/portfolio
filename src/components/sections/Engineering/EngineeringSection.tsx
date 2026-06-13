@@ -39,7 +39,7 @@ export function EngineeringSection() {
       <Container>
         <div className="mb-16 grid gap-12 lg:mb-24 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <SectionLabel number="04" title={dict.engineering.headline1} />
+            <SectionLabel number="06" title={dict.engineering.headline1} />
 
             <TextReveal
               as="h2"
@@ -66,7 +66,7 @@ export function EngineeringSection() {
                 </span>
                 <span className="h-px flex-1 bg-border-medium" />
               </div>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {dict.engineering.metrics.map((s, i) => (
                   <div
                     key={s.label}

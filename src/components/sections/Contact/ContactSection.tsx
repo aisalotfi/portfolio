@@ -6,12 +6,13 @@ import { TextReveal } from "@/components/motion/TextReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { useDict } from "@/i18n/LocaleProvider";
+import { useDict, useLocale } from "@/i18n/LocaleProvider";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function ContactSection() {
   const dict = useDict();
+  const { locale } = useLocale();
   const isFa = dict.contact.details.languages.startsWith("FA");
 
   return (
@@ -32,7 +33,7 @@ export function ContactSection() {
 
       <Container>
         <div className="mb-24 text-center">
-          <SectionLabel number="07" title={dict.nav.contact} />
+          <SectionLabel number="11" title={dict.nav.contact} />
 
           <TextReveal
             as="h2"
@@ -70,23 +71,22 @@ export function ContactSection() {
 
         <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-5">
           {/* Form */}
-          <Reveal direction="up" delay={0.5} className="lg:col-span-3">
-            <div className="glass rounded-3xl p-8 md:p-10">
+          <Reveal direction="up" delay={0.5} className="lg:col-span-3 flex">
+            <div className="glass flex flex-col rounded-3xl p-8 md:p-10 w-full">
               <h3 className="mb-8 font-display text-[22px] tracking-tight text-soft-white md:text-[26px]">
                 {dict.contact.formTitle}
               </h3>
 
-              <form className="space-y-6">
+              <form className="flex h-full flex-col gap-6">
                 {(["name", "email", "message"] as const).map((field) => (
-                  <div key={field}>
+                  <div key={field} className={field === "message" ? "grow" : ""}>
                     <label className="mb-2 block font-mono text-[10px] tracking-[0.25em] text-charcoal-200 uppercase">
                       {dict.contact.fields[field]}
                     </label>
                     {field === "message" ? (
                       <textarea
-                        rows={4}
                         placeholder={dict.contact.placeholders[field]}
-                        className="w-full resize-none rounded-xl border border-border-medium bg-surface-glass px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 backdrop-blur-md transition-all duration-500 focus:border-accent/60 focus:outline-none focus:shadow-[0_0_20px_-6px_rgba(212,165,116,0.4)]"
+                        className="w-full min-h-[80px] resize-none rounded-xl border border-border-medium bg-surface-glass px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 backdrop-blur-md transition-all duration-500 focus:border-accent/60 focus:outline-none focus:shadow-[0_0_20px_-6px_rgba(212,165,116,0.4)]"
                       />
                     ) : (
                       <input
@@ -131,15 +131,37 @@ export function ContactSection() {
                     {dict.contact.info.connect}
                   </span>
                 </div>
-                <div className="space-y-1">
-                  {["GitHub", "LinkedIn", "Twitter"].map((platform) => (
-                    <p
-                      key={platform}
-                      className="text-[13px] text-charcoal-100 transition-colors hover:text-soft-white"
-                    >
-                      {platform}
-                    </p>
-                  ))}
+                <div className="space-y-2">
+                  <a
+                    href="https://github.com/aisalotfi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-[13px] text-charcoal-100 transition-colors hover:text-soft-white"
+                  >
+                    {dict.contact.social.github} &rarr;
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/aisalotfi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-[13px] text-charcoal-100 transition-colors hover:text-soft-white"
+                  >
+                    {dict.contact.social.linkedin} &rarr;
+                  </a>
+                  <a
+                    href="mailto:hello@aisalotfi.ir"
+                    className="block text-[13px] text-charcoal-100 transition-colors hover:text-soft-white"
+                  >
+                    {dict.contact.social.email} &rarr;
+                  </a>
+                </div>
+                <div className="mt-5 pt-4 border-t border-border-subtle">
+                  <a
+                    href={`/${locale}/resume`}
+                    className="text-[12px] tracking-[0.12em] text-accent-light uppercase transition-colors hover:text-accent"
+                  >
+                    {dict.contact.resumeDownload} &rarr;
+                  </a>
                 </div>
               </div>
 

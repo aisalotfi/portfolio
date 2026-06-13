@@ -90,7 +90,7 @@ export function AboutSection() {
                     {dict.about.disciplines.items.map((d) => (
                       <span
                         key={d}
-                        className="rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 text-[12px] tracking-[0.04em] text-charcoal-100 backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/50 hover:text-warm-white hover:shadow-[0_0_20px_-4px_rgba(212,165,116,0.5)]"
+                        className="rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 text-[12px] tracking-[0.04em] text-charcoal-100 backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/50 hover:text-warm-white hover:shadow-[0_0_20px_-4px_rgba(212,165,116,0.5)] sm:px-5 sm:py-2"
                       >
                         {d}
                       </span>

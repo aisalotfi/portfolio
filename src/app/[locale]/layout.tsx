@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
@@ -41,6 +41,12 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#06050F",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -56,17 +62,70 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
+  const baseUrl = "https://aisalotfi.ir";
+
+  const ogLocaleMap: Record<string, string> = {
+    fa: "fa_IR",
+    en: "en_US",
+    de: "de_DE",
+  };
+
   return {
-    title: dict.meta.title,
+    metadataBase: new URL(baseUrl),
+    title: {
+      template: `%s | Aisa Lotfi`,
+      default: dict.meta.title,
+    },
     description: dict.meta.description,
-      alternates: {
-        languages: {
-          en: "/en",
-          fa: "/fa",
-          de: "/de",
-          "x-default": "/fa",
-        },
+    keywords: dict.meta.keywords,
+    authors: [{ name: "Aisa Lotfi", url: baseUrl }],
+    creator: "Aisa Lotfi",
+    publisher: "Aisa Lotfi",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
+    },
+    openGraph: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+      url: `${baseUrl}/${locale}`,
+      siteName: "Aisa Lotfi",
+      locale: ogLocaleMap[locale] ?? "en_US",
+      type: "website",
+      images: [
+        {
+          url: `${baseUrl}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: "Aisa Lotfi — Full Stack Developer",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: [`${baseUrl}/og-image.jpg`],
+    },
+    alternates: {
+      canonical: `${baseUrl}/${locale}`,
+      languages: {
+        en: `${baseUrl}/en`,
+        fa: `${baseUrl}/fa`,
+        de: `${baseUrl}/de`,
+        "x-default": `${baseUrl}/fa`,
+      },
+    },
+    other: {
+      "theme-color": "#06050F",
+    },
   };
 }
 
@@ -93,6 +152,32 @@ export default async function LocaleLayout({
         suppressHydrationWarning
       >
         <LocaleProvider locale={locale as Locale} dictionary={dict}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "Person",
+                    name: "Aisa Lotfi",
+                    url: "https://aisalotfi.ir",
+                    jobTitle: dict.meta.title,
+                    knowsAbout: dict.about.disciplines.items,
+                    sameAs: [
+                      "https://github.com/aisalotfi",
+                      "https://linkedin.com/in/aisalotfi",
+                    ],
+                  },
+                  {
+                    "@type": "WebSite",
+                    name: "Aisa Lotfi",
+                    url: "https://aisalotfi.ir",
+                  },
+                ],
+              }),
+            }}
+          />
           <SmoothScrollProvider>
             <ScrollProgress />
             <CursorFollower />

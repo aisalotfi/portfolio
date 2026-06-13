@@ -71,13 +71,13 @@ function FloatingArtifacts() {
               <span className="absolute inset-0 rounded-full bg-emerald-bright blur-[5px] opacity-80 animate-pulse-glow" />
             </span>
             <span className="font-mono text-[9px] tracking-[0.25em] text-charcoal-200 uppercase">
-              {dict.hero.currentlyBuilding}
+              {dict.hero.currentFocus}
             </span>
           </div>
           <p className="font-display text-[15px] leading-tight text-soft-white">
-            {dict.hero.buildingLine1}{" "}
+            {dict.hero.focusLine1}{" "}
             <span className="italic text-accent-light">
-              {dict.hero.buildingLine2}
+              {dict.hero.focusLine2}
             </span>
           </p>
           <div className="mt-3 flex items-center gap-2">
@@ -97,13 +97,13 @@ function FloatingArtifacts() {
       >
         <div className="glass-strong rounded-2xl p-4 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
           <p className="font-mono text-[9px] tracking-[0.25em] text-charcoal-200 uppercase">
-            {dict.hero.recognition}
+            {dict.hero.opportunity}
           </p>
           <p className="mt-2 font-display text-3xl text-gradient-copper">
             {dict.hero.dash}
           </p>
           <p className="mt-1 text-[11px] leading-snug text-charcoal-200">
-            {dict.hero.awaitingFirst}
+            {dict.hero.opportunityDesc}
           </p>
         </div>
       </motion.div>
@@ -133,16 +133,16 @@ function FloatingArtifacts() {
 function StatStrip() {
   const dict = useDict();
   const items = [
-    { value: "—", label: dict.hero.stats.yearsOfCraft },
-    { value: "—", label: dict.hero.stats.shippedProducts },
-    { value: "—", label: dict.hero.stats.industriesServed },
+    { value: "< 1", label: dict.hero.stats.yearsOfCraft },
+    { value: "1+", label: dict.hero.stats.shippedProducts },
+    { value: "1", label: dict.hero.stats.industriesServed },
   ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 1.4, ease: EASE }}
-      className="mt-12 flex items-center gap-x-12 border-t border-border-subtle pt-6 whitespace-nowrap"
+      className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border-subtle pt-6 sm:gap-x-12"
     >
       {items.map((s, i) => (
         <div key={s.label} className="flex items-baseline gap-3">

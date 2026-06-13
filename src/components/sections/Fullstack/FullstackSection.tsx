@@ -38,7 +38,7 @@ export function FullstackSection() {
 
       <Container>
         <div className="mb-20 max-w-3xl">
-          <SectionLabel number="05" title={dict.common.layer} />
+          <SectionLabel number="07" title={dict.common.layer} />
 
           <TextReveal
             as="h2"

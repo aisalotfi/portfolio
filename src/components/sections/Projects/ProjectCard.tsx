@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
@@ -225,6 +225,10 @@ function KeyArt({
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const dict = useDict();
   const [isHovered, setIsHovered] = useState(false);
+  const canHover = useRef(true);
+  useEffect(() => {
+    canHover.current = window.matchMedia("(hover: hover)").matches;
+  }, []);
   const accent = ACCENT_MAP[project.accent ?? "copper"];
 
   // Alternate the layout so the page has rhythm
@@ -236,8 +240,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => canHover.current && setIsHovered(true)}
+      onMouseLeave={() => canHover.current && setIsHovered(false)}
       className="group relative"
     >
       {/* Soft jewel halo behind the entire card */}

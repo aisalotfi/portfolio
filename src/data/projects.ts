@@ -19,118 +19,231 @@ export interface Project {
   };
 }
 
-/**
- * TODO — Replace these placeholder projects with Aisa's real
- * shipped work. The shape is locale-aware: pass `locale` to get
- * the localised copy.
- */
 export function getProjects(locale: Locale): Project[] {
   if (locale === "fa") {
     return [
       {
-        id: "project-placeholder-1",
-        title: "پروژه‌ی نمونه ۱",
-        subtitle: "وب‌اپ تجارت الکترونیک",
+        id: "sadaf-stone",
+        title: "سنگ صدف استون",
+        subtitle: "وب‌سایت رسمی شرکت",
         description:
-          "نمونه‌ی پیش‌فرض. به‌محض اینکه اطلاعاتِ پروژه‌ی واقعی را بدهی، این کارت با عنوان، توضیح و دستاوردهای واقعی جایگزین می‌شود.",
-        role: "توسعه‌دهنده فول‌استک",
-        duration: "—",
+          "وب‌سایت رسمی کارخانه سنگ صدف استون، تولیدکننده سنگ‌های ساختمانی. طراحی و توسعه با Next.js و Tailwind CSS. تمرکز روی سرعت، نمایش حرفه‌ای محصولات و تجربه کاربری روان.",
+        role: "توسعه‌دهنده فرانت‌اند",
+        duration: "۲ ماه",
         accent: "copper",
-        technologies: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
-        results: ["دستاورد ۱ (TODO)", "دستاورد ۲ (TODO)", "دستاورد ۳ (TODO)"],
-        links: { caseStudy: "#" },
+        technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+        results: [
+          "راه‌اندازی وب‌سایت رسمی با بازخورد مثبت کارفرما",
+          "زمان بارگذاری سریع با استفاده از SSR",
+          "طراحی واکنش‌گرا برای تمام دستگاه‌ها",
+        ],
+        links: {
+          live: "https://sadafstonee.ir",
+          caseStudy: `/${locale}/case-study/sadaf-stone`,
+        },
       },
       {
-        id: "project-placeholder-2",
-        title: "پروژه‌ی نمونه ۲",
-        subtitle: "داشبورد تحلیلی",
+        id: "ecommerce",
+        title: "فروشگاه اینترنتی",
+        subtitle: "پروژه شخصی",
         description:
-          "نمونه‌ی پیش‌فرض. بعد از دریافت اطلاعات واقعی این کارت بازنویسی می‌شود.",
-        role: "توسعه‌دهنده فول‌استک",
-        duration: "—",
+          "یک فروشگاه اینترنتی کامل با سبد خرید، احراز هویت و پنل مدیریت. تمرکز روی پیاده‌سازی منطق سبد خرید و ارتباط با API.",
+        role: "توسعه‌دهنده فرانت‌اند",
+        duration: "۳ ماه",
         accent: "amethyst",
-        technologies: ["React", "Node.js", "Prisma", "Chart.js"],
-        results: ["دستاورد ۱ (TODO)", "دستاورد ۲ (TODO)"],
-        links: { caseStudy: "#" },
+        technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+        results: [
+          "سبد خرید کامل با React Context",
+          "اتصال به API برای مدیریت محصولات",
+          "طراحی ریسپانسیو و کاربرپسند",
+        ],
+        links: {},
       },
       {
-        id: "project-placeholder-3",
-        title: "پروژه‌ی نمونه ۳",
-        subtitle: "پلتفرم همکاری",
-        description: "نمونه‌ی پیش‌فرض. منتظر اطلاعاتِ واقعی.",
-        role: "توسعه‌دهنده فول‌استک",
-        duration: "—",
-        accent: "emerald",
-        technologies: ["Next.js", "WebSockets", "Redis"],
-        results: ["دستاورد ۱ (TODO)", "دستاورد ۲ (TODO)"],
-        links: { caseStudy: "#" },
-      },
-      {
-        id: "project-placeholder-4",
-        title: "پروژه‌ی نمونه ۴",
-        subtitle: "سایت پورتفوی",
-        description: "نمونه‌ی پیش‌فرض. منتظر اطلاعاتِ واقعی.",
-        role: "توسعه‌دهنده فول‌استک",
-        duration: "—",
+        id: "admin-dashboard",
+        title: "داشبورد مدیریتی",
+        subtitle: "پروژه شخصی",
+        description:
+          "داشبورد مدیریتی با قابلیت نمایش نمودارها، مدیریت کاربران و تنظیمات. تمرکز روی طراحی متریال و تجربه کاربری.",
+        role: "توسعه‌دهنده فرانت‌اند",
+        duration: "۲ ماه",
         accent: "sapphire",
-        technologies: ["Next.js", "Tailwind", "Framer Motion"],
-        results: ["دستاورد ۱ (TODO)", "دستاورد ۲ (TODO)"],
-        links: { caseStudy: "#" },
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+        results: [
+          "داشبورد با داده‌های زنده و نمودار",
+          "رابط کاربری تمیز و حرفه‌ای",
+          "dark mode و حالت‌های مختلف نمایش",
+        ],
+        links: {},
+      },
+      {
+        id: "anime-website",
+        title: "وبسایت انیمه",
+        subtitle: "پروژه شخصی",
+        description:
+          "یک وبسایت جستجو و نمایش اطلاعات انیمه با استفاده از API. تمرکز روی انیمیشن‌های روان و تجربه مرور لذت‌بخش.",
+        role: "توسعه‌دهنده فرانت‌اند",
+        duration: "۱ ماه",
+        accent: "emerald",
+        technologies: ["Next.js", "Tailwind CSS", "REST API", "Vercel"],
+        results: [
+          "جستجوی پیشرفته با فیلترهای مختلف",
+          "صفحات جزئیات با اطلاعات کامل",
+          "انیمیشن‌های ورودی با Framer Motion",
+        ],
+        links: {},
       },
     ];
   }
 
-  // English
+  if (locale === "de") {
+    return [
+      {
+        id: "sadaf-stone",
+        title: "Sadaf Stone",
+        subtitle: "Firmenwebsite",
+        description:
+          "Offizielle Website der Sadaf Stone GmbH, einem Hersteller von Natursteinen. Entwickelt mit Next.js und Tailwind CSS. Fokus auf Geschwindigkeit, professionelle Produktpräsentation und flüssige Benutzererfahrung.",
+        role: "Frontend-Entwicklerin",
+        duration: "2 Monate",
+        accent: "copper",
+        technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+        results: [
+          "Website erfolgreich mit positiver Kundenrückmeldung gestartet",
+          "Schnelle Ladezeiten durch SSR",
+          "Responsives Design für alle Geräte",
+        ],
+        links: {
+          live: "https://sadafstonee.ir",
+          caseStudy: `/${locale}/case-study/sadaf-stone`,
+        },
+      },
+      {
+        id: "ecommerce",
+        title: "E-Commerce",
+        subtitle: "Persönliches Projekt",
+        description:
+          "Vollständiger Online-Shop mit Warenkorb, Authentifizierung und Admin-Panel. Fokus auf Warenkorb-Logik und API-Integration.",
+        role: "Frontend-Entwicklerin",
+        duration: "3 Monate",
+        accent: "amethyst",
+        technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+        results: [
+          "Vollständiger Warenkorb mit React Context",
+          "API-Integration für Produktverwaltung",
+          "Responsives und benutzerfreundliches Design",
+        ],
+        links: {},
+      },
+      {
+        id: "admin-dashboard",
+        title: "Admin-Dashboard",
+        subtitle: "Persönliches Projekt",
+        description:
+          "Admin-Dashboard mit Diagrammen, Benutzerverwaltung und Einstellungen. Fokus auf klares Design und Benutzererfahrung.",
+        role: "Frontend-Entwicklerin",
+        duration: "2 Monate",
+        accent: "sapphire",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+        results: [
+          "Dashboard mit Live-Daten und Diagrammen",
+          "Saubere und professionelle Benutzeroberfläche",
+          "Dark Mode und verschiedene Ansichten",
+        ],
+        links: {},
+      },
+      {
+        id: "anime-website",
+        title: "Anime-Website",
+        subtitle: "Persönliches Projekt",
+        description:
+          "Eine Website zum Suchen und Anzeigen von Anime-Informationen mithilfe einer API. Fokus auf flüssige Animationen und angenehmes Surferlebnis.",
+        role: "Frontend-Entwicklerin",
+        duration: "1 Monat",
+        accent: "emerald",
+        technologies: ["Next.js", "Tailwind CSS", "REST API", "Vercel"],
+        results: [
+          "Erweiterte Suche mit verschiedenen Filtern",
+          "Detailseiten mit vollständigen Informationen",
+          "Eingangsanimationen mit Framer Motion",
+        ],
+        links: {},
+      },
+    ];
+  }
+
+  // English (default)
   return [
     {
-      id: "project-placeholder-1",
-      title: "Sample Project 01",
-      subtitle: "E-commerce Web App",
+      id: "sadaf-stone",
+      title: "Sadaf Stone",
+      subtitle: "Official Company Site",
       description:
-        "Placeholder project. As soon as you share real project details, this card will be rewritten with the actual title, description, and outcomes.",
-      role: "Full Stack Developer",
-      duration: "—",
+        "Official website for Sadaf Stone factory, a natural stone producer. Built with Next.js and Tailwind CSS. Focused on speed, professional product showcase, and smooth UX.",
+      role: "Frontend Developer",
+      duration: "2 months",
       accent: "copper",
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
-      results: ["Outcome 1 (TODO)", "Outcome 2 (TODO)", "Outcome 3 (TODO)"],
-      links: { caseStudy: "#" },
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      results: [
+        "Launched official site with positive client feedback",
+        "Fast load times using SSR",
+        "Responsive design across all devices",
+      ],
+      links: {
+        live: "https://sadafstonee.ir",
+        caseStudy: `/${locale}/case-study/sadaf-stone`,
+      },
     },
     {
-      id: "project-placeholder-2",
-      title: "Sample Project 02",
-      subtitle: "Analytics Dashboard",
+      id: "ecommerce",
+      title: "E-commerce App",
+      subtitle: "Personal Project",
       description:
-        "Placeholder project. Will be replaced once real project details are provided.",
-      role: "Full Stack Developer",
-      duration: "—",
+        "A full e-commerce app with cart, auth, and admin panel. Focused on implementing cart logic and API communication.",
+      role: "Frontend Developer",
+      duration: "3 months",
       accent: "amethyst",
-      technologies: ["React", "Node.js", "Prisma", "Chart.js"],
-      results: ["Outcome 1 (TODO)", "Outcome 2 (TODO)"],
-      links: { caseStudy: "#" },
+      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+      results: [
+        "Full cart system with React Context",
+        "API integration for product management",
+        "Responsive and user-friendly design",
+      ],
+      links: {},
     },
     {
-      id: "project-placeholder-3",
-      title: "Sample Project 03",
-      subtitle: "Collaboration Platform",
-      description: "Placeholder project. Awaiting real details.",
-      role: "Full Stack Developer",
-      duration: "—",
-      accent: "emerald",
-      technologies: ["Next.js", "WebSockets", "Redis"],
-      results: ["Outcome 1 (TODO)", "Outcome 2 (TODO)"],
-      links: { caseStudy: "#" },
-    },
-    {
-      id: "project-placeholder-4",
-      title: "Sample Project 04",
-      subtitle: "Portfolio Website",
-      description: "Placeholder project. Awaiting real details.",
-      role: "Full Stack Developer",
-      duration: "—",
+      id: "admin-dashboard",
+      title: "Admin Dashboard",
+      subtitle: "Personal Project",
+      description:
+        "An admin dashboard with charts, user management, and settings. Focused on clean design and UX.",
+      role: "Frontend Developer",
+      duration: "2 months",
       accent: "sapphire",
-      technologies: ["Next.js", "Tailwind", "Framer Motion"],
-      results: ["Outcome 1 (TODO)", "Outcome 2 (TODO)"],
-      links: { caseStudy: "#" },
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+      results: [
+        "Dashboard with live data and charts",
+        "Clean and professional interface",
+        "Dark mode and multiple views",
+      ],
+      links: {},
+    },
+    {
+      id: "anime-website",
+      title: "Anime Website",
+      subtitle: "Personal Project",
+      description:
+        "An anime search and info site using a public API. Focused on smooth animations and an enjoyable browsing experience.",
+      role: "Frontend Developer",
+      duration: "1 month",
+      accent: "emerald",
+      technologies: ["Next.js", "Tailwind CSS", "REST API", "Vercel"],
+      results: [
+        "Advanced search with filters",
+        "Detail pages with full info",
+        "Entry animations with Framer Motion",
+      ],
+      links: {},
     },
   ];
 }

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useDict } from "@/i18n/LocaleProvider";
+import { useDict, useLocale } from "@/i18n/LocaleProvider";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 export function Navbar() {
@@ -11,20 +11,26 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const { locale } = useLocale();
 
+  const base = `/${locale}`;
   const navItems = [
-    { label: dict.nav.about,      href: "#about" },
-    { label: dict.nav.work,       href: "#projects" },
-    { label: dict.nav.process,    href: "#process" },
-    { label: dict.nav.experience, href: "#timeline" },
-    { label: dict.nav.contact,    href: "#contact" },
+    { label: dict.nav.about,      href: `${base}#about` },
+    { label: dict.nav.work,       href: `${base}#projects` },
+    { label: dict.nav.process,    href: `${base}#process` },
+    { label: dict.nav.experience, href: `${base}#timeline` },
+    { label: dict.nav.contact,    href: `${base}#contact` },
+    { label: dict.nav.resume,     href: `${base}/resume` },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = navItems.map((item) => item.href.slice(1));
+      const sections = navItems.map((item) => {
+        const hashIndex = item.href.indexOf("#");
+        return hashIndex !== -1 ? item.href.slice(hashIndex + 1) : "";
+      }).filter(Boolean);
       const current = sections.find((id) => {
         const el = document.getElementById(id);
         if (!el) return false;
@@ -41,8 +47,14 @@ export function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("#")) {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else if (href.includes("#")) {
+      window.location.href = href;
+    } else {
+      window.location.href = href;
+    }
   };
 
   return (
@@ -78,7 +90,8 @@ export function Navbar() {
           <nav className="hidden md:block">
             <div className="glass flex items-center gap-1 rounded-full px-2 py-1.5">
               {navItems.map((item) => {
-                const isActive = activeSection === item.href.slice(1);
+                const sectionId = item.href.includes("#") ? item.href.split("#")[1] : "";
+                const isActive = activeSection === sectionId;
                 return (
                   <button
                     key={item.href}
@@ -116,7 +129,7 @@ export function Navbar() {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-border-medium bg-surface-glass backdrop-blur-md md:hidden"
+              className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-border-medium bg-surface-glass backdrop-blur-md md:hidden"
               aria-label={dict.nav.toggleMenu}
             >
               <motion.span

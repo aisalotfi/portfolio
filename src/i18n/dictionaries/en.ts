@@ -2,19 +2,24 @@ import type { Dictionary } from "../types";
 
 export const en: Dictionary = {
   meta: {
-    title: "Aisa Lotfi — Full Stack Developer",
+    title: "Aisa Lotfi — Web Developer",
     description:
-      "Full Stack Developer crafting premium digital experiences at the intersection of engineering precision and design intuition.",
+      "Frontend-focused web developer building modern interfaces with React, Next.js, and TypeScript.",
+    keywords:
+      "frontend developer, React developer, Next.js developer, web developer, TypeScript, Iran, portfolio, junior developer, UI developer, Aisa Lotfi",
   },
+
   nav: {
     about: "About",
     work: "Work",
     process: "Process",
     experience: "Experience",
     contact: "Contact",
-    portfolio: "Portfolio",
+    portfolio: "Aisa Lotfi",
     toggleMenu: "Toggle menu",
+    resume: "Download Resume",
   },
+
   common: {
     scroll: "Scroll",
     selected: "Selected",
@@ -29,180 +34,307 @@ export const en: Dictionary = {
     step: "Step",
     layer: "Layer",
   },
+
   hero: {
-    badge: "Available · Open to projects",
-    title: "Full Stack Developer",
-    line1: "Crafting digital",
-    line2: "experiences that",
-    line3: "inevitable",
-    line3After: "feel.",
+    badge: "Open to work",
+    title: "Frontend-Focused Web Developer",
+    line1: "Building modern",
+    line2: "web interfaces",
+    line3: "with React",
+    line3After: "& Next.js.",
     description:
-      "I build premium digital products where engineering precision meets design intuition. Every interaction, every pixel, every motion — thoughtfully directed.",
-    cta1: "View Selected Work",
-    cta2: "Start a Project",
-    currentlyBuilding: "Currently Building",
-    buildingLine1: "A premium portfolio",
-    buildingLine2: "experience",
-    recognition: "Recognition",
+      "A young web developer focused on React, Next.js and TypeScript. I build clean, fast, and user-friendly interfaces.",
+    cta1: "View My Work",
+    cta2: "Let's Talk",
+    currentFocus: "Current Focus",
+    focusLine1: "React & Next.js",
+    focusLine2: "TypeScript — UI/UX",
+    opportunity: "Opportunities",
     dash: "—",
-    awaitingFirst: "Awaiting first listing",
+    opportunityDesc: "Looking for front-end collaboration opportunities",
     stats: {
-      yearsOfCraft: "Years of craft",
-      shippedProducts: "Shipped products",
-      industriesServed: "Industries served",
+      yearsOfCraft: "Years active",
+      shippedProducts: "Real projects",
+      industriesServed: "Industries",
     },
   },
+
   about: {
-    headline: "Crafting digital experiences that resonate.",
-    subheadline: "Where engineering precision meets design intuition.",
+    headline: "About me",
+    subheadline: "Web Developer · CS Student",
     bio1:
-      "I'm Aisa Lotfi, a Full Stack Developer based in Hamedan, Iran. I build digital products end-to-end — from data model to deployed pixel — with an obsession for clarity and craft.",
+      "I'm Aisa Lotfi, a Computer Engineering student and web developer based in Hamedan, Iran. I focus on frontend development with React, Next.js, and TypeScript.",
     bio2:
-      "My approach combines architectural thinking with artistic sensibility. I don't just build interfaces; I choreograph experiences that feel inevitable, intuitive, and emotionally resonant.",
+      "I discovered my passion for frontend because it lets me combine creativity with code. Every project teaches me something new, and I'm committed to getting better every day.",
     bio3:
-      "I obsess over the details most people never consciously notice — the curve of a spring animation, the rhythm of a layout, the weight of a typographic hierarchy. These invisible decisions create products that feel expensive, intentional, and deeply human.",
-    quote: "~ The craft is the message.",
+      "Currently sharpening my skills in React and Next.js while exploring backend with Node.js. My goal is to build products that are not just functional, but a pleasure to use.",
+    quote: "~ Code is craft.",
     disciplines: {
       title: "Disciplines",
       items: [
-        "Frontend Engineering",
-        "Backend Engineering",
-        "API Design",
-        "Database Design",
-        "UI Engineering",
-        "Motion Systems",
-        "Performance",
-        "Accessibility",
+        "React & Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "JavaScript",
+        "HTML & CSS",
+        "Node.js",
+        "Git",
+        "UI/UX",
       ],
     },
     principles: {
       title: "Principles",
       items: [
-        "Restraint as luxury — Every removed element earns its silence.",
-        "Motion with intention — Animation choreographs meaning, never noise.",
-        "Detail at every scale — From kerning to architecture, the same care.",
+        "Clean code matters — readable, maintainable, honest.",
+        "Always learning — every day a little further.",
+        "Clear communication — understand before you build.",
       ],
     },
   },
+
   projects: {
     sectionLabel: "Selected Work",
-    headline1: "Digital",
-    headline2: "artifacts.",
+    headline1: "Recent",
+    headline2: "projects.",
     description:
-      "Each project is a partnership where design thinking and engineering craftsmanship converge into something extraordinary.",
+      "A collection of projects that show what I can do and how I approach problems.",
     yearRange: "Selected · 2024 — 26",
   },
+
   process: {
-    headline1: "How the work",
-    headline2: "gets made.",
+    headline1: "How I",
+    headline2: "work.",
     description:
-      "A structured-yet-fluid approach. Equal parts research, design, engineering, and refinement — each in service of a feeling.",
+      "A straightforward process. From the first conversation to delivery, I keep things clear and organized.",
     steps: [
       {
-        title: "Discover",
-        text: "Listen first. Map the user, the problem, and the business gravity around it. Synthesise research into one clear design direction.",
+        title: "Talk",
+        text: "First, I listen. Understanding your needs, audience, and expectations helps us find the right direction.",
       },
       {
-        title: "Design",
-        text: "Translate the strategy into tangible interfaces. Iterate fast — wireframes, high-fidelity comps, motion studies — until the work feels inevitable.",
+        title: "Plan",
+        text: "Based on requirements, I plan the structure and design. I create prototypes so we're aligned before coding starts.",
       },
       {
-        title: "Engineer",
-        text: "Build it like it has to last a decade. Clean architecture, motion choreography, accessibility baked in — no afterthoughts.",
+        title: "Build",
+        text: "I code with React and Next.js. Clean, modular, with a focus on performance and user experience.",
       },
       {
-        title: "Refine",
-        text: "Ship, then sharpen. Usability, performance, polish — until the product feels expensive without saying a word.",
+        title: "Deliver",
+        text: "I ship the project and make sure everything works. Post-delivery support and fixes included.",
       },
     ],
   },
+
   engineering: {
-    headline1: "Engineering,",
-    headline2: "as a craft.",
+    headline1: "Engineering",
+    headline2: "matters.",
     description:
-      "Clean architecture and cinematic execution. Every component is an opportunity for excellence — and a chance to remove a line.",
-    aggregate: "Aggregate",
+      "Coding isn't just writing lines — it's building a clean, quality product.",
+    aggregate: "Overview",
     metrics: [
-      { value: "98", label: "Avg. Lighthouse" },
-      { value: "<2s", label: "Time to Interactive" },
-      { value: "0", label: "Axe violations" },
-      { value: "AA+", label: "WCAG baseline" },
+      { value: "85+", label: "Performance" },
+      { value: "92+", label: "Accessibility" },
+      { value: "88+", label: "Best Practices" },
+      { value: "95+", label: "SEO" },
     ],
     pillars: [
       {
-        title: "Component Architecture",
-        text: "Composable, scalable systems engineered for clarity, reuse, and the long arc of a product.",
+        title: "Clean Code",
+        text: "Readable, modular, maintainable. Code that still makes sense six months later.",
       },
       {
-        title: "Motion Systems",
-        text: "Cinematic choreography. Spring physics, stagger, scroll-linked storytelling — never decoration.",
-      },
-      {
-        title: "Interaction Design",
-        text: "Tactile micro-interactions that communicate, guide, and delight without ever shouting.",
+        title: "User Experience",
+        text: "Interfaces that feel intuitive. Users shouldn't need a manual.",
       },
       {
         title: "Performance",
-        text: "Sub-second loads, lean bundles, edge rendering. Speed is a feature, not a polish step.",
+        text: "Fast loading, optimized bundles, server-side rendering with Next.js.",
+      },
+      {
+        title: "Responsive",
+        text: "Looks great everywhere — from a 320px phone to a 4K display.",
       },
       {
         title: "Accessibility",
-        text: "WCAG 2.2 AA+ as a baseline. Universal access without ever compromising on craft.",
+        text: "The web should work for everyone. Basic accessibility principles matter.",
       },
       {
-        title: "Responsive Engineering",
-        text: "Fluid layouts that hold cinematic quality from a 320px phone to a 4K studio display.",
+        title: "Modern Tools",
+        text: "TypeScript, Tailwind, Framer Motion — tools that make coding a pleasure.",
       },
     ],
   },
+
   fullstack: {
-    headline1: "From schema to",
-    headline2: "pixels.",
+    headline1: "From database",
+    headline2: "to browser.",
     description:
-      "Four layers, one craft. Each tier engineered for resilience, speed, and clarity that survives a year of changes.",
+      "My focus is frontend, but I understand the full web development stack.",
     layers: [
       {
-        title: "Interface / Pixels",
-        text: "The surface the user actually feels — typography, motion, micro-interactions, accessibility.",
+        title: "UI Layer",
+        text: "React and Next.js for modern, responsive interfaces.",
       },
       {
-        title: "Edge / Delivery",
-        text: "Streaming, caching, and personalisation as close to the user as physics allows.",
+        title: "API Layer",
+        text: "REST APIs with Node.js — connecting frontend and backend.",
       },
       {
-        title: "API / Contract",
-        text: "Type-safe service layer — REST and GraphQL designed for resilience and developer joy.",
+        title: "Data Layer",
+        text: "Database fundamentals and working with structured data.",
       },
       {
-        title: "Data / Schema",
-        text: "Relational and document stores modelled for the question, not the convenience.",
+        title: "Deployment",
+        text: "Experience with Vercel and basic deployment concepts.",
       },
     ],
   },
-  timeline: {
-    headline1: "A",
-    headline2: "decade",
-    headline3: "of decisions.",
+
+  techStack: {
+    title: "Technologies",
+    subtitle: "I work with.",
+    categories: [
+      {
+        name: "Frontend",
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
+      },
+      {
+        name: "Backend",
+        items: ["Node.js", "Express"],
+      },
+      {
+        name: "Database",
+        items: ["MongoDB"],
+      },
+      {
+        name: "Tools",
+        items: ["Git", "GitHub", "Vercel", "Figma"],
+      },
+    ],
+  },
+
+  currentFocusSection: {
+    title: "Current Focus",
+    description: "What I'm working on and deepening my skills in right now.",
+    items: [
+      "Advanced React Patterns",
+      "Next.js Architecture",
+      "Advanced TypeScript",
+      "Frontend Performance Optimization",
+      "Accessible UI Development",
+      "Backend Fundamentals",
+    ],
+  },
+
+  openToWork: {
+    title: "Open to Work",
+    description: "Looking for new opportunities in frontend development.",
+    roles: [
+      "Frontend Developer",
+      "React Developer",
+      "Next.js Projects",
+      "Freelance Work",
+      "Remote Opportunities",
+    ],
+    availability: "Available now — let's talk",
+  },
+
+  featuredProject: {
+    title: "Featured Project",
+    subtitle: "Sadaf Stone",
     description:
-      "Crafting digital experiences across teams and clients — each role an inflection point, each one earning its lessons honestly.",
-    currentRole:
-      "Full Stack Developer — Freelance — 2024 — Present",
-    currentRoleDescription:
-      "Building end-to-end web products for clients across industries. Frontend systems, backend APIs, and the deploy pipeline that makes it all real.",
-    currentRoleAchievements: [
-      "Shipped multiple production web platforms",
-      "Authored a personal motion-first component system",
-      "Built a portfolio engine with i18n and RTL from day one",
+      "Official website for Sadaf Stone factory — built with Next.js and Tailwind CSS. Modern design, fast performance, smooth UX.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    liveLink: "https://sadafstonee.ir",
+  },
+
+  caseStudy: {
+    projectOverview:
+      "The official website for Sadaf Stone factory is a real-world project for a company in the natural stone industry. The website was designed and built to showcase their products and services professionally.",
+    problem:
+      "The company lacked a professional website to display their products and connect with customers. The previous site was outdated, non-responsive, and visually unappealing.",
+    solution:
+      "A modern website was built with Next.js and Tailwind CSS. The focus was on speed, responsiveness, and professional product presentation.",
+    responsibilities: [
+      "Complete UI design and implementation",
+      "Frontend architecture with Next.js",
+      "Performance and SEO optimization",
+      "Vercel deployment",
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    challenges: [
+      {
+        title: "Product Gallery",
+        text: "Designing a fast-loading, visually appealing image gallery for stone product photos.",
+      },
+      {
+        title: "Responsiveness",
+        text: "Ensuring the site looked great on all devices while handling high-quality product images.",
+      },
+      {
+        title: "SEO",
+        text: "Optimizing for search engines using Next.js SSR capabilities.",
+      },
+    ],
+    outcome:
+      "The website launched successfully with positive client feedback. Fast load times and modern design were the project's key strengths.",
+    lessonsLearned: [
+      "Experience building a real project end-to-end",
+      "Practical challenges of deployment and domain setup",
+      "Importance of clear client communication for requirements",
+      "Time management and on-time delivery",
     ],
   },
+
+  testimonials: {
+    title: "Testimonials",
+    subtitle: "What people say",
+    placeholder: "Coming soon...",
+  },
+
+  githubCta: {
+    title: "Code on GitHub",
+    description:
+      "All my projects are open-source on GitHub. Clean code, documented, and ready to explore.",
+    button: "View GitHub",
+  },
+
+  timeline: {
+    headline1: "The path",
+    headline2: "I've",
+    headline3: "walked.",
+    description:
+      "From learning the basics to real-world projects — every step taught me something valuable.",
+    currentRole: "Web Developer — Freelance — 2025 — Present",
+    currentRoleDescription:
+      "Started professional frontend work. Focused on React and Next.js, building modern user interfaces.",
+    currentRoleAchievements: [
+      "Built and launched official website for Sadaf Stone factory",
+      "Completed multiple personal projects to showcase skills",
+      "Gained solid experience with React, Next.js and TypeScript",
+    ],
+  },
+
+  buildLog: {
+    title: "Build Log",
+    description: "Regular updates on projects and learning progress.",
+    entries: [
+      { date: "June 2026", text: "Portfolio redesign started" },
+      { date: "May 2026", text: "Sadaf Stone website launched" },
+      { date: "April 2026", text: "Started advanced TypeScript learning" },
+      { date: "March 2026", text: "E-commerce project completed" },
+    ],
+  },
+
   contact: {
     headline1: "Let's",
     headline2: "build",
     headline3: "something",
-    headline4: "inevitable.",
-    badge: "Available · Open to projects",
+    headline4: "together.",
+    badge: "Open to work",
     description:
-      "Whether you have a project in mind or just want to explore what's possible — I'd love to hear from you.",
+      "Got a project in mind or just want to chat? I'd love to hear from you.",
     formTitle: "Send a message",
     fields: {
       name: "Your Name",
@@ -211,29 +343,77 @@ export const en: Dictionary = {
     },
     placeholders: {
       name: "What's your name?",
-      email: "How can I reach you?",
-      message: "Tell me about your vision…",
+      email: "Email or phone",
+      message: "Tell me about your project...",
     },
     submit: "Send Message",
     info: {
       connect: "Connect",
-      studio: "Studio",
+      studio: "Info",
       location: "Location",
       timezone: "Time zone",
-      response: "Response",
+      response: "Response time",
       languages: "Languages",
     },
     details: {
       location: "Hamedan, Iran",
       timezone: "UTC+3:30 (IRST)",
-      response: "Within 48h",
+      response: "Within 24h",
       languages: "EN · FA",
     },
-    closingLine1: "Every great product begins as a conversation.",
-    closingLine2: "Let's start yours.",
+    social: {
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      email: "Email",
+    },
+    resumeDownload: "Download Resume",
+    closingLine1: "A single message can start something great.",
+    closingLine2: "Looking forward to hearing from you.",
   },
+
+  notFound: {
+    title: "Page not found",
+    description: "The page you're looking for doesn't exist or has been moved.",
+    cta: "Back to home",
+  },
+
+  resumePage: {
+    meta: {
+      title: "Resume — Aisa Lotfi",
+      description: "Resume of Aisa Lotfi — Frontend-focused web developer",
+    },
+    introduction:
+      "Frontend-focused web developer and Computer Engineering student. Real-world experience building modern applications with React and Next.js.",
+    backToHome: "Back to home",
+    educationTitle: "Education",
+    projectsTitle: "Projects",
+    experienceTitle: "Experience",
+    skillsTitle: "Skills",
+    skillCategories: [
+      { name: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS"] },
+      { name: "Backend", items: ["Node.js", "Express", "REST API"] },
+      { name: "Database", items: ["MongoDB", "PostgreSQL"] },
+      { name: "Tools", items: ["Git", "GitHub", "Vercel", "Figma", "VS Code"] },
+    ],
+    education: {
+      degree: "B.Sc. Computer Engineering",
+      school: "University — Hamedan",
+      year: "2022 — Present",
+    },
+    projects: [
+      { name: "Sadaf Stone", tech: ["Next.js", "TypeScript", "Tailwind CSS"] },
+      { name: "E-commerce", tech: ["React", "Node.js", "MongoDB"] },
+      { name: "Admin Dashboard", tech: ["React", "TypeScript"] },
+      { name: "Anime Website", tech: ["Next.js", "Tailwind CSS"] },
+    ],
+    experience: [
+      { role: "Web Developer", period: "2025 — Present", description: "Freelance frontend development with React and Next.js" },
+    ],
+    downloadCta: "Download Resume (PDF)",
+  },
+
   footer: {
-    crafted: "Crafted with obsessive care",
+    crafted: "Built with care",
     allRights: "All rights reserved",
   },
 };

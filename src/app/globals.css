@@ -129,6 +129,12 @@
     background-attachment: fixed;
   }
 
+  @supports (-webkit-touch-callout: none) {
+    body {
+      background-attachment: scroll;
+    }
+  }
+
   /* Persian — swap every font token to local Arad so ALL elements
      (body, headings, mono labels, display headings) use the same
      Persian-optimised typeface. */
@@ -153,7 +159,7 @@
 
   html[dir="rtl"] em,
   html[dir="rtl"] .italic {
-    font-style: normal;
+    font-style: normal !important;
   }
 
   ::selection {

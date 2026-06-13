@@ -52,7 +52,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
             key={code}
             onClick={() => swap(code)}
             className={cn(
-              "relative z-10 px-2.5 py-1 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors duration-500",
+              "relative z-10 min-w-11 min-h-11 px-3 py-2.5 text-[10px] font-mono tracking-[0.2em] uppercase transition-colors duration-500",
               isActive ? "text-near-black" : "text-charcoal-200 hover:text-soft-white",
             )}
             aria-pressed={isActive}
