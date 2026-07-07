@@ -15,6 +15,9 @@ export function GrainOverlay({ className, opacity = 0.03 }: GrainOverlayProps) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const isMobile = window.innerWidth < 1024;
+    if (isMobile) return;
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -31,7 +34,17 @@ export function GrainOverlay({ className, opacity = 0.03 }: GrainOverlayProps) {
     resize();
     window.addEventListener("resize", resize);
 
+    let isVisible = true;
+    const handleVisibility = () => {
+      isVisible = !document.hidden;
+      if (isVisible) {
+        animationId = requestAnimationFrame(generateGrain);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
     const generateGrain = () => {
+      if (!isVisible) return;
       const w = canvas.width;
       const h = canvas.height;
       const imageData = ctx.createImageData(w, h);
@@ -54,6 +67,7 @@ export function GrainOverlay({ className, opacity = 0.03 }: GrainOverlayProps) {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, [opacity]);
 

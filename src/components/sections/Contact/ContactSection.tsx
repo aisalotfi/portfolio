@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
@@ -9,14 +10,39 @@ import { Button } from "@/components/ui/Button";
 import { useDict, useLocale } from "@/i18n/LocaleProvider";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "xvgkkbql";
 
 export function ContactSection() {
   const dict = useDict();
   const { locale } = useLocale();
   const isFa = dict.contact.details.languages.startsWith("FA");
+  const [formState, setFormState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormState("sending");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.append("_language", locale);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setFormState("sent");
+        form.reset();
+      } else {
+        setFormState("error");
+      }
+    } catch {
+      setFormState("error");
+    }
+  }
 
   return (
-    <section id="contact" className="relative py-32 md:py-48">
+    <section id="contact" className="relative py-20 md:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -32,7 +58,7 @@ export function ContactSection() {
       </div>
 
       <Container>
-        <div className="mb-24 text-center">
+        <div className="mb-14 text-center">
           <SectionLabel number="11" title={dict.nav.contact} />
 
           <TextReveal
@@ -51,7 +77,7 @@ export function ContactSection() {
 
           {/* Badge */}
           <Reveal delay={0.3}>
-            <div className="mt-8 inline-flex items-center gap-2.5 rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 backdrop-blur-md">
+            <div className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 backdrop-blur-sm lg:backdrop-blur-md">
               <span className="relative inline-block h-1.5 w-1.5">
                 <span className="absolute inset-0 rounded-full bg-emerald-bright" />
                 <span className="absolute inset-0 rounded-full bg-emerald-bright blur-[5px] opacity-80 animate-pulse-glow" />
@@ -63,7 +89,7 @@ export function ContactSection() {
           </Reveal>
 
           <Reveal delay={0.4}>
-            <p className="mx-auto mt-8 max-w-lg text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+            <p className="mx-auto mt-6 max-w-lg text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
               {dict.contact.description}
             </p>
           </Reveal>
@@ -77,7 +103,7 @@ export function ContactSection() {
                 {dict.contact.formTitle}
               </h3>
 
-              <form className="flex h-full flex-col gap-6">
+              <form onSubmit={handleSubmit} className="flex h-full flex-col gap-6">
                 {(["name", "email", "message"] as const).map((field) => (
                   <div key={field} className={field === "message" ? "grow" : ""}>
                     <label className="mb-2 block font-mono text-[10px] tracking-[0.25em] text-charcoal-200 uppercase">
@@ -85,36 +111,62 @@ export function ContactSection() {
                     </label>
                     {field === "message" ? (
                       <textarea
+                        name={field}
+                        required
                         placeholder={dict.contact.placeholders[field]}
-                        className="w-full min-h-[80px] resize-none rounded-xl border border-border-medium bg-surface-glass px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 backdrop-blur-md transition-all duration-500 focus:border-accent/60 focus:outline-none focus:shadow-[0_0_20px_-6px_rgba(212,165,116,0.4)]"
+                        className="w-full min-h-[80px] resize-none rounded-xl border border-border-medium bg-surface-glass px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 backdrop-blur-sm lg:backdrop-blur-md transition-all duration-500 focus:border-accent/60 focus:outline-none focus:shadow-[0_0_20px_-6px_rgba(212,165,116,0.4)]"
                       />
                     ) : (
                       <input
                         type={field === "email" ? "email" : "text"}
+                        name={field}
+                        required
                         placeholder={dict.contact.placeholders[field]}
-                        className="w-full rounded-xl border border-border-medium bg-surface-glass px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 backdrop-blur-md transition-all duration-500 focus:border-accent/60 focus:outline-none focus:shadow-[0_0_20px_-6px_rgba(212,165,116,0.4)]"
+                        className="w-full rounded-xl border border-border-medium bg-surface-glass px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 backdrop-blur-sm lg:backdrop-blur-md transition-all duration-500 focus:border-accent/60 focus:outline-none focus:shadow-[0_0_20px_-6px_rgba(212,165,116,0.4)]"
                       />
                     )}
                   </div>
                 ))}
 
-                <Button variant="jewel" size="lg" className="w-full">
-                  <span>{dict.contact.submit}</span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    className={`transition-transform duration-500 ease-out group-hover:translate-x-1 ${isFa ? "rtl:rotate-180 rtl:group-hover:-translate-x-1" : ""}`}
-                  >
-                    <path
-                      d="M1 7H13M13 7L7 1M13 7L7 13"
-                      stroke="currentColor"
-                      strokeWidth="1.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                {formState === "sent" && (
+                  <p className="text-center text-[13px] text-emerald-bright">
+                    {isFa ? "پیام با موفقیت ارسال شد!" : formState === "sent" && locale === "de" ? "Nachricht erfolgreich gesendet!" : "Message sent successfully!"}
+                  </p>
+                )}
+                {formState === "error" && (
+                  <p className="text-center text-[13px] text-red-400">
+                    {isFa ? "خطا در ارسال. دوباره تلاش کنید." : locale === "de" ? "Fehler beim Senden. Bitte versuchen Sie es erneut." : "Something went wrong. Try again."}
+                  </p>
+                )}
+
+                <Button
+                  variant="jewel"
+                  size="lg"
+                  className="w-full"
+                  disabled={formState === "sending"}
+                >
+                  {formState === "sending" ? (
+                    <span>{isFa ? "در حال ارسال..." : locale === "de" ? "Senden..." : "Sending..."}</span>
+                  ) : (
+                    <>
+                      <span>{dict.contact.submit}</span>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        className={`transition-transform duration-500 ease-out group-hover:translate-x-1 ${isFa ? "rtl:rotate-180 rtl:group-hover:-translate-x-1" : ""}`}
+                      >
+                        <path
+                          d="M1 7H13M13 7L7 1M13 7L7 13"
+                          stroke="currentColor"
+                          strokeWidth="1.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </>
+                  )}
                 </Button>
               </form>
             </div>

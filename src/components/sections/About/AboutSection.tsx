@@ -11,9 +11,9 @@ export function AboutSection() {
   const dict = useDict();
 
   return (
-    <section id="about" className="relative py-32 md:py-48">
+    <section id="about" className="relative py-20 md:py-32">
       <Container>
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
             <SectionLabel number="01" title={dict.nav.about} />
 
@@ -25,12 +25,12 @@ export function AboutSection() {
             </TextReveal>
 
             <Reveal delay={0.25}>
-              <p className="mt-6 max-w-xl font-display text-lg italic leading-snug text-gradient-luxe">
+              <p className="mt-4 max-w-xl font-display text-lg italic leading-snug text-gradient-luxe">
                 {dict.about.subheadline}
               </p>
             </Reveal>
 
-            <div className="mt-12 max-w-xl space-y-6">
+            <div className="mt-10 max-w-xl space-y-4">
               <Reveal delay={0.3}>
                 <p className="text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
                   {dict.about.bio1}
@@ -49,7 +49,7 @@ export function AboutSection() {
             </div>
 
             <Reveal delay={0.7}>
-              <div className="mt-12 flex items-center gap-4">
+              <div className="mt-10 flex items-center gap-4">
                 <span
                   className="h-px w-12"
                   style={{
@@ -64,7 +64,7 @@ export function AboutSection() {
             </Reveal>
           </div>
 
-          <div className="flex flex-col gap-8 lg:col-span-5">
+          <div className="flex flex-col gap-6 lg:col-span-5">
             <Reveal direction="up" delay={0.4}>
               <div className="glass group relative overflow-hidden rounded-3xl p-8 transition-all duration-700 hover:border-accent/30 md:p-10">
                 <div
@@ -90,7 +90,7 @@ export function AboutSection() {
                     {dict.about.disciplines.items.map((d) => (
                       <span
                         key={d}
-                        className="rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 text-[12px] tracking-[0.04em] text-charcoal-100 backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/50 hover:text-warm-white hover:shadow-[0_0_20px_-4px_rgba(212,165,116,0.5)] sm:px-5 sm:py-2"
+                        className="rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 text-[12px] tracking-[0.04em] text-charcoal-100 backdrop-blur-sm lg:backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/50 hover:text-warm-white hover:shadow-[0_0_20px_-4px_rgba(212,165,116,0.5)] sm:px-5 sm:py-2"
                       >
                         {d}
                       </span>

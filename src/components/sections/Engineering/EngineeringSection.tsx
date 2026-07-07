@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -13,7 +13,7 @@ export function EngineeringSection() {
   const dict = useDict();
 
   return (
-    <section id="engineering" className="relative py-32 md:py-48">
+    <section id="engineering" className="relative py-20 md:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -37,7 +37,7 @@ export function EngineeringSection() {
       </div>
 
       <Container>
-        <div className="mb-16 grid gap-12 lg:mb-24 lg:grid-cols-12 lg:items-end">
+        <div className="mb-10 grid gap-8 lg:mb-14 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <SectionLabel number="06" title={dict.engineering.headline1} />
 
@@ -52,7 +52,7 @@ export function EngineeringSection() {
             </TextReveal>
 
             <Reveal delay={0.3}>
-              <p className="mt-6 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+              <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
                 {dict.engineering.description}
               </p>
             </Reveal>
@@ -89,7 +89,7 @@ export function EngineeringSection() {
           </Reveal>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {dict.engineering.pillars.map((pillar, i) => (
             <PillarCard key={pillar.title} pillar={pillar} index={i} total={dict.engineering.pillars.length} />
           ))}
@@ -109,7 +109,7 @@ function PillarCard({
   total: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
@@ -150,6 +150,6 @@ function PillarCard({
           }}
         />
       </div>
-    </motion.div>
+    </m.div>
   );
 }

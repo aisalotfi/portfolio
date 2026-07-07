@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -22,7 +22,7 @@ export function ProcessSection() {
   const fillHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section ref={sectionRef} id="process" className="relative py-32 md:py-48">
+    <section ref={sectionRef} id="process" className="relative py-20 md:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -38,7 +38,7 @@ export function ProcessSection() {
       </div>
 
       <Container>
-        <div className="mb-24 max-w-3xl">
+        <div className="mb-14 max-w-3xl">
           <SectionLabel number="05" title={dict.common.step} />
 
           <TextReveal
@@ -52,7 +52,7 @@ export function ProcessSection() {
           </TextReveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-6 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
               {dict.process.description}
             </p>
           </Reveal>
@@ -70,7 +70,7 @@ export function ProcessSection() {
                   "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.10) 8%, rgba(255,255,255,0.10) 92%, transparent 100%)",
               }}
             />
-            <motion.div
+            <m.div
               className="absolute inset-x-0 top-0 origin-top"
               style={{
                 height: fillHeight,
@@ -81,7 +81,7 @@ export function ProcessSection() {
             />
           </div>
 
-          <ol className="space-y-16 md:space-y-20 lg:space-y-32">
+          <ol className="space-y-12 md:space-y-16 lg:space-y-24">
             {dict.process.steps.map((step, i) => {
               const isRight = i % 2 === 1;
 
@@ -98,7 +98,7 @@ export function ProcessSection() {
                     </span>
                   </div>
 
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-15%" }}
@@ -118,7 +118,7 @@ export function ProcessSection() {
                         alignEnd={!isRight}
                       />
                     </div>
-                  </motion.div>
+                  </m.div>
                 </li>
               );
             })}

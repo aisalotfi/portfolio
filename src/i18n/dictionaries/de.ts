@@ -37,13 +37,13 @@ const de: Dictionary = {
 
   hero: {
     badge: "Für Projekte offen",
-    title: "Webentwickler mit Fokus auf React & Next.js",
+    title: "Webentwickler · Informatik-Student",
     line1: "Moderne",
     line2: "Weboberflächen",
     line3: "mit React",
     line3After: "& Next.js.",
     description:
-      "Junger Webentwickler mit Schwerpunkt auf React, Next.js und TypeScript. Saubere, schnelle und benutzerfreundliche Interfaces.",
+      "Webentwicklerin und Informatikstudentin. An den meisten Tagen lerne, baue und verbessere ich Dinge, die im Web leben.",
     cta1: "Meine Arbeiten",
     cta2: "Kontakt",
     currentFocus: "Aktueller Fokus",
@@ -63,11 +63,11 @@ const de: Dictionary = {
     headline: "Über mich",
     subheadline: "Webentwicklerin · Informatik-Studentin",
     bio1:
-      "Ich bin Aisa Lotfi, Informatikstudentin und Webentwicklerin aus Hamedan, Iran. Mein Fokus liegt auf Frontend-Entwicklung mit React, Next.js und TypeScript.",
+      "Ich bin Aisa Lotfi, Informatikstudentin und Webentwicklerin. Ich baue Benutzeroberflächen mit React und Next.js — und versuche, Dinge einfach und funktional zu halten.",
     bio2:
-      "Meine Leidenschaft für Frontend entdeckte ich, weil es mir erlaubt, Kreativität mit Code zu verbinden. Jedes Projekt bringt neue Erkenntnisse, und ich bin entschlossen, mich täglich zu verbessern.",
+      "Für mich ist Programmieren eine Mischung aus Logik und Kreativität. Jedes Projekt bringt mich weiter, und jeden Tag versuche ich, ein bisschen besser zu sein als gestern.",
     bio3:
-      "Derzeit vertiefe ich meine Kenntnisse in React und Next.js und erkunde nebenbei Backend-Entwicklung mit Node.js. Mein Ziel ist es, Produkte zu schaffen, die nicht nur funktional, sondern auch eine Freude in der Nutzung sind.",
+      "Mein Fokus liegt auf Frontend, aber ich mag es, das große Ganze der Webentwicklung zu sehen. Eines habe ich immer im Kopf: Einfachheit ist das Wertvollste im Design.",
     quote: "~ Code ist Handwerk.",
     disciplines: {
       title: "Disziplinen",
@@ -97,7 +97,7 @@ const de: Dictionary = {
     headline1: "Aktuelle",
     headline2: "Projekte.",
     description:
-      "Eine Auswahl an Projekten, die zeigen, was ich kann und wie ich Probleme löse.",
+      "Projekte, an denen ich gearbeitet habe — einige echte Aufträge, einige zum Lernen. Jedes hat seine eigene Geschichte.",
     yearRange: "Auswahl · 2024 — 26",
   },
 
@@ -197,19 +197,15 @@ const de: Dictionary = {
     categories: [
       {
         name: "Frontend",
-        items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
-      },
-      {
-        name: "Backend",
-        items: ["Node.js", "Express"],
-      },
-      {
-        name: "Datenbank",
-        items: ["MongoDB"],
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS"],
       },
       {
         name: "Werkzeuge",
-        items: ["Git", "GitHub", "Vercel", "Figma"],
+        items: ["Git & GitHub", "VS Code", "Figma", "Vercel"],
+      },
+      {
+        name: "In Bearbeitung",
+        items: ["Node.js", "PostgreSQL", "Docker"],
       },
     ],
   },
@@ -328,13 +324,13 @@ const de: Dictionary = {
   },
 
   contact: {
-    headline1: "Lass uns",
-    headline2: "etwas",
-    headline3: "Gemeinsames",
-    headline4: "bauen.",
+    headline1: "Hast du eine",
+    headline2: "Idee?",
+    headline3: "Lass uns",
+    headline4: "darüber sprechen.",
     badge: "Für Projekte offen",
     description:
-      "Haben Sie ein Projekt oder möchten einfach nur plaudern? Ich freue mich auf Ihre Nachricht.",
+      "Für Zusammenarbeit, neue Projekte oder einfach nur ein freundliches Gespräch — kontaktieren Sie mich gerne per E-Mail oder über soziale Medien.",
     formTitle: "Nachricht senden",
     fields: {
       name: "Ihr Name",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface TextRevealProps {
@@ -17,7 +17,7 @@ export function TextReveal({ children, className, delay = 0, as: Tag = "p" }: Te
 
   return (
     <div ref={ref} className="overflow-hidden">
-      <motion.div
+      <m.div
         initial={{ y: "100%", rotate: 1 }}
         animate={isInView ? { y: 0, rotate: 0 } : { y: "100%", rotate: 1 }}
         transition={{
@@ -27,7 +27,7 @@ export function TextReveal({ children, className, delay = 0, as: Tag = "p" }: Te
         }}
       >
         <Tag className={className}>{children}</Tag>
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -38,7 +38,7 @@ export function TextRevealInline({ children, className, delay = 0 }: TextRevealP
 
   return (
     <span ref={ref} className="inline-block overflow-hidden">
-      <motion.span
+      <m.span
         className={cn("inline-block", className)}
         initial={{ y: "100%", rotate: 1 }}
         animate={isInView ? { y: 0, rotate: 0 } : { y: "100%", rotate: 1 }}
@@ -49,7 +49,7 @@ export function TextRevealInline({ children, className, delay = 0 }: TextRevealP
         }}
       >
         {children}
-      </motion.span>
+      </m.span>
     </span>
   );
 }

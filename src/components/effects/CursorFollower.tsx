@@ -1,82 +1,63 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, useMotionValue, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { m, useMotionValue, useReducedMotion } from "framer-motion";
 
-/**
- * Custom cursor — a tight yellow dot that snaps to the pointer.
- * Hidden on touch devices and when prefers-reduced-motion is set.
- */
 export function CursorFollower() {
   const reduceMotion = useReducedMotion();
   const [enabled, setEnabled] = useState(false);
-  const [hasMoved, setHasMoved] = useState(false);
-  const [hovering, setHovering] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const dotRef = useRef<HTMLDivElement>(null);
 
   const dotX = useMotionValue(-100);
   const dotY = useMotionValue(-100);
 
-  // Eligibility check (mount only)
   useEffect(() => {
     if (reduceMotion) return;
-    const finePointer = window.matchMedia("(pointer: fine)").matches;
-    if (finePointer) setEnabled(true);
+    if (window.matchMedia("(pointer: fine)").matches) setEnabled(true);
   }, [reduceMotion]);
 
-  // Track movement + hover state
   useEffect(() => {
     if (!enabled) return;
-
-    const HOVER_SELECTOR =
-      'a, button, [role="button"], input, textarea, select, [data-cursor="hover"]';
 
     const handleMove = (e: MouseEvent) => {
       dotX.set(e.clientX);
       dotY.set(e.clientY);
-      if (!hasMoved) setHasMoved(true);
-
-      const target = e.target as HTMLElement | null;
-      if (target?.closest(HOVER_SELECTOR)) {
-        setHovering(true);
-      } else {
-        setHovering(false);
-      }
+      if (!visible) setVisible(true);
+      if (!dotRef.current) return;
+      const t = e.target as HTMLElement | null;
+      const hover = !!t?.closest('a, button, [role="button"], input, textarea, select');
+      dotRef.current.style.backgroundColor = hover ? "#ECC892" : "#D4A574";
     };
 
-    const handleLeave = () => setHasMoved(false);
+    const handleLeave = () => setVisible(false);
 
     window.addEventListener("mousemove", handleMove, { passive: true });
     window.addEventListener("mouseleave", handleLeave);
-
     return () => {
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("mouseleave", handleLeave);
     };
-  }, [enabled, hasMoved, dotX, dotY]);
+  }, [enabled, visible, dotX, dotY]);
 
   if (!enabled) return null;
 
   return (
     <>
-      {/* Hide the native cursor when the follower is active */}
       <style jsx global>{`
-        html,
-        html * {
-          cursor: none !important;
-        }
+        html, html * { cursor: none !important; }
       `}</style>
-
-      {/* Snappy yellow dot */}
-      <motion.div
+      <m.div
+        ref={dotRef}
         aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-[71] h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           x: dotX,
           y: dotY,
-          opacity: hasMoved ? 1 : 0,
-          background: hovering ? "#ECC892" : "#D4A574",
+          opacity: visible ? 1 : 0,
+          backgroundColor: "#D4A574",
           boxShadow: "0 0 10px rgba(236, 200, 146, 0.9)",
-          transition: "background-color 0.3s ease-out",
+          transition: "background-color 0.15s ease-out",
         }}
       />
     </>

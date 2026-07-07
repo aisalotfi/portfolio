@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface RevealProps {
@@ -38,7 +38,7 @@ export function Reveal({
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={cn(className)}
       initial={getInitial()}
@@ -50,6 +50,6 @@ export function Reveal({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

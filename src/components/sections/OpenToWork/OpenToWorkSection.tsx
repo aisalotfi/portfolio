@@ -8,7 +8,7 @@ export function OpenToWorkSection() {
   const dict = useDict();
 
   return (
-    <section id="open-to-work" className="relative py-24 md:py-32">
+    <section id="open-to-work" className="relative py-16 md:py-24">
       <Container>
         <Reveal direction="up">
           <div className="glass relative mx-auto max-w-3xl overflow-hidden rounded-3xl p-8 text-center md:p-12">
@@ -39,7 +39,7 @@ export function OpenToWorkSection() {
                 {dict.openToWork.roles.map((role) => (
                   <span
                     key={role}
-                    className="rounded-full border border-border-medium bg-surface-glass px-4 py-2 text-[12px] tracking-[0.02em] text-charcoal-100 backdrop-blur-md"
+                    className="rounded-full border border-border-medium bg-surface-glass px-4 py-2 text-[12px] tracking-[0.02em] text-charcoal-100 backdrop-blur-sm lg:backdrop-blur-md"
                   >
                     {role}
                   </span>

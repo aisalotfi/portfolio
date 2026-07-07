@@ -1,13 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { memo } from "react";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { useDict, useLocale } from "@/i18n/LocaleProvider";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-function JewelOrbs() {
+const JewelOrbs = memo(function JewelOrbs() {
   const mouse = useMousePosition();
 
   return (
@@ -15,7 +16,7 @@ function JewelOrbs() {
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden="true"
     >
-      <motion.div
+      <m.div
         className="absolute top-[18%] -left-40 h-[560px] w-[560px] rounded-full"
         style={{
           background:
@@ -25,7 +26,7 @@ function JewelOrbs() {
         animate={{ x: mouse.normalizedX * -22, y: mouse.normalizedY * -22 }}
         transition={{ duration: 2, ease: "easeOut" }}
       />
-      <motion.div
+      <m.div
         className="absolute -top-32 right-[8%] h-[440px] w-[440px] rounded-full"
         style={{
           background:
@@ -35,7 +36,7 @@ function JewelOrbs() {
         animate={{ x: mouse.normalizedX * 18, y: mouse.normalizedY * 14 }}
         transition={{ duration: 2.5, ease: "easeOut" }}
       />
-      <motion.div
+      <m.div
         className="absolute bottom-[10%] right-[-10%] h-[420px] w-[420px] rounded-full"
         style={{
           background:
@@ -47,9 +48,9 @@ function JewelOrbs() {
       />
     </div>
   );
-}
+});
 
-function FloatingArtifacts() {
+const FloatingArtifacts = memo(function FloatingArtifacts() {
   const dict = useDict();
   const mouse = useMousePosition();
 
@@ -58,7 +59,7 @@ function FloatingArtifacts() {
       className="pointer-events-none absolute inset-0 hidden overflow-hidden md:block"
       aria-hidden="true"
     >
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 30, rotate: -2 }}
         animate={{ opacity: 1, y: 0, rotate: -2, x: mouse.normalizedX * 10 }}
         transition={{ duration: 1.4, delay: 1.4, ease: EASE }}
@@ -87,9 +88,9 @@ function FloatingArtifacts() {
             </span>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 30, rotate: 2 }}
         animate={{ opacity: 1, y: 0, rotate: 2, x: mouse.normalizedX * -12 }}
         transition={{ duration: 1.4, delay: 1.6, ease: EASE }}
@@ -106,9 +107,9 @@ function FloatingArtifacts() {
             {dict.hero.opportunityDesc}
           </p>
         </div>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{
           opacity: 1,
@@ -125,12 +126,12 @@ function FloatingArtifacts() {
             <span className="absolute inset-0 rounded-full bg-accent blur-[6px] opacity-90 animate-pulse-glow" />
           </span>
         </div>
-      </motion.div>
+      </m.div>
     </div>
   );
-}
+});
 
-function StatStrip() {
+const StatStrip = memo(function StatStrip() {
   const dict = useDict();
   const items = [
     { value: "< 1", label: dict.hero.stats.yearsOfCraft },
@@ -138,11 +139,11 @@ function StatStrip() {
     { value: "1", label: dict.hero.stats.industriesServed },
   ];
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 1.4, ease: EASE }}
-      className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border-subtle pt-6 sm:gap-x-12"
+      className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border-subtle pt-5 sm:gap-x-12"
     >
       {items.map((s, i) => (
         <div key={s.label} className="flex items-baseline gap-3">
@@ -157,9 +158,9 @@ function StatStrip() {
           )}
         </div>
       ))}
-    </motion.div>
+    </m.div>
   );
-}
+});
 
 export function HeroSection() {
   const dict = useDict();
@@ -169,18 +170,18 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-28"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20"
     >
       <JewelOrbs />
       <FloatingArtifacts />
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-            className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 backdrop-blur-md"
+            className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-border-medium bg-surface-glass px-4 py-1.5 backdrop-blur-sm lg:backdrop-blur-md"
           >
             <span className="relative inline-block h-1.5 w-1.5">
               <span className="absolute inset-0 rounded-full bg-emerald-bright" />
@@ -189,24 +190,24 @@ export function HeroSection() {
             <span className="font-mono text-[10px] tracking-[0.25em] text-charcoal-100 uppercase">
               {dict.hero.badge}
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
-            className="mb-7"
+            className="mb-5"
           >
             <span className="font-mono text-[11px] tracking-[0.3em] text-accent-light uppercase">
               {dict.hero.title}
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.55, ease: EASE }}
-            className="mb-8 font-display text-[clamp(2rem,5.5vw,4.5rem)] leading-[0.98] tracking-[-0.03em] text-soft-white text-balance"
+            className="mb-6 font-display text-[clamp(2rem,5.5vw,4.5rem)] leading-[0.98] tracking-[-0.03em] text-soft-white text-balance"
           >
             {isFa ? (
               <>
@@ -224,18 +225,18 @@ export function HeroSection() {
                 </span>
               </>
             )}
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.85, ease: EASE }}
-            className="mb-12 max-w-xl text-[17px] leading-[1.7] text-charcoal-100 md:text-lg text-pretty"
+            className="mb-8 max-w-xl text-[17px] leading-[1.7] text-charcoal-100 md:text-lg text-pretty"
           >
             {dict.hero.description}
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.05, ease: EASE }}
@@ -264,7 +265,7 @@ export function HeroSection() {
             >
               <span>{dict.hero.cta2}</span>
             </Button>
-          </motion.div>
+          </m.div>
 
           <StatStrip />
         </div>

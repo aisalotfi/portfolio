@@ -33,7 +33,10 @@ export function FloatingParticles({ className, count = 30 }: FloatingParticlesPr
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const generated: Particle[] = Array.from({ length: count }, () => ({
+    const isMobile = window.innerWidth < 1024;
+    const actualCount = isMobile ? Math.min(count, 8) : count;
+
+    const generated: Particle[] = Array.from({ length: actualCount }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 2.4 + 0.6,
@@ -45,6 +48,19 @@ export function FloatingParticles({ className, count = 30 }: FloatingParticlesPr
     setParticles(generated);
 
     let animationId: number;
+    let isVisible = true;
+
+    const handleVisibility = () => {
+      isVisible = !document.hidden;
+      if (isVisible) {
+        animationId = requestAnimationFrame(animate);
+      } else {
+        cancelAnimationFrame(animationId);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibility);
+
     const animate = () => {
       setParticles((prev) =>
         prev.map((p) => ({
@@ -57,7 +73,10 @@ export function FloatingParticles({ className, count = 30 }: FloatingParticlesPr
     };
 
     animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
+    return () => {
+      cancelAnimationFrame(animationId);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, [count]);
 
   return (

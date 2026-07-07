@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import type { Project, ProjectAccent } from "@/data/projects";
@@ -108,7 +108,7 @@ function KeyArt({
       />
 
       {/* Back slab */}
-      <motion.div
+      <m.div
         initial={false}
         animate={{
           rotate: isHovered ? rot * 1.4 : rot,
@@ -126,7 +126,7 @@ function KeyArt({
       />
 
       {/* Mid glass card */}
-      <motion.div
+      <m.div
         initial={false}
         animate={{
           rotate: isHovered ? -rot * 0.6 : -rot * 0.4,
@@ -165,7 +165,7 @@ function KeyArt({
 
         <div className="mt-5 flex items-end gap-2">
           {[40, 70, 55, 90, 65, 80].map((h, i) => (
-            <motion.div
+            <m.div
               key={i}
               animate={{ scaleY: isHovered ? 1 : 0.7 }}
               transition={{
@@ -182,10 +182,10 @@ function KeyArt({
             />
           ))}
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Front floating chip */}
-      <motion.div
+      <m.div
         initial={false}
         animate={{
           rotate: isHovered ? rot * 0.8 : rot * 0.5,
@@ -214,7 +214,7 @@ function KeyArt({
         <span className="font-mono text-[8px] tracking-[0.25em] text-charcoal-100 uppercase">
           {accent.label}
         </span>
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -235,7 +235,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const isReversed = index % 2 === 1;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
@@ -305,7 +305,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-border-medium bg-surface-glass px-3 py-1 text-[11px] tracking-[0.04em] text-charcoal-100 backdrop-blur-md transition-colors duration-500 group-hover:border-white/15"
+                    className="rounded-full border border-border-medium bg-surface-glass px-3 py-1 text-[11px] tracking-[0.04em] text-charcoal-100 backdrop-blur-sm lg:backdrop-blur-md transition-colors duration-500 group-hover:border-white/15"
                     style={
                       isHovered
                         ? {
@@ -373,7 +373,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </div>
               <ul className="grid gap-3 sm:grid-cols-3">
                 {project.results.map((result, i) => (
-                  <motion.li
+                  <m.li
                     key={i}
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -392,7 +392,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                       }}
                     />
                     {result}
-                  </motion.li>
+                  </m.li>
                 ))}
               </ul>
             </div>
@@ -420,6 +420,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

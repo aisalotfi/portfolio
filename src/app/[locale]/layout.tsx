@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -178,6 +179,7 @@ export default async function LocaleLayout({
               }),
             }}
           />
+          <LazyMotion features={domAnimation}>
           <SmoothScrollProvider>
             <ScrollProgress />
             <CursorFollower />
@@ -189,6 +191,7 @@ export default async function LocaleLayout({
             <main className="relative z-10">{children}</main>
             <Footer />
           </SmoothScrollProvider>
+          </LazyMotion>
         </LocaleProvider>
       </body>
     </html>

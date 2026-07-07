@@ -17,7 +17,7 @@ export const en: Dictionary = {
     contact: "Contact",
     portfolio: "Aisa Lotfi",
     toggleMenu: "Toggle menu",
-    resume: "Download Resume",
+    resume: "Resume",
   },
 
   common: {
@@ -37,13 +37,13 @@ export const en: Dictionary = {
 
   hero: {
     badge: "Open to work",
-    title: "Frontend-Focused Web Developer",
+    title: "Web Developer · CS Student",
     line1: "Building modern",
     line2: "web interfaces",
     line3: "with React",
     line3After: "& Next.js.",
     description:
-      "A young web developer focused on React, Next.js and TypeScript. I build clean, fast, and user-friendly interfaces.",
+      "A web developer and CS student. Most days you'll find me learning, building, and making things on the web a little better.",
     cta1: "View My Work",
     cta2: "Let's Talk",
     currentFocus: "Current Focus",
@@ -63,11 +63,11 @@ export const en: Dictionary = {
     headline: "About me",
     subheadline: "Web Developer · CS Student",
     bio1:
-      "I'm Aisa Lotfi, a Computer Engineering student and web developer based in Hamedan, Iran. I focus on frontend development with React, Next.js, and TypeScript.",
+      "I'm Aisa Lotfi, a CS student and web developer. I enjoy building user interfaces with React and Next.js — and I try to keep things simple and functional.",
     bio2:
-      "I discovered my passion for frontend because it lets me combine creativity with code. Every project teaches me something new, and I'm committed to getting better every day.",
+      "For me, programming is a mix of logic and creativity. Every project teaches me something, and I aim to be a little better than I was yesterday.",
     bio3:
-      "Currently sharpening my skills in React and Next.js while exploring backend with Node.js. My goal is to build products that are not just functional, but a pleasure to use.",
+      "My focus is frontend, but I like to see the bigger picture of web development. One thing I always keep in mind: simplicity is the most valuable thing in design.",
     quote: "~ Code is craft.",
     disciplines: {
       title: "Disciplines",
@@ -97,7 +97,7 @@ export const en: Dictionary = {
     headline1: "Recent",
     headline2: "projects.",
     description:
-      "A collection of projects that show what I can do and how I approach problems.",
+      "Projects I've worked on — some real commissions, some for learning. Each one has its own story.",
     yearRange: "Selected · 2024 — 26",
   },
 
@@ -197,19 +197,15 @@ export const en: Dictionary = {
     categories: [
       {
         name: "Frontend",
-        items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
-      },
-      {
-        name: "Backend",
-        items: ["Node.js", "Express"],
-      },
-      {
-        name: "Database",
-        items: ["MongoDB"],
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS"],
       },
       {
         name: "Tools",
-        items: ["Git", "GitHub", "Vercel", "Figma"],
+        items: ["Git & GitHub", "VS Code", "Figma", "Vercel"],
+      },
+      {
+        name: "Currently Learning",
+        items: ["Node.js", "PostgreSQL", "Docker"],
       },
     ],
   },
@@ -328,13 +324,13 @@ export const en: Dictionary = {
   },
 
   contact: {
-    headline1: "Let's",
-    headline2: "build",
-    headline3: "something",
-    headline4: "together.",
+    headline1: "Have an",
+    headline2: "idea?",
+    headline3: "Let's",
+    headline4: "talk about it.",
     badge: "Open to work",
     description:
-      "Got a project in mind or just want to chat? I'd love to hear from you.",
+      "For collaborations, new projects, or just a friendly chat — feel free to reach out via email or social media.",
     formTitle: "Send a message",
     fields: {
       name: "Your Name",
@@ -366,7 +362,7 @@ export const en: Dictionary = {
       linkedin: "LinkedIn",
       email: "Email",
     },
-    resumeDownload: "Download Resume",
+    resumeDownload: "Resume",
     closingLine1: "A single message can start something great.",
     closingLine2: "Looking forward to hearing from you.",
   },

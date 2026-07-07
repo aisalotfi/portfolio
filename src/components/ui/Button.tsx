@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface ButtonProps {
   variant?: "primary" | "outline" | "ghost" | "jewel";
@@ -21,7 +21,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   return (
-    <motion.button
+    <m.button
       className={cn(
         "group relative inline-flex items-center justify-center overflow-hidden rounded-full",
         "text-sm font-medium tracking-[0.08em] uppercase",
@@ -33,7 +33,7 @@ export function Button({
             variant === "primary",
 
           // Outline: hairline glass with copper accent on hover
-          "border border-border-medium bg-surface-glass text-soft-white backdrop-blur-md hover:border-accent/60 hover:text-warm-white hover:shadow-[0_0_30px_-8px_rgba(212,165,116,0.5)]":
+          "border border-border-medium bg-surface-glass text-soft-white backdrop-blur-sm lg:backdrop-blur-md hover:border-accent/60 hover:text-warm-white hover:shadow-[0_0_30px_-8px_rgba(212,165,116,0.5)]":
             variant === "outline",
 
           // Ghost: minimalist, content-first
@@ -71,6 +71,6 @@ export function Button({
           aria-hidden="true"
         />
       )}
-    </motion.button>
+    </m.button>
   );
 }

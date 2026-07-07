@@ -10,9 +10,9 @@ export function TestimonialsSection() {
   const dict = useDict();
 
   return (
-    <section id="testimonials" className="relative py-32 md:py-48">
+    <section id="testimonials" className="relative py-20 md:py-32">
       <Container>
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-10 max-w-3xl">
           <SectionLabel number="08" title={dict.testimonials.title} />
           <TextReveal
             as="h2"

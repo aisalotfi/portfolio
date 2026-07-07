@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ScaleRevealProps {
@@ -16,7 +16,7 @@ export function ScaleReveal({ children, className, delay = 0 }: ScaleRevealProps
 
   return (
     <div ref={ref} className={cn("overflow-hidden", className)}>
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 10 }}
         transition={{
@@ -26,7 +26,7 @@ export function ScaleReveal({ children, className, delay = 0 }: ScaleRevealProps
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export function CurrentFocusSection() {
   const dict = useDict();
 
   return (
-    <section id="current-focus" className="relative py-32 md:py-48">
+    <section id="current-focus" className="relative py-20 md:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -26,7 +26,7 @@ export function CurrentFocusSection() {
       </div>
 
       <Container>
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-10 max-w-3xl">
           <SectionLabel number="04" title={dict.currentFocusSection.title} />
           <TextReveal
             as="h2"
@@ -36,7 +36,7 @@ export function CurrentFocusSection() {
           </TextReveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-6 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
               {dict.currentFocusSection.description}
             </p>
           </Reveal>

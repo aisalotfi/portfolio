@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { isLocale, locales, type Locale } from "@/i18n";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/utils";
@@ -59,7 +59,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
           >
             <span className="relative z-10">{code.toUpperCase()}</span>
             {isActive && (
-              <motion.span
+              <m.span
                 layoutId="locale-pill"
                 className="absolute inset-0 rounded-full"
                 style={{

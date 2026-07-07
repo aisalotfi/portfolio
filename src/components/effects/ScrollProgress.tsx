@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
+import { m, useScroll, useSpring } from "framer-motion";
 
 /**
  * 1px copper-gradient hairline at the top of the viewport.
@@ -17,7 +17,7 @@ export function ScrollProgress() {
   });
 
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-px origin-left"
       style={{

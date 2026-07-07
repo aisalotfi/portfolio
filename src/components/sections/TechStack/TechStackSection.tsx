@@ -11,9 +11,9 @@ export function TechStackSection() {
   const dict = useDict();
 
   return (
-    <section id="tech-stack" className="relative py-32 md:py-48">
+    <section id="tech-stack" className="relative py-20 md:py-32">
       <Container>
-        <div className="mb-16 max-w-3xl">
+        <div className="mb-10 max-w-3xl">
           <SectionLabel number="03" title={dict.techStack.title} />
           <TextReveal
             as="h2"
@@ -46,7 +46,7 @@ export function TechStackSection() {
                     {cat.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-border-medium bg-surface-glass px-3 py-1.5 text-[12px] tracking-[0.02em] text-charcoal-100 backdrop-blur-md transition-colors duration-500 group-hover:border-white/20"
+                        className="rounded-full border border-border-medium bg-surface-glass px-3 py-1.5 text-[12px] tracking-[0.02em] text-charcoal-100 backdrop-blur-sm lg:backdrop-blur-md transition-colors duration-500 group-hover:border-white/20"
                       >
                         {item}
                       </span>

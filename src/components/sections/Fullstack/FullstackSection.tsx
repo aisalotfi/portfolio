@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { m } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -11,9 +12,14 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function FullstackSection() {
   const dict = useDict();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
 
   return (
-    <section id="fullstack" className="relative py-32 md:py-48">
+    <section id="fullstack" className="relative py-20 md:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -37,7 +43,7 @@ export function FullstackSection() {
       </div>
 
       <Container>
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-12 max-w-3xl">
           <SectionLabel number="07" title={dict.common.layer} />
 
           <TextReveal
@@ -51,7 +57,7 @@ export function FullstackSection() {
           </TextReveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-6 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
               {dict.fullstack.description}
             </p>
           </Reveal>
@@ -69,10 +75,10 @@ export function FullstackSection() {
                   "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.10) 6%, rgba(255,255,255,0.10) 94%, transparent 100%)",
               }}
             />
-            <motion.div
+            <m.div
               className="absolute left-0 right-0 h-32 rounded-full"
-              animate={{ y: ["-15%", "115%"] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              animate={isMobile ? { y: "50%" } : { y: ["-15%", "115%"] }}
+              transition={isMobile ? {} : { duration: 6, repeat: Infinity, ease: "linear" }}
               style={{
                 background:
                   "linear-gradient(to bottom, transparent 0%, rgba(194,156,255,0.9) 50%, transparent 100%)",
@@ -81,7 +87,7 @@ export function FullstackSection() {
             />
           </div>
 
-          <div className="space-y-4 md:space-y-5">
+          <div className="space-y-3 md:space-y-4">
             {dict.fullstack.layers.map((layer, i) => (
               <StackBar
                 key={layer.title}
@@ -112,7 +118,7 @@ function StackBar({
   const intensity = 0.08 + (index / Math.max(1, total - 1)) * 0.20;
 
   return (
-    <motion.article
+    <m.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
@@ -165,6 +171,6 @@ function StackBar({
           </div>
         </div>
       </div>
-    </motion.article>
+    </m.article>
   );
 }

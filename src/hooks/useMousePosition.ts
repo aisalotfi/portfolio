@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface MousePosition {
   x: number;
@@ -16,19 +16,29 @@ export function useMousePosition() {
     normalizedX: 0,
     normalizedY: 0,
   });
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
+    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
     const handleMouseMove = (e: MouseEvent) => {
-      setMouse({
-        x: e.clientX,
-        y: e.clientY,
-        normalizedX: (e.clientX / window.innerWidth) * 2 - 1,
-        normalizedY: (e.clientY / window.innerHeight) * 2 - 1,
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        setMouse({
+          x: e.clientX,
+          y: e.clientY,
+          normalizedX: (e.clientX / window.innerWidth) * 2 - 1,
+          normalizedY: (e.clientY / window.innerHeight) * 2 - 1,
+        });
       });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   return mouse;

@@ -14,7 +14,7 @@ interface SectionLabelProps {
 export function SectionLabel({ number, title }: SectionLabelProps) {
   return (
     <Reveal direction="up" delay={0.1}>
-      <div className="mb-8 flex items-center gap-4">
+      <div className="mb-6 flex items-center gap-4">
         <span className="font-mono text-[14px] tracking-[0.3em] text-accent-light uppercase">
           {number}
         </span>

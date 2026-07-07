@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -21,9 +21,9 @@ export function BuildLogSection() {
   const fillHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="build-log" className="relative py-32 md:py-48">
+    <section id="build-log" className="relative py-20 md:py-32">
       <Container>
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-12 max-w-3xl">
           <SectionLabel number="09" title={dict.buildLog.title} />
           <TextReveal
             as="h2"
@@ -33,7 +33,7 @@ export function BuildLogSection() {
           </TextReveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-6 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
               {dict.buildLog.description}
             </p>
           </Reveal>
@@ -47,7 +47,7 @@ export function BuildLogSection() {
             <div className="absolute inset-0" style={{
               background: "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.10) 6%, rgba(255,255,255,0.10) 94%, transparent 100%)",
             }} />
-            <motion.div
+            <m.div
               className="absolute inset-x-0 top-0 origin-top"
               style={{
                 height: fillHeight,
@@ -57,9 +57,9 @@ export function BuildLogSection() {
             />
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {dict.buildLog.entries.map((entry, i) => (
-              <motion.div
+              <m.div
                 key={entry.date + entry.text}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export function BuildLogSection() {
                     {entry.text}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

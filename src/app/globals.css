@@ -362,6 +362,35 @@
 .animate-drift      { animation: drift    18s ease-in-out infinite; }
 
 /* ============================================================
+ * MOBILE PERFORMANCE (< 1024px)
+ * Reduce GPU-intensive effects for smooth scrolling on mobile.
+ * ============================================================ */
+@media (max-width: 1024px) {
+  .glass {
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  }
+  .glass-strong {
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  }
+  .cinematic-blur {
+    backdrop-filter: blur(10px) saturate(1.1);
+    -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  }
+  .glow-copper,
+  .glow-amethyst,
+  .glow-emerald,
+  .glow-sapphire {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+  .shimmer-line {
+    animation: none;
+    background: linear-gradient(90deg, rgba(236, 200, 146, 0.15) 0%, transparent 100%);
+  }
+}
+
+/* ============================================================
  * REDUCED MOTION
  * Respect users who request less motion. Disable looping
  * ambient animations and slash transition durations to a

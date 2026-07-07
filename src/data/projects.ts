@@ -24,10 +24,10 @@ export function getProjects(locale: Locale): Project[] {
     return [
       {
         id: "sadaf-stone",
-        title: "سنگ صدف استون",
+        title: "سنگ صدف",
         subtitle: "وب‌سایت رسمی شرکت",
         description:
-          "وب‌سایت رسمی کارخانه سنگ صدف استون، تولیدکننده سنگ‌های ساختمانی. طراحی و توسعه با Next.js و Tailwind CSS. تمرکز روی سرعت، نمایش حرفه‌ای محصولات و تجربه کاربری روان.",
+          "وب‌سایت رسمی کارخانه سنگ صدف استون، برای نمایش محصولات و خدمات شرکت. هدف این بود که مشتریان بتوانند به راحتی محصولات را ببینند و با شرکت ارتباط بگیرند. نتیجه: یک وبسایت سریع، واکنش‌گرا و حرفه‌ای.",
         role: "توسعه‌دهنده فرانت‌اند",
         duration: "۲ ماه",
         accent: "copper",
@@ -47,7 +47,7 @@ export function getProjects(locale: Locale): Project[] {
         title: "فروشگاه اینترنتی",
         subtitle: "پروژه شخصی",
         description:
-          "یک فروشگاه اینترنتی کامل با سبد خرید، احراز هویت و پنل مدیریت. تمرکز روی پیاده‌سازی منطق سبد خرید و ارتباط با API.",
+          "یک فروشگاه اینترنتی کامل با قابلیت سبد خرید، احراز هویت و پنل مدیریت. پروژه‌ای برای تمرین منطق فرانت‌اند، کار با state management و ارتباط با API.",
         role: "توسعه‌دهنده فرانت‌اند",
         duration: "۳ ماه",
         accent: "amethyst",
@@ -64,7 +64,7 @@ export function getProjects(locale: Locale): Project[] {
         title: "داشبورد مدیریتی",
         subtitle: "پروژه شخصی",
         description:
-          "داشبورد مدیریتی با قابلیت نمایش نمودارها، مدیریت کاربران و تنظیمات. تمرکز روی طراحی متریال و تجربه کاربری.",
+          "داشبورد مدیریتی با نمودارهای زنده، مدیریت کاربران و تنظیمات. هدف: پیاده‌سازی یک رابط کاربری تمیز و کاربردی برای نمایش داده‌های پیچیده.",
         role: "توسعه‌دهنده فرانت‌اند",
         duration: "۲ ماه",
         accent: "sapphire",
@@ -81,7 +81,7 @@ export function getProjects(locale: Locale): Project[] {
         title: "وبسایت انیمه",
         subtitle: "پروژه شخصی",
         description:
-          "یک وبسایت جستجو و نمایش اطلاعات انیمه با استفاده از API. تمرکز روی انیمیشن‌های روان و تجربه مرور لذت‌بخش.",
+          "وبسایت جستجو و نمایش اطلاعات انیمه. پروژه‌ای برای تمرین کار با API، انیمیشن‌های فرانت‌اند و تجربه مرور روان.",
         role: "توسعه‌دهنده فرانت‌اند",
         duration: "۱ ماه",
         accent: "emerald",
@@ -103,7 +103,7 @@ export function getProjects(locale: Locale): Project[] {
         title: "Sadaf Stone",
         subtitle: "Firmenwebsite",
         description:
-          "Offizielle Website der Sadaf Stone GmbH, einem Hersteller von Natursteinen. Entwickelt mit Next.js und Tailwind CSS. Fokus auf Geschwindigkeit, professionelle Produktpräsentation und flüssige Benutzererfahrung.",
+          "Offizielle Website der Sadaf Stone GmbH zur Präsentation ihrer Natursteinprodukte und Dienstleistungen. Ziel war es, Kunden eine einfache Produktsuche und Kontaktaufnahme zu ermöglichen. Ergebnis: eine schnelle, responsive und professionelle Seite.",
         role: "Frontend-Entwicklerin",
         duration: "2 Monate",
         accent: "copper",
@@ -123,7 +123,7 @@ export function getProjects(locale: Locale): Project[] {
         title: "E-Commerce",
         subtitle: "Persönliches Projekt",
         description:
-          "Vollständiger Online-Shop mit Warenkorb, Authentifizierung und Admin-Panel. Fokus auf Warenkorb-Logik und API-Integration.",
+          "Ein vollständiger Online-Shop mit Warenkorb, Authentifizierung und Admin-Panel. Entwickelt, um Frontend-Logik, State-Management und API-Integration zu üben.",
         role: "Frontend-Entwicklerin",
         duration: "3 Monate",
         accent: "amethyst",
@@ -140,7 +140,7 @@ export function getProjects(locale: Locale): Project[] {
         title: "Admin-Dashboard",
         subtitle: "Persönliches Projekt",
         description:
-          "Admin-Dashboard mit Diagrammen, Benutzerverwaltung und Einstellungen. Fokus auf klares Design und Benutzererfahrung.",
+          "Ein Admin-Dashboard mit Live-Diagrammen, Benutzerverwaltung und Einstellungen. Entwickelt, um saubere, funktionale Oberflächen für komplexe Daten umzusetzen.",
         role: "Frontend-Entwicklerin",
         duration: "2 Monate",
         accent: "sapphire",
@@ -157,7 +157,7 @@ export function getProjects(locale: Locale): Project[] {
         title: "Anime-Website",
         subtitle: "Persönliches Projekt",
         description:
-          "Eine Website zum Suchen und Anzeigen von Anime-Informationen mithilfe einer API. Fokus auf flüssige Animationen und angenehmes Surferlebnis.",
+          "Eine Anime-Such- und Informationsseite mit einer öffentlichen API. Entwickelt, um den Umgang mit APIs, Frontend-Animationen und ein flüssiges Surferlebnis zu üben.",
         role: "Frontend-Entwicklerin",
         duration: "1 Monat",
         accent: "emerald",
@@ -178,8 +178,8 @@ export function getProjects(locale: Locale): Project[] {
       id: "sadaf-stone",
       title: "Sadaf Stone",
       subtitle: "Official Company Site",
-      description:
-        "Official website for Sadaf Stone factory, a natural stone producer. Built with Next.js and Tailwind CSS. Focused on speed, professional product showcase, and smooth UX.",
+        description:
+          "Official website for Sadaf Stone factory, showcasing their natural stone products and services. The goal was to help customers easily browse products and connect with the company. Result: a fast, responsive, and professional site.",
       role: "Frontend Developer",
       duration: "2 months",
       accent: "copper",
@@ -198,8 +198,8 @@ export function getProjects(locale: Locale): Project[] {
       id: "ecommerce",
       title: "E-commerce App",
       subtitle: "Personal Project",
-      description:
-        "A full e-commerce app with cart, auth, and admin panel. Focused on implementing cart logic and API communication.",
+        description:
+          "A full e-commerce app with cart, auth, and admin panel. Built to practice frontend logic, state management, and API integration.",
       role: "Frontend Developer",
       duration: "3 months",
       accent: "amethyst",
@@ -215,8 +215,8 @@ export function getProjects(locale: Locale): Project[] {
       id: "admin-dashboard",
       title: "Admin Dashboard",
       subtitle: "Personal Project",
-      description:
-        "An admin dashboard with charts, user management, and settings. Focused on clean design and UX.",
+        description:
+          "An admin dashboard with live charts, user management, and settings. Built to practice implementing clean, functional UIs for complex data.",
       role: "Frontend Developer",
       duration: "2 months",
       accent: "sapphire",
@@ -232,8 +232,8 @@ export function getProjects(locale: Locale): Project[] {
       id: "anime-website",
       title: "Anime Website",
       subtitle: "Personal Project",
-      description:
-        "An anime search and info site using a public API. Focused on smooth animations and an enjoyable browsing experience.",
+        description:
+          "An anime search and info site using a public API. Built to practice working with APIs, frontend animations, and smooth browsing experiences.",
       role: "Frontend Developer",
       duration: "1 month",
       accent: "emerald",

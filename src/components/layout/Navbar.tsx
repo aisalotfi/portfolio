@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useDict, useLocale } from "@/i18n/LocaleProvider";
 import { LocaleSwitcher } from "./LocaleSwitcher";
@@ -12,38 +12,44 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const { locale } = useLocale();
+  const rafRef = useRef<number>(0);
 
   const base = `/${locale}`;
-  const navItems = [
+  const navItems = useMemo(() => [
     { label: dict.nav.about,      href: `${base}#about` },
     { label: dict.nav.work,       href: `${base}#projects` },
     { label: dict.nav.process,    href: `${base}#process` },
     { label: dict.nav.experience, href: `${base}#timeline` },
     { label: dict.nav.contact,    href: `${base}#contact` },
     { label: dict.nav.resume,     href: `${base}/resume` },
-  ];
+  ], [dict, base]);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
 
-      const sections = navItems.map((item) => {
-        const hashIndex = item.href.indexOf("#");
-        return hashIndex !== -1 ? item.href.slice(hashIndex + 1) : "";
-      }).filter(Boolean);
-      const current = sections.find((id) => {
-        const el = document.getElementById(id);
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        return rect.top <= 200 && rect.bottom >= 200;
+        const sections = navItems.map((item) => {
+          const hashIndex = item.href.indexOf("#");
+          return hashIndex !== -1 ? item.href.slice(hashIndex + 1) : "";
+        }).filter(Boolean);
+        const current = sections.find((id) => {
+          const el = document.getElementById(id);
+          if (!el) return false;
+          const rect = el.getBoundingClientRect();
+          return rect.top <= 200 && rect.bottom >= 200;
+        });
+        if (current) setActiveSection(current);
       });
-      if (current) setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [navItems]);
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
@@ -59,20 +65,20 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header
+      <m.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-out-expo",
           scrolled
-            ? "border-b border-border-subtle bg-near-black/55 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_1px_0_rgba(255,255,255,0.05),0_20px_50px_-20px_rgba(0,0,0,0.6)]"
+            ? "border-b border-border-subtle bg-near-black/55 backdrop-blur-md backdrop-saturate-100 lg:backdrop-blur-2xl lg:backdrop-saturate-150 shadow-[0_1px_0_rgba(255,255,255,0.05),0_20px_50px_-20px_rgba(0,0,0,0.6)]"
             : "bg-transparent",
         )}
       >
         <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between gap-4 px-6 md:px-12 lg:px-24">
           {/* Wordmark */}
-          <motion.a
+          <m.a
             href="#"
             className="group flex items-center gap-2.5 text-sm tracking-[0.25em] uppercase shrink-0"
             whileHover={{ opacity: 0.85 }}
@@ -84,7 +90,7 @@ export function Navbar() {
             <span className="font-display text-[15px] italic tracking-[0.04em] text-soft-white transition-colors group-hover:text-warm-white">
               {dict.nav.portfolio}
             </span>
-          </motion.a>
+          </m.a>
 
           {/* Desktop nav — glass pill */}
           <nav className="hidden md:block">
@@ -105,7 +111,7 @@ export function Navbar() {
                   >
                     <span className="relative z-10">{item.label}</span>
                     {isActive && (
-                      <motion.span
+                      <m.span
                         layoutId="nav-indicator"
                         className="absolute inset-0 rounded-full"
                         style={{
@@ -129,38 +135,38 @@ export function Navbar() {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-border-medium bg-surface-glass backdrop-blur-md md:hidden"
+              className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-border-medium bg-surface-glass backdrop-blur-sm lg:backdrop-blur-md md:hidden"
               aria-label={dict.nav.toggleMenu}
             >
-              <motion.span
+              <m.span
                 animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                 className="h-px w-4 bg-soft-white"
               />
-              <motion.span
+              <m.span
                 animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
                 className="h-px w-4 bg-soft-white"
               />
-              <motion.span
+              <m.span
                 animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                 className="h-px w-4 bg-soft-white"
               />
             </button>
           </div>
         </div>
-      </motion.header>
+      </m.header>
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 flex items-center justify-center bg-near-black/90 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-30 flex items-center justify-center bg-near-black/95 backdrop-blur-md md:backdrop-blur-2xl md:hidden"
           >
             <nav className="flex flex-col items-center gap-7">
               {navItems.map((item, i) => (
-                <motion.button
+                <m.button
                   key={item.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -170,10 +176,10 @@ export function Navbar() {
                   className="font-display text-3xl italic tracking-tight text-soft-white/85 hover:text-warm-white transition-colors"
                 >
                   {item.label}
-                </motion.button>
+                </m.button>
               ))}
             </nav>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

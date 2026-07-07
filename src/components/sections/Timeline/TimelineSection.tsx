@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -21,7 +21,7 @@ export function TimelineSection() {
   const fillHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="timeline" className="relative py-32 md:py-48">
+    <section id="timeline" className="relative py-20 md:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -37,7 +37,7 @@ export function TimelineSection() {
       </div>
 
       <Container>
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-12 max-w-3xl">
           <SectionLabel number="08" title={dict.nav.experience} />
 
           <TextReveal
@@ -52,7 +52,7 @@ export function TimelineSection() {
           </TextReveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-6 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
               {dict.timeline.description}
             </p>
           </Reveal>
@@ -70,7 +70,7 @@ export function TimelineSection() {
                   "linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.10) 6%, rgba(255,255,255,0.10) 94%, transparent 100%)",
               }}
             />
-            <motion.div
+            <m.div
               className="absolute inset-x-0 top-0 origin-top"
               style={{
                 height: fillHeight,
@@ -104,7 +104,7 @@ function TimelineItem({ dict }: { dict: ReturnType<typeof useDict> }) {
         </span>
       </div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-15%" }}
@@ -133,7 +133,7 @@ function TimelineItem({ dict }: { dict: ReturnType<typeof useDict> }) {
 
             <ul className="mt-5 space-y-2">
               {dict.timeline.currentRoleAchievements.map((h, j) => (
-                <motion.li
+                <m.li
                   key={j}
                   initial={{ opacity: 0, x: -8 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -146,12 +146,12 @@ function TimelineItem({ dict }: { dict: ReturnType<typeof useDict> }) {
                     style={{ boxShadow: "0 0 6px rgba(212,165,116,0.7)" }}
                   />
                   <span>{h}</span>
-                </motion.li>
+                </m.li>
               ))}
             </ul>
           </article>
         </div>
-      </motion.div>
+      </m.div>
     </li>
   );
 }

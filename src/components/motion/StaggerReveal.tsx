@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface StaggerRevealProps {
@@ -38,7 +38,7 @@ export function StaggerReveal({
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={cn(className)}
       initial="hidden"
@@ -55,7 +55,7 @@ export function StaggerReveal({
     >
       {Array.isArray(children)
         ? (children as React.ReactNode[]).map((child, i) => (
-            <motion.div key={i} variants={{
+            <m.div key={i} variants={{
               hidden: { opacity: 0, y: direction === "up" ? 20 : direction === "down" ? -20 : 0 },
               visible: {
                 opacity: 1,
@@ -67,9 +67,9 @@ export function StaggerReveal({
               },
             }}>
               {child}
-            </motion.div>
+            </m.div>
           ))
         : children}
-    </motion.div>
+    </m.div>
   );
 }

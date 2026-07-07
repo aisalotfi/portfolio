@@ -14,9 +14,9 @@ export function ProjectsSection() {
   const projects = getProjects(locale);
 
   return (
-    <section id="projects" className="relative py-32 md:py-48">
+    <section id="projects" className="relative py-20 md:py-32">
       <Container>
-        <div className="mb-20 flex flex-col gap-10 lg:mb-28 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-12 flex flex-col gap-8 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <SectionLabel number="02" title={dict.projects.sectionLabel} />
 
@@ -31,7 +31,7 @@ export function ProjectsSection() {
             </TextReveal>
 
             <Reveal delay={0.3}>
-              <p className="mt-6 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
+              <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
                 {dict.projects.description}
               </p>
             </Reveal>
@@ -53,7 +53,7 @@ export function ProjectsSection() {
           </Reveal>
         </div>
 
-        <div className="space-y-10 md:space-y-14">
+        <div className="space-y-6 md:space-y-10">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
