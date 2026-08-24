@@ -152,6 +152,7 @@ export interface Dictionary {
     education: { degree: string; school: string; year: string };
     projects: { name: string; tech: string[] }[];
     experience: ExperienceItem[];
+    downloadPdf: string;
     downloadNote: string;
   };
   footer: {

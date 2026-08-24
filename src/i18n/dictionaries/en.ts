@@ -340,6 +340,7 @@ export const en: Dictionary = {
           "Client and personal projects end to end, including the official Sadaf Stone website.",
       },
     ],
+    downloadPdf: "Download English PDF",
     downloadNote: "Print this page or save it as PDF from your browser.",
   },
 

@@ -341,6 +341,7 @@ const de: Dictionary = {
           "Kunden- und Eigenprojekte, darunter die offizielle Sadaf-Stone-Website.",
       },
     ],
+    downloadPdf: "Englisches PDF herunterladen",
     downloadNote:
       "Drucken Sie diese Seite oder speichern Sie sie über Ihren Browser als PDF.",
   },
