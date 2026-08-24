@@ -64,6 +64,7 @@ const de: Dictionary = {
         role: "Praktikum als Full-Stack-Entwickler",
         company: "Shabakeh Avin Radin",
         organization: "Technologiepark Hamedan",
+        website: { href: "https://avinradin.com/", label: "Unternehmenswebsite" },
         period: "1 Jahr",
         description:
           "Einjähriges Praktikum in der Full-Stack-Webentwicklung – Mitarbeit an Produktivsoftware über Interface, Anwendungslogik und Datenschicht hinweg.",

@@ -42,6 +42,20 @@ export function ExperienceSection({ locale, dict }: ExperienceSectionProps) {
                         {item.organization && (
                           <span className="text-charcoal-200"> · {item.organization}</span>
                         )}
+                        {item.website && (
+                          <>
+                            <span className="text-charcoal-300"> · </span>
+                            <a
+                              href={item.website.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[13px] font-normal text-charcoal-200 underline decoration-border-medium underline-offset-4 transition-colors hover:text-soft-white"
+                            >
+                              {item.website.label}
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </>
+                        )}
                       </p>
                       <p className="mt-4 max-w-xl text-[14px] leading-[1.7] text-charcoal-100 text-pretty md:text-[15px]">
                         {item.description}

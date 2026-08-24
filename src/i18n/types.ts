@@ -7,6 +7,7 @@ export interface ExperienceItem {
   role: string;
   company: string;
   organization?: string;
+  website?: { href: string; label: string };
   period: string;
   location?: string;
   description: string;

@@ -64,6 +64,7 @@ export const en: Dictionary = {
         role: "Full-Stack Developer Intern",
         company: "Shabakeh Avin Radin",
         organization: "Hamedan Science and Technology Park",
+        website: { href: "https://avinradin.com/", label: "Company Website" },
         period: "1 Year",
         description:
           "A one-year professional internship working on full-stack web development — contributing to production software across interface, application logic, and data layers.",
