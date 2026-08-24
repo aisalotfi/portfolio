@@ -22,9 +22,7 @@
 @theme {
   /* ============================================================
    * COLORFUL LUXURY · FOUNDATION TOKENS
-   * Existing token names are preserved so every component
-   * inherits the new palette automatically. Values are remapped
-   * to a deep midnight / plum base with jewel-tone accents.
+   * Deep midnight / plum base with jewel-tone accents.
    * ============================================================ */
 
   /* — Deep luxury backgrounds (midnight + plum) — */
@@ -86,16 +84,12 @@
   /* — Typography — */
   --font-sans: var(--font-geist-sans), 'Inter', system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), 'SF Mono', monospace;
-  --font-display: var(--font-playfair), 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
   --font-vazir: 'Arad FD', 'Arad', 'Tahoma', system-ui, sans-serif;
 
   /* — Motion — */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   --duration-slow: 1.2s;
   --duration-medium: 0.8s;
@@ -112,11 +106,13 @@
 
   html {
     @apply bg-near-black;
-    scrollbar-width: none;
     color-scheme: dark;
+    scroll-behavior: smooth;
   }
 
-  html::-webkit-scrollbar { display: none; }
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
 
   body {
     @apply bg-near-black text-soft-white antialiased;
@@ -129,7 +125,9 @@
     background-attachment: fixed;
   }
 
-  @supports (-webkit-touch-callout: none) {
+  /* Touch devices repaint fixed backgrounds on every scroll frame —
+     covers both iOS Safari and Android Chrome. */
+  @media (pointer: coarse) {
     body {
       background-attachment: scroll;
     }
@@ -192,7 +190,6 @@
     letter-spacing: 0.005em;
   }
 
-  /* Smooth focus ring across the app */
   :focus-visible {
     outline: none;
     box-shadow: 0 0 0 1px rgba(212, 165, 116, 0.55), 0 0 0 4px rgba(212, 165, 116, 0.18);
@@ -206,11 +203,6 @@
 
 @utility text-balance { text-wrap: balance; }
 @utility text-pretty  { text-wrap: pretty;  }
-
-@utility cinematic-blur {
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-}
 
 /* Frosted glass — the core luxury surface */
 @utility glass {
@@ -235,14 +227,6 @@
   @apply mx-auto max-w-[1440px] px-6 md:px-12 lg:px-24;
 }
 
-/* Layered jewel mesh — for hero/section backdrops */
-@utility cinematic-gradient {
-  background:
-    radial-gradient(60% 80% at 20% 10%, rgba(160, 107, 255, 0.10) 0%, transparent 60%),
-    radial-gradient(50% 70% at 90% 30%, rgba(16, 185, 129, 0.07) 0%, transparent 60%),
-    radial-gradient(70% 60% at 50% 100%, rgba(79, 124, 255, 0.08) 0%, transparent 60%);
-}
-
 /* Gradient text — luxurious champagne → amethyst → sapphire */
 @utility text-gradient-luxe {
   background-image: linear-gradient(135deg, #ECC892 0%, #F4EEE3 35%, #C29CFF 75%, #7B97FF 100%);
@@ -258,84 +242,55 @@
   color: transparent;
 }
 
-@utility text-gradient-jewel {
-  background-image: linear-gradient(135deg, #34D399 0%, #7B97FF 50%, #C29CFF 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* ============================================================
+ * REVEAL SYSTEM (IntersectionObserver adds `.is-revealed`)
+ * Gated behind the `js` class on <html> so content is always
+ * visible without JavaScript. opacity/transform only.
+ * ============================================================ */
+
+.js .reveal:not(.is-revealed) {
+  opacity: 0;
+  transform: translate(var(--reveal-x, 0), var(--reveal-y, 24px));
 }
 
-/* Soft jewel glows */
-@utility glow-copper {
-  box-shadow:
-    0 0 0 1px rgba(212, 165, 116, 0.20),
-    0 8px 30px -6px rgba(212, 165, 116, 0.30),
-    0 0 60px -10px rgba(212, 165, 116, 0.25);
+.reveal {
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
-@utility glow-amethyst {
-  box-shadow:
-    0 0 0 1px rgba(160, 107, 255, 0.20),
-    0 8px 30px -6px rgba(160, 107, 255, 0.30),
-    0 0 60px -10px rgba(160, 107, 255, 0.25);
-}
-
-@utility glow-emerald {
-  box-shadow:
-    0 0 0 1px rgba(16, 185, 129, 0.20),
-    0 8px 30px -6px rgba(16, 185, 129, 0.30),
-    0 0 60px -10px rgba(16, 185, 129, 0.25);
-}
-
-@utility glow-sapphire {
-  box-shadow:
-    0 0 0 1px rgba(79, 124, 255, 0.20),
-    0 8px 30px -6px rgba(79, 124, 255, 0.30),
-    0 0 60px -10px rgba(79, 124, 255, 0.25);
-}
-
-/* Radial gradient utility (Tailwind v4 doesn't ship one out of the box) */
-@utility bg-gradient-radial {
-  background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
-}
-
-/* Animated copper hairline for buttons / cards */
-@utility shimmer-line {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(236, 200, 146, 0.6) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
+.reveal.is-revealed {
+  will-change: auto;
 }
 
 /* ============================================================
- * KEYFRAMES
+ * HERO ENTRANCE — one-shot CSS keyframes, no JS on the
+ * critical path. Elements animate once, then settle.
  * ============================================================ */
 
-@keyframes breathe {
-  0%, 100% { opacity: 0.4; }
-  50%      { opacity: 0.7; }
+/* 100svh with a 100vh fallback for older browsers */
+.hero-min-height {
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  10%      { transform: translate(-5%, -5%); }
-  20%      { transform: translate(-10%, 5%); }
-  30%      { transform: translate(5%, -10%); }
-  40%      { transform: translate(-5%, 15%); }
-  50%      { transform: translate(-10%, 10%); }
-  60%      { transform: translate(15%, 0); }
-  70%      { transform: translate(0, 10%); }
-  80%      { transform: translate(-15%, 0); }
-  90%      { transform: translate(10%, 5%); }
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%      { transform: translateY(-20px); }
+.hero-enter {
+  opacity: 0;
+  animation: rise-in 0.9s var(--ease-out-expo) forwards;
+  animation-delay: calc(var(--enter-order, 0) * 120ms + 150ms);
 }
 
 @keyframes pulse-glow {
@@ -343,23 +298,25 @@
   50%      { opacity: 0.7; }
 }
 
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
-}
-
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33%      { transform: translate(30px, -20px) rotate(2deg); }
-  66%      { transform: translate(-25px, 15px) rotate(-2deg); }
-}
-
-.animate-breathe    { animation: breathe   4s ease-in-out infinite; }
-.animate-grain      { animation: grain     0.3s steps(6)  infinite; }
-.animate-float      { animation: float     6s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-.animate-shimmer    { animation: shimmer   3s linear      infinite; }
-.animate-drift      { animation: drift    18s ease-in-out infinite; }
+
+@keyframes nav-pill-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-nav-pill {
+  animation: nav-pill-in 0.25s var(--ease-out-expo);
+}
+
+@keyframes mobile-menu-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-mobile-menu {
+  animation: mobile-menu-in 0.25s var(--ease-out-expo);
+}
 
 /* ============================================================
  * MOBILE PERFORMANCE (< 1024px)
@@ -374,45 +331,29 @@
     backdrop-filter: blur(16px) saturate(1.2);
     -webkit-backdrop-filter: blur(16px) saturate(1.2);
   }
-  .cinematic-blur {
-    backdrop-filter: blur(10px) saturate(1.1);
-    -webkit-backdrop-filter: blur(10px) saturate(1.1);
-  }
-  .glow-copper,
-  .glow-amethyst,
-  .glow-emerald,
-  .glow-sapphire {
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
-  }
-  .shimmer-line {
-    animation: none;
-    background: linear-gradient(90deg, rgba(236, 200, 146, 0.15) 0%, transparent 100%);
-  }
 }
 
-/* ============================================================
- * REDUCED MOTION
- * Respect users who request less motion. Disable looping
- * ambient animations and slash transition durations to a
- * functional minimum. Framer Motion components handle their
- * own reduced-motion via `useReducedMotion()`.
- * ============================================================ */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 
-  .animate-breathe,
-  .animate-grain,
-  .animate-float,
-  .animate-pulse-glow,
-  .animate-shimmer,
-  .animate-drift {
+  .js .reveal:not(.is-revealed),
+  .hero-enter {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-pulse-glow {
     animation: none !important;
+    opacity: 0.55;
   }
 }

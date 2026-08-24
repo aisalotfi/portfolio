@@ -1,42 +1,33 @@
 import { notFound } from "next/navigation";
-import { isLocale } from "@/i18n";
+import { isLocale, getDictionary } from "@/i18n";
 import { HeroSection } from "@/components/sections/Hero/HeroSection";
-import { AboutSection } from "@/components/sections/About/AboutSection";
 import { ProjectsSection } from "@/components/sections/Projects/ProjectsSection";
-import { TechStackSection } from "@/components/sections/TechStack/TechStackSection";
-import { CurrentFocusSection } from "@/components/sections/CurrentFocus/CurrentFocusSection";
-import { ProcessSection } from "@/components/sections/Process/ProcessSection";
-import { EngineeringSection } from "@/components/sections/Engineering/EngineeringSection";
-import { FullstackSection } from "@/components/sections/Fullstack/FullstackSection";
-import { TimelineSection } from "@/components/sections/Timeline/TimelineSection";
-import { TestimonialsSection } from "@/components/sections/Testimonials/TestimonialsSection";
-import { BuildLogSection } from "@/components/sections/BuildLog/BuildLogSection";
-import { OpenToWorkSection } from "@/components/sections/OpenToWork/OpenToWorkSection";
+import { ExperienceSection } from "@/components/sections/Experience/ExperienceSection";
+import { SkillsSection } from "@/components/sections/Skills/SkillsSection";
+import { AboutSection } from "@/components/sections/About/AboutSection";
 import { ContactSection } from "@/components/sections/Contact/ContactSection";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
+/**
+ * Recruiter-oriented information architecture:
+ * Hero → Work → Experience → Skills → About → Contact
+ */
 export default async function Home({ params }: PageProps) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const dict = getDictionary(locale);
 
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <TechStackSection />
-      <CurrentFocusSection />
-      <ProcessSection />
-      <EngineeringSection />
-      <FullstackSection />
-      <TimelineSection />
-      <TestimonialsSection />
-      <BuildLogSection />
-      <OpenToWorkSection />
-      <ContactSection />
+      <HeroSection locale={locale} dict={dict} />
+      <ProjectsSection locale={locale} dict={dict} />
+      <ExperienceSection locale={locale} dict={dict} />
+      <SkillsSection locale={locale} dict={dict} />
+      <AboutSection locale={locale} dict={dict} />
+      <ContactSection locale={locale} dict={dict} />
     </>
   );
 }

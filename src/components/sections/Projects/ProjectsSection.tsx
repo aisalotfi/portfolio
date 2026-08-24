@@ -1,61 +1,53 @@
-"use client";
-
-import { Reveal } from "@/components/motion/Reveal";
-import { TextReveal } from "@/components/motion/TextReveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Container } from "@/components/ui/Container";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCard } from "./ProjectCard";
 import { getProjects } from "@/data/projects";
-import { useDict, useLocale } from "@/i18n/LocaleProvider";
+import type { Dictionary, Locale } from "@/i18n";
 
-export function ProjectsSection() {
-  const dict = useDict();
-  const { locale } = useLocale();
+interface ProjectsSectionProps {
+  locale: Locale;
+  dict: Dictionary;
+}
+
+export function ProjectsSection({ locale, dict }: ProjectsSectionProps) {
   const projects = getProjects(locale);
 
   return (
-    <section id="projects" className="relative py-20 md:py-32">
+    <section id="projects" className="relative scroll-mt-20 py-20 md:py-32">
       <Container>
-        <div className="mb-12 flex flex-col gap-8 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <SectionLabel number="02" title={dict.projects.sectionLabel} />
-
-            <TextReveal
-              as="h2"
-              className="font-display text-[clamp(2.25rem,6vw,5rem)] leading-[1.02] tracking-[-0.03em] text-soft-white text-balance"
-            >
+        <div className="mb-12 max-w-3xl">
+          <SectionLabel number="01" title={dict.projects.sectionLabel} />
+          <Reveal>
+            <h2 className="font-display text-[clamp(2rem,5vw,3.75rem)] leading-[1.05] tracking-[-0.025em] text-soft-white text-balance">
               {dict.projects.headline1}{" "}
-              <span className="italic text-gradient-luxe">
-                {dict.projects.headline2}
-              </span>
-            </TextReveal>
-
-            <Reveal delay={0.3}>
-              <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 md:text-[17px] text-pretty">
-                {dict.projects.description}
-              </p>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.45} direction="left">
-            <div className="hidden items-center gap-3 lg:flex">
-              <span
-                className="h-px w-12"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent 0%, rgba(212,165,116,0.5) 100%)",
-                }}
-              />
-              <span className="font-mono text-[10px] tracking-[0.3em] text-charcoal-200 uppercase">
-                {projects.length.toString().padStart(2, "0")} · {dict.projects.yearRange}
-              </span>
-            </div>
+              <span className="italic text-gradient-luxe">{dict.projects.headline2}</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.75] text-charcoal-100 text-pretty md:text-[16px]">
+              {dict.projects.description}
+            </p>
           </Reveal>
         </div>
 
-        <div className="space-y-6 md:space-y-10">
+        <div className="space-y-8 md:space-y-12">
           {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <Reveal key={project.slug} delay={60}>
+              <ProjectCard
+                project={project}
+                index={index}
+                total={projects.length}
+                locale={locale}
+                labels={{
+                  liveSite: dict.common.liveSite,
+                  github: dict.common.github,
+                  caseStudy: dict.common.caseStudy,
+                  featured: dict.common.featured,
+                  outcomes: dict.projects.outcomesLabel,
+                }}
+              />
+            </Reveal>
           ))}
         </div>
       </Container>

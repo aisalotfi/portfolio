@@ -1,187 +1,210 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { m, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { useDict, useLocale } from "@/i18n/LocaleProvider";
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import type { Dictionary, Locale } from "@/i18n";
 
-export function Navbar() {
-  const dict = useDict();
+interface NavbarProps {
+  locale: Locale;
+  dict: Dictionary;
+}
+
+export function Navbar({ locale, dict }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const { locale } = useLocale();
-  const rafRef = useRef<number>(0);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const base = `/${locale}`;
-  const navItems = useMemo(() => [
-    { label: dict.nav.about,      href: `${base}#about` },
-    { label: dict.nav.work,       href: `${base}#projects` },
-    { label: dict.nav.process,    href: `${base}#process` },
-    { label: dict.nav.experience, href: `${base}#timeline` },
-    { label: dict.nav.contact,    href: `${base}#contact` },
-    { label: dict.nav.resume,     href: `${base}/resume` },
-  ], [dict, base]);
+  const navItems = [
+    { id: "projects", label: dict.nav.work },
+    { id: "experience", label: dict.nav.experience },
+    { id: "skills", label: dict.nav.skills },
+    { id: "about", label: dict.nav.about },
+    { id: "contact", label: dict.nav.contact },
+  ];
 
+  // Track scroll position for the compact background — one passive
+  // listener, state only flips when the boolean actually changes.
   useEffect(() => {
-    const handleScroll = () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 50);
-
-        const sections = navItems.map((item) => {
-          const hashIndex = item.href.indexOf("#");
-          return hashIndex !== -1 ? item.href.slice(hashIndex + 1) : "";
-        }).filter(Boolean);
-        const current = sections.find((id) => {
-          const el = document.getElementById(id);
-          if (!el) return false;
-          const rect = el.getBoundingClientRect();
-          return rect.top <= 200 && rect.bottom >= 200;
-        });
-        if (current) setActiveSection(current);
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      setScrolled((prev) => {
+        const next = window.scrollY > 50;
+        return prev === next ? prev : next;
       });
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
     };
-  }, [navItems]);
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      el?.scrollIntoView({ behavior: "smooth" });
-    } else if (href.includes("#")) {
-      window.location.href = href;
-    } else {
-      window.location.href = href;
-    }
-  };
+  // Active-section highlighting via IntersectionObserver (no per-frame work).
+  useEffect(() => {
+    const sections = navItems
+      .map(({ id }) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const visible = new Map<string, number>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.set(entry.target.id, entry.intersectionRatio);
+          else visible.delete(entry.target.id);
+        }
+        if (visible.size > 0) {
+          const top = [...visible.entries()].sort((a, b) => b[1] - a[1])[0][0];
+          setActiveSection((prev) => (prev === top ? prev : top));
+        } else {
+          setActiveSection((prev) => (prev === "" ? prev : ""));
+        }
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.25, 0.5] },
+    );
+    sections.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
+
+  // Close the mobile menu with Escape and lock background scrolling.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = overflow;
+    };
+  }, [mobileOpen]);
+
+  const base = `/${locale}`;
 
   return (
-    <>
-      <m.header
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-out-expo",
-          scrolled
-            ? "border-b border-border-subtle bg-near-black/55 backdrop-blur-md backdrop-saturate-100 lg:backdrop-blur-2xl lg:backdrop-saturate-150 shadow-[0_1px_0_rgba(255,255,255,0.05),0_20px_50px_-20px_rgba(0,0,0,0.6)]"
-            : "bg-transparent",
-        )}
-      >
-        <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between gap-4 px-6 md:px-12 lg:px-24">
-          {/* Wordmark */}
-          <m.a
-            href="#"
-            className="group flex items-center gap-2.5 text-sm tracking-[0.25em] uppercase shrink-0"
-            whileHover={{ opacity: 0.85 }}
-          >
-            <span className="relative inline-block h-2 w-2">
-              <span className="absolute inset-0 rounded-full bg-accent" />
-              <span className="absolute inset-0 rounded-full bg-accent blur-[6px] opacity-70 animate-pulse-glow" />
-            </span>
-            <span className="font-display text-[15px] italic tracking-[0.04em] text-soft-white transition-colors group-hover:text-warm-white">
-              {dict.nav.portfolio}
-            </span>
-          </m.a>
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-40 transition-all duration-500",
+        scrolled || mobileOpen
+          ? "border-b border-border-subtle bg-near-black/70 shadow-[0_1px_0_rgba(255,255,255,0.04),0_16px_40px_-24px_rgba(0,0,0,0.6)] backdrop-blur-md"
+          : "bg-transparent",
+      )}
+    >
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-3 px-5 md:h-20 md:px-12 lg:px-24">
+        {/* Wordmark → home */}
+        <a
+          href={`${base}#hero`}
+          className="group flex shrink-0 items-center gap-2.5"
+          aria-label={dict.nav.name}
+        >
+          <span className="relative inline-block h-2 w-2">
+            <span className="absolute inset-0 rounded-full bg-accent" />
+            <span className="absolute inset-0 rounded-full bg-accent opacity-60 blur-[5px]" />
+          </span>
+          <span className="font-display text-[15px] italic tracking-[0.04em] text-soft-white transition-colors group-hover:text-warm-white">
+            {dict.nav.name}
+          </span>
+        </a>
 
-          {/* Desktop nav — glass pill */}
-          <nav className="hidden md:block">
-            <div className="glass flex items-center gap-1 rounded-full px-2 py-1.5">
-              {navItems.map((item) => {
-                const sectionId = item.href.includes("#") ? item.href.split("#")[1] : "";
-                const isActive = activeSection === sectionId;
-                return (
-                  <button
-                    key={item.href}
-                    onClick={() => handleNavClick(item.href)}
-                    className={cn(
-                      "relative rounded-full px-4 py-1.5 text-[11px] tracking-[0.18em] uppercase transition-colors duration-500",
-                      isActive
-                        ? "text-near-black"
-                        : "text-charcoal-200 hover:text-soft-white",
-                    )}
-                  >
-                    <span className="relative z-10">{item.label}</span>
-                    {isActive && (
-                      <m.span
-                        layoutId="nav-indicator"
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(135deg, #ECC892 0%, #D4A574 100%)",
-                          boxShadow:
-                            "0 4px 16px -4px rgba(212,165,116,0.6), inset 0 1px 0 rgba(255,255,255,0.4)",
-                        }}
-                        transition={{ type: "spring", stiffness: 350, damping: 32 }}
-                      />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </nav>
-
-          {/* Right cluster: language + mobile burger */}
-          <div className="flex items-center gap-3">
-            <LocaleSwitcher />
-
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-border-medium bg-surface-glass backdrop-blur-sm lg:backdrop-blur-md md:hidden"
-              aria-label={dict.nav.toggleMenu}
-            >
-              <m.span
-                animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                className="h-px w-4 bg-soft-white"
-              />
-              <m.span
-                animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-                className="h-px w-4 bg-soft-white"
-              />
-              <m.span
-                animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-                className="h-px w-4 bg-soft-white"
-              />
-            </button>
+        {/* Desktop nav (lg+ — German/Persian labels overflow below ~1000px) */}
+        <nav aria-label={dict.footer.navigate} className="hidden lg:block">
+          <div className="glass flex items-center gap-1 rounded-full px-2 py-1.5">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                aria-current={activeSection === item.id ? "true" : undefined}
+                className={cn(
+                  "relative rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.14em] transition-colors duration-300",
+                  activeSection === item.id
+                    ? "text-near-black"
+                    : "text-charcoal-200 hover:text-soft-white",
+                )}
+              >
+                {activeSection === item.id && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 rounded-full animate-nav-pill"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(135deg, #ECC892 0%, #D4A574 100%)",
+                      boxShadow:
+                        "0 4px 16px -4px rgba(212,165,116,0.5), inset 0 1px 0 rgba(255,255,255,0.35)",
+                    }}
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
+              </a>
+            ))}
           </div>
-        </div>
-      </m.header>
+        </nav>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <m.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 flex items-center justify-center bg-near-black/95 backdrop-blur-md md:backdrop-blur-2xl md:hidden"
+        {/* Right cluster: language + burger */}
+        <div className="flex items-center gap-2">
+          <LocaleSwitcher locale={locale} />
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            aria-label={dict.nav.toggleMenu}
+            className="glass relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full lg:hidden"
           >
-            <nav className="flex flex-col items-center gap-7">
-              {navItems.map((item, i) => (
-                <m.button
-                  key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                  onClick={() => handleNavClick(item.href)}
-                  className="font-display text-3xl italic tracking-tight text-soft-white/85 hover:text-warm-white transition-colors"
-                >
-                  {item.label}
-                </m.button>
-              ))}
-            </nav>
-          </m.div>
-        )}
-      </AnimatePresence>
-    </>
+            <span
+              className={cn(
+                "h-px w-4 bg-soft-white transition-transform duration-300",
+                mobileOpen && "translate-y-[3px] rotate-45",
+              )}
+            />
+            <span
+              className={cn(
+                "h-px w-4 bg-soft-white transition-opacity duration-300",
+                mobileOpen && "opacity-0",
+              )}
+            />
+            <span
+              className={cn(
+                "h-px w-4 bg-soft-white transition-transform duration-300",
+                mobileOpen && "-translate-y-[3px] -rotate-45",
+              )}
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <nav
+          id="mobile-menu"
+          aria-label={dict.footer.navigate}
+          className="flex flex-col gap-1 border-t border-border-subtle bg-near-black/95 px-6 pb-8 pt-4 backdrop-blur-md animate-mobile-menu lg:hidden"
+        >
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={() => setMobileOpen(false)}
+              className="rounded-xl px-4 py-3 font-display text-xl text-soft-white/90 transition-colors hover:bg-white/5 hover:text-warm-white"
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href={`${base}/resume`}
+            onClick={() => setMobileOpen(false)}
+            className="mt-2 rounded-xl border border-border-medium px-4 py-3 text-center text-[12px] uppercase tracking-[0.15em] text-accent-light"
+          >
+            {dict.nav.resume}
+          </a>
+        </nav>
+      )}
+    </header>
   );
 }

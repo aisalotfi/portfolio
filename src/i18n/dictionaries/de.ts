@@ -2,335 +2,227 @@ import type { Dictionary } from "../types";
 
 const de: Dictionary = {
   meta: {
-    title: "Aisa Lotfi — Webentwicklerin",
+    title: "Aisa Lotfi | Full-Stack-Web- und Mobile-Entwickler",
     description:
-      "Frontend-orientierte Webentwicklerin mit Fokus auf React, Next.js und TypeScript.",
+      "Full-Stack-Web- und Mobile-Entwickler – moderne, skalierbare Produkte vom Interface bis zum Backend mit React, Next.js, React Native, Node.js und PostgreSQL. Fokus auf Performance, saubere Architektur und durchdachte User Experience.",
     keywords:
-      "Frontend-Entwicklerin, React-Entwicklerin, Next.js-Entwicklerin, Webentwicklerin, TypeScript, Iran, Portfolio, Junior-Entwicklerin, UI-Entwicklerin, Aisa Lotfi",
+      "Full-Stack-Entwickler, Webentwickler, Mobile Developer, React Entwickler, Next.js Entwickler, NestJS, React Native, TypeScript, PostgreSQL, Supabase, Aisa Lotfi",
   },
 
   nav: {
-    about: "Über mich",
     work: "Arbeiten",
-    process: "Vorgehen",
     experience: "Erfahrung",
+    skills: "Skills",
+    about: "Über mich",
     contact: "Kontakt",
-    portfolio: "Aisa Lotfi",
-    toggleMenu: "Menü öffnen/schließen",
+    name: "Aisa Lotfi",
+    toggleMenu: "Menü umschalten",
     resume: "Lebenslauf",
   },
 
   common: {
-    scroll: "Scrollen",
-    selected: "Ausgewählt",
-    outcomes: "Ergebnisse",
-    role: "Rolle",
-    duration: "Dauer",
-    of: "von",
-    switchLanguage: "Sprache wechseln",
-    liveSite: "Live-Website",
+    skipToContent: "Zum Inhalt springen",
+    liveSite: "Live ansehen",
     github: "GitHub",
-    caseStudy: "Fallstudie",
-    step: "Schritt",
-    layer: "Ebene",
+    caseStudy: "Case Study",
+    featured: "Ausgewählt",
   },
 
   hero: {
-    badge: "Für Projekte offen",
-    title: "Webentwickler · Informatik-Student",
-    line1: "Moderne",
-    line2: "Weboberflächen",
-    line3: "mit React",
-    line3After: "& Next.js.",
-    description:
-      "Webentwicklerin und Informatikstudentin. An den meisten Tagen lerne, baue und verbessere ich Dinge, die im Web leben.",
-    cta1: "Meine Arbeiten",
-    cta2: "Kontakt",
-    currentFocus: "Aktueller Fokus",
-    focusLine1: "React & Next.js",
-    focusLine2: "TypeScript — UI/UX",
-    opportunity: "Möglichkeiten",
-    dash: "—",
-    opportunityDesc: "Auf der Suche nach Frontend-Projekten",
-    stats: {
-      yearsOfCraft: "Jahre aktiv",
-      shippedProducts: "Reale Projekte",
-      industriesServed: "Branchen",
-    },
-  },
-
-  about: {
-    headline: "Über mich",
-    subheadline: "Webentwicklerin · Informatik-Studentin",
-    bio1:
-      "Ich bin Aisa Lotfi, Informatikstudentin und Webentwicklerin. Ich baue Benutzeroberflächen mit React und Next.js — und versuche, Dinge einfach und funktional zu halten.",
-    bio2:
-      "Für mich ist Programmieren eine Mischung aus Logik und Kreativität. Jedes Projekt bringt mich weiter, und jeden Tag versuche ich, ein bisschen besser zu sein als gestern.",
-    bio3:
-      "Mein Fokus liegt auf Frontend, aber ich mag es, das große Ganze der Webentwicklung zu sehen. Eines habe ich immer im Kopf: Einfachheit ist das Wertvollste im Design.",
-    quote: "~ Code ist Handwerk.",
-    disciplines: {
-      title: "Disziplinen",
-      items: [
-        "React & Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "JavaScript",
-        "HTML & CSS",
-        "Node.js",
-        "Git",
-        "UI/UX",
-      ],
-    },
-    principles: {
-      title: "Grundsätze",
-      items: [
-        "Sauberer Code — lesbar, wartbar, ehrlich.",
-        "Stetiges Lernen — jeden Tag ein Schritt weiter.",
-        "Klare Kommunikation — verstehen, bevor man baut.",
-      ],
-    },
+    badge: "Verfügbar",
+    name: "Aisa Lotfi",
+    role: "Full-Stack-Web- und Mobile-Entwickler",
+    tagline:
+      "Ich entwickle moderne, skalierbare Web- und Mobile-Produkte – vom Interface bis zum Backend – mit Fokus auf Performance, saubere Architektur und durchdachte User Experience.",
+    ctaWork: "Projekte ansehen",
+    ctaContact: "Kontakt aufnehmen",
+    socialsLabel: "Zu finden auf",
+    facts: [
+      { value: "Web + Mobile", label: "Produktplattformen" },
+      { value: "1 Jahr", label: "Praktikum in der Industrie" },
+      { value: "Hamedan, IR", label: "UTC+3:30 · Remote" },
+    ],
   },
 
   projects: {
     sectionLabel: "Ausgewählte Arbeiten",
-    headline1: "Aktuelle",
+    headline1: "Ausgewählte",
     headline2: "Projekte.",
     description:
-      "Projekte, an denen ich gearbeitet habe — einige echte Aufträge, einige zum Lernen. Jedes hat seine eigene Geschichte.",
-    yearRange: "Auswahl · 2024 — 26",
+      "Echte Produkte und fokussierte persönliche Projekte – von Kundenwebsites bis zu Full-Stack-Anwendungen.",
+    outcomesLabel: "Ergebnisse",
   },
 
-  process: {
+  experience: {
+    sectionLabel: "Berufserfahrung",
     headline1: "Mein",
-    headline2: "Vorgehen.",
+    headline2: "Werdegang.",
     description:
-      "Ein unkomplizierter Prozess. Vom ersten Gespräch bis zur Auslieferung — klar und strukturiert.",
-    steps: [
+      "Praxiserfahrung in der Entwicklung echter Software in einem professionellen Umfeld.",
+    items: [
       {
-        title: "Gespräch",
-        text: "Zuerst höre ich zu. Ihre Anforderungen, Zielgruppe und Erwartungen helfen uns, die richtige Richtung zu finden.",
+        role: "Praktikum als Full-Stack-Entwickler",
+        company: "Shabakeh Avin Radin",
+        organization: "Technologiepark Hamedan",
+        period: "1 Jahr",
+        description:
+          "Einjähriges Praktikum in der Full-Stack-Webentwicklung – Mitarbeit an Produktivsoftware über Interface, Anwendungslogik und Datenschicht hinweg.",
       },
       {
-        title: "Planung",
-        text: "Basierend auf den Anforderungen plane ich Struktur und Design. Prototypen stellen sicher, dass wir vor dem Coding einer Meinung sind.",
-      },
-      {
-        title: "Entwicklung",
-        text: "Ich entwickle mit React und Next.js. Sauber, modular und mit Fokus auf Leistung und Benutzererfahrung.",
-      },
-      {
-        title: "Auslieferung",
-        text: "Das Projekt wird ausgeliefert und auf Funktion geprüft. Support und Fehlerbehebung nach der Übergabe inklusive.",
+        role: "Freelance-Webentwickler",
+        company: "Selbstständig",
+        period: "2025 — Heute",
+        description:
+          "Kunden- und Eigenprojekte von A bis Z. Konzeption, Umsetzung und Launch der offiziellen Website für Sadaf Stone mit Next.js und Tailwind CSS.",
       },
     ],
   },
 
-  engineering: {
-    headline1: "Engineering,",
-    headline2: "als Handwerk.",
+  skills: {
+    sectionLabel: "Technische Skills",
+    headline1: "Womit ich",
+    headline2: "baue.",
     description:
-      "Coding ist nicht nur Zeilen schreiben — es ist das Bauen eines sauberen, qualitativ hochwertigen Produkts.",
-    aggregate: "Übersicht",
-    metrics: [
-      { value: "85+", label: "Performance" },
-      { value: "92+", label: "Accessibility" },
-      { value: "88+", label: "Best Practices" },
-      { value: "95+", label: "SEO" },
+      "Ein Überblick über die Technologien und Praktiken, mit denen ich in der Web-, Backend- und Mobile-Entwicklung arbeite.",
+    coreLabel: "Kern-Stack",
+    coreStack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "NestJS",
+      "React Native",
+      "PostgreSQL",
+      "Docker",
     ],
-    pillars: [
-      {
-        title: "Sauberer Code",
-        text: "Lesbar, modular, wartbar. Code, der auch nach Monaten noch verständlich ist.",
-      },
-      {
-        title: "Benutzererfahrung",
-        text: "Intuitive Oberflächen, die keiner Erklärung bedürfen.",
-      },
-      {
-        title: "Performance",
-        text: "Schnelle Ladezeiten, optimierte Bundles, SSR mit Next.js.",
-      },
-      {
-        title: "Responsives Design",
-        text: "Funktioniert auf jedem Gerät — vom Smartphone bis zum 4K-Monitor.",
-      },
-      {
-        title: "Barrierefreiheit",
-        text: "Das Web sollte für alle funktionieren. Grundlegende Accessibility-Prinzipien.",
-      },
-      {
-        title: "Moderne Werkzeuge",
-        text: "TypeScript, Tailwind, Framer Motion — Werkzeuge, die Freude am Coding machen.",
-      },
-    ],
-  },
-
-  fullstack: {
-    headline1: "Von der Datenbank",
-    headline2: "zum Browser.",
-    description:
-      "Mein Fokus liegt auf Frontend, aber ich verstehe den gesamten Webentwicklungs-Stack.",
-    layers: [
-      {
-        title: "UI-Ebene",
-        text: "React und Next.js für moderne, responsive Oberflächen.",
-      },
-      {
-        title: "API-Ebene",
-        text: "REST-APIs mit Node.js — Verbindung zwischen Frontend und Backend.",
-      },
-      {
-        title: "Datenebene",
-        text: "Datenbank-Grundlagen und Arbeit mit strukturierten Daten.",
-      },
-      {
-        title: "Bereitstellung",
-        text: "Erfahrung mit Vercel und grundlegenden Deployment-Konzepten.",
-      },
-    ],
-  },
-
-  techStack: {
-    title: "Technologien",
-    subtitle: "mit denen ich arbeite.",
     categories: [
       {
-        name: "Frontend",
-        items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS"],
+        key: "frontend",
+        items: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS",
+          "Responsive Webdesign",
+          "RTL-Oberflächen",
+          "Komponentenbasierte Architektur",
+        ],
       },
       {
-        name: "Werkzeuge",
-        items: ["Git & GitHub", "VS Code", "Figma", "Vercel"],
+        key: "backend",
+        items: [
+          "Node.js",
+          "NestJS",
+          "REST-APIs",
+          "Supabase",
+          "Authentifizierung",
+          "Autorisierung",
+          "API-Integration",
+          "Serverless Functions",
+          "Edge Functions",
+        ],
       },
       {
-        name: "In Bearbeitung",
-        items: ["Node.js", "PostgreSQL", "Docker"],
-      },
-    ],
-  },
-
-  currentFocusSection: {
-    title: "Aktueller Fokus",
-    description: "Woran ich arbeite und meine Fähigkeiten vertiefe.",
-    items: [
-      "Fortgeschrittene React Patterns",
-      "Next.js Architektur",
-      "TypeScript vertiefen",
-      "Frontend Performance Optimierung",
-      "Barrierefreie UI-Entwicklung",
-      "Backend Grundlagen",
-    ],
-  },
-
-  openToWork: {
-    title: "Offen für Projekte",
-    description: "Auf der Suche nach neuen Frontend-Möglichkeiten.",
-    roles: [
-      "Frontend-Entwicklerin",
-      "React-Entwicklerin",
-      "Next.js Projekte",
-      "Freiberufliche Arbeit",
-      "Remote-Möglichkeiten",
-    ],
-    availability: "Jetzt verfügbar — kontaktieren Sie mich",
-  },
-
-  featuredProject: {
-    title: "Referenzprojekt",
-    subtitle: "Sadaf Stone",
-    description:
-      "Offizielle Website der Sadaf Stone GmbH — entwickelt mit Next.js und Tailwind CSS. Modernes Design, hohe Leistung, flüssige UX.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    liveLink: "https://sadafstonee.ir",
-  },
-
-  caseStudy: {
-    projectOverview:
-      "Die offizielle Website der Sadaf Stone GmbH ist ein reales Projekt für ein Unternehmen der Natursteinbranche. Die Website wurde entwickelt, um Produkte und Dienstleistungen professionell zu präsentieren.",
-    problem:
-      "Dem Unternehmen fehlte eine professionelle Website zur Präsentation ihrer Produkte und Kundenkommunikation. Die vorherige Seite war veraltet, nicht responsiv und optisch unattraktiv.",
-    solution:
-      "Eine moderne Website wurde mit Next.js und Tailwind CSS entwickelt. Der Fokus lag auf Geschwindigkeit, Responsivität und professioneller Produktpräsentation.",
-    responsibilities: [
-      "Komplettes UI-Design und -Implementierung",
-      "Frontend-Architektur mit Next.js",
-      "Performance- und SEO-Optimierung",
-      "Vercel Deployment",
-    ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    challenges: [
-      {
-        title: "Produktgalerie",
-        text: "Entwicklung einer schnell ladenden, optisch ansprechenden Bildergalerie für Steinproduktfotos.",
+        key: "database",
+        items: [
+          "PostgreSQL",
+          "SQLite",
+          "SQL",
+          "Datenbankdesign",
+          "Datenmodellierung",
+          "Lokale Datenpersistenz",
+        ],
       },
       {
-        title: "Responsivität",
-        text: "Sicherstellung der optimalen Darstellung auf allen Geräten bei hochwertigen Produktbildern.",
+        key: "mobile",
+        items: [
+          "React Native",
+          "Expo",
+          "Expo Router",
+          "Android-Entwicklung",
+          "Responsive Mobile Interfaces",
+          "Offline-First-Anwendungen",
+        ],
       },
       {
-        title: "SEO",
-        text: "Suchmaschinenoptimierung mit Next.js SSR-Funktionen.",
+        key: "devops",
+        items: [
+          "Docker",
+          "Git",
+          "GitHub",
+          "Vercel",
+          "Supabase CLI",
+          "Deployment-Workflows",
+          "Environment-Konfiguration",
+        ],
+      },
+      {
+        key: "design",
+        items: [
+          "Figma",
+          "UI-Design",
+          "UX-Design",
+          "Designsysteme",
+          "Wireframing",
+          "Prototyping",
+          "Produktdenken",
+        ],
+      },
+      {
+        key: "practices",
+        items: [
+          "Debugging",
+          "Performance-Optimierung",
+          "SEO-Grundlagen",
+          "Barrierefreiheit",
+          "Sauberer Code",
+          "Wiederverwendbare Komponenten",
+          "Versionskontrolle",
+        ],
       },
     ],
-    outcome:
-      "Die Website wurde erfolgreich mit positiver Rückmeldung des Kunden gestartet. Kurze Ladezeiten und modernes Design waren die Hauptstärken.",
-    lessonsLearned: [
-      "Erfahrung mit einem kompletten End-to-End-Projekt",
-      "Praktische Herausforderungen bei Deployment und Domain-Einrichtung",
-      "Bedeutung klarer Kommunikation mit dem Kunden",
-      "Zeitmanagement und termingerechte Lieferung",
+  },
+
+  about: {
+    sectionLabel: "Über mich",
+    headline: "Vom Interface bis zur Datenbank – Schicht für Schicht.",
+    subheadline: "Full-Stack-Web- und Mobile-Entwickler",
+    bio: [
+      "Ich bin Aisa Lotfi, Full-Stack-Web- und Mobile-Entwickler. Ich begleite Produkte vom Interface über die Anwendungslogik bis zum Backend, zur Datenbank und zum Deployment – und es ist mir wichtig, wie diese Schichten zusammenspielen.",
+      "Mein Fokus liegt auf Benutzerfreundlichkeit, Performance und sauberer Architektur: wartbarer Code, Oberflächen, die sich schnell anfühlen, und Produkte, die ein echtes Problem lösen statt nur Funktionen zu zeigen.",
+      "Neben einem Jahr Berufspraktikum studiere ich Computer Engineering und entwickle kontinuierlich weiter – Kundenprojekte, eigene Produkte und den ständigen Ausbau meiner Werkzeuge.",
     ],
-  },
-
-  testimonials: {
-    title: "Referenzen",
-    subtitle: "Was andere sagen",
-    placeholder: "In Kürze...",
-  },
-
-  githubCta: {
-    title: "Code auf GitHub",
-    description:
-      "Alle Projekte sind auf GitHub verfügbar. Sauberer Code, dokumentiert und einsehbar.",
-    button: "GitHub ansehen",
-  },
-
-  timeline: {
-    headline1: "Mein",
-    headline2: "bisheriger",
-    headline3: "Weg.",
-    description:
-      "Vom Erlernen der Grundlagen bis zu ersten Projekten — jeder Schritt hat mich weitergebracht.",
-    currentRole: "Webentwicklerin — Freiberuflich — 2025 — Heute",
-    currentRoleDescription:
-      "Beginn der professionellen Frontend-Tätigkeit. Schwerpunkt auf React und Next.js für moderne Benutzeroberflächen.",
-    currentRoleAchievements: [
-      "Entwicklung und Launch der offiziellen Website für Sadaf Stone",
-      "Mehrere persönliche Projekte zur Präsentation der Fähigkeiten",
-      "Fundierte Erfahrung mit React, Next.js und TypeScript",
-    ],
-  },
-
-  buildLog: {
-    title: "Entwicklungslog",
-    description: "Regelmäßige Updates zu Projekten und Lernfortschritt.",
-    entries: [
-      { date: "Juni 2026", text: "Portfolio-Redesign gestartet" },
-      { date: "Mai 2026", text: "Sadaf Stone Website gestartet" },
-      { date: "April 2026", text: "Fortgeschrittenes TypeScript-Lernen begonnen" },
-      { date: "März 2026", text: "E-Commerce-Projekt abgeschlossen" },
-    ],
+    quote: "~ Einfache, ehrliche Ingenieursarbeit.",
+    disciplines: {
+      title: "Wobei ich helfen kann",
+      items: [
+        "Webanwendungen",
+        "Mobile Apps",
+        "REST-APIs & Backends",
+        "Datenbanken",
+        "UI-Umsetzung",
+        "Deployment",
+      ],
+    },
+    principles: {
+      title: "Arbeitsprinzipien",
+      items: [
+        "Klarheit zuerst – lesbarer Code und ehrliche Einschätzungen.",
+        "Performance ist ein Feature, kein Nachgedanke.",
+        "Das Problem verstehen, bevor Code geschrieben wird.",
+      ],
+    },
   },
 
   contact: {
-    headline1: "Hast du eine",
-    headline2: "Idee?",
-    headline3: "Lass uns",
-    headline4: "darüber sprechen.",
-    badge: "Für Projekte offen",
+    headline1: "Bauen wir etwas",
+    headline2: "Großes.",
+    badge: "Verfügbar",
     description:
-      "Für Zusammenarbeit, neue Projekte oder einfach nur ein freundliches Gespräch — kontaktieren Sie mich gerne per E-Mail oder über soziale Medien.",
+      "Für Festanstellungen, Freelance-Projekte oder Kollaborationen – melden Sie sich per E-Mail oder über das untenstehende Formular. Ich antworte in der Regel innerhalb von 24 Stunden.",
     formTitle: "Nachricht senden",
     fields: {
       name: "Ihr Name",
@@ -339,12 +231,15 @@ const de: Dictionary = {
     },
     placeholders: {
       name: "Wie heißen Sie?",
-      email: "E-Mail oder Telefon",
-      message: "Erzählen Sie von Ihrem Projekt...",
+      email: "E-Mail-Adresse",
+      message: "Erzählen Sie mir von Ihrem Projekt oder Ihrer Rolle...",
     },
     submit: "Nachricht senden",
+    sending: "Wird gesendet...",
+    sent: "Nachricht erfolgreich gesendet!",
+    error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     info: {
-      connect: "Vernetzen",
+      connect: "Kontakt",
       studio: "Info",
       location: "Standort",
       timezone: "Zeitzone",
@@ -354,63 +249,107 @@ const de: Dictionary = {
     details: {
       location: "Hamedan, Iran",
       timezone: "UTC+3:30 (IRST)",
-      response: "Innerhalb 24h",
-      languages: "DE · EN · FA",
+      response: "Innerhalb von 24 Std.",
+      languages: "EN · FA · DE",
     },
     social: {
       github: "GitHub",
       linkedin: "LinkedIn",
-      email: "E-Mail",
+      email: "hello@aisalotfi.ir",
     },
-    resumeDownload: "Lebenslauf",
-    closingLine1: "Eine Nachricht kann der Beginn von etwas Großem sein.",
-    closingLine2: "Ich freue mich auf Ihre Nachricht.",
+    resumeCta: "Lebenslauf ansehen",
+    closingLine: "Eine einzelne Nachricht kann den Anfang von etwas Großem sein.",
+  },
+
+  caseStudy: {
+    backToProjects: "Zurück zu den Projekten",
+    overviewLabel: "Überblick",
+    problemLabel: "Problem",
+    solutionLabel: "Lösung",
+    responsibilitiesLabel: "Meine Rolle",
+    techStackLabel: "Technologien",
+    challengesLabel: "Herausforderungen",
+    outcomeLabel: "Ergebnis",
+    lessonsLabel: "Erkenntnisse",
   },
 
   notFound: {
     title: "Seite nicht gefunden",
-    description: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    description:
+      "Die gesuchte Seite existiert nicht oder wurde verschoben.",
     cta: "Zurück zur Startseite",
   },
 
   resumePage: {
     meta: {
-      title: "Lebenslauf — Aisa Lotfi",
-      description: "Lebenslauf von Aisa Lotfi — Frontend-orientierte Webentwicklerin",
+      title: "Lebenslauf",
+      description:
+        "Lebenslauf von Aisa Lotfi – Full-Stack-Web- und Mobile-Entwickler (React, Next.js, NestJS, React Native, PostgreSQL).",
     },
     introduction:
-      "Frontend-orientierte Webentwicklerin und Informatikstudentin. Praktische Erfahrung in der Entwicklung moderner Anwendungen mit React und Next.js.",
+      "Full-Stack-Web- und Mobile-Entwickler. Ein Jahr Berufspraktikum plus eigenständige Kundenprojekte – moderne Anwendungen vom Interface über das Backend bis zum Deployment.",
     backToHome: "Zurück zur Startseite",
     educationTitle: "Ausbildung",
     projectsTitle: "Projekte",
     experienceTitle: "Erfahrung",
-    skillsTitle: "Kenntnisse",
+    skillsTitle: "Skills",
     skillCategories: [
-      { name: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS"] },
-      { name: "Backend", items: ["Node.js", "Express", "REST API"] },
-      { name: "Datenbank", items: ["MongoDB", "PostgreSQL"] },
-      { name: "Werkzeuge", items: ["Git", "GitHub", "Vercel", "Figma", "VS Code"] },
+      {
+        key: "frontend",
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"],
+      },
+      {
+        key: "backend",
+        items: ["Node.js", "NestJS", "REST-APIs", "Supabase", "Authentifizierung"],
+      },
+      {
+        key: "database",
+        items: ["PostgreSQL", "SQLite", "SQL", "Datenmodellierung"],
+      },
+      {
+        key: "mobile",
+        items: ["React Native", "Expo", "Expo Router"],
+      },
+      {
+        key: "devops",
+        items: ["Docker", "Git", "GitHub", "Vercel"],
+      },
     ],
     education: {
-      degree: "B.Sc. Informatik",
-      school: "Universität — Hamedan",
-      year: "2022 — heute",
+      degree: "B.Sc. Computer Engineering",
+      school: "Hamedan",
+      year: "2022 — Heute",
     },
     projects: [
-      { name: "Sadaf Stone", tech: ["Next.js", "TypeScript", "Tailwind CSS"] },
-      { name: "E-Commerce", tech: ["React", "Node.js", "MongoDB"] },
+      { name: "Sadaf Stone – offizielle Firmenwebsite", tech: ["Next.js", "TypeScript", "Tailwind CSS"] },
+      { name: "E-Commerce-App", tech: ["React", "Node.js"] },
       { name: "Admin-Dashboard", tech: ["React", "TypeScript"] },
-      { name: "Anime-Website", tech: ["Next.js", "Tailwind CSS"] },
     ],
     experience: [
-      { role: "Webentwicklerin", period: "2025 — heute", description: "Freiberufliche Frontend-Entwicklung mit React und Next.js" },
+      {
+        role: "Praktikum als Full-Stack-Entwickler",
+        company: "Shabakeh Avin Radin – Technologiepark Hamedan",
+        period: "1 Jahr",
+        description:
+          "Full-Stack-Webentwicklung über Interface, Anwendungslogik und Datenschicht.",
+      },
+      {
+        role: "Freelance-Webentwickler",
+        company: "Selbstständig",
+        period: "2025 — Heute",
+        description:
+          "Kunden- und Eigenprojekte, darunter die offizielle Sadaf-Stone-Website.",
+      },
     ],
-    downloadCta: "Lebenslauf herunterladen (PDF)",
+    downloadNote:
+      "Drucken Sie diese Seite oder speichern Sie sie über Ihren Browser als PDF.",
   },
 
   footer: {
-    crafted: "Mit Sorgfalt gebaut",
+    crafted: "Design & Entwicklung von Aisa Lotfi",
     allRights: "Alle Rechte vorbehalten",
+    navigate: "Navigation",
+    elsewhere: "Anderswo",
   },
 };
 

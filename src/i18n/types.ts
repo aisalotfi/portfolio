@@ -1,3 +1,30 @@
+export interface FactItem {
+  value: string;
+  label: string;
+}
+
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  organization?: string;
+  period: string;
+  location?: string;
+  description: string;
+}
+
+export interface SkillCategory {
+  /** Translation key of the category — see skillCategories in data/skills.ts */
+  key:
+    | "frontend"
+    | "backend"
+    | "database"
+    | "mobile"
+    | "devops"
+    | "design"
+    | "practices";
+  items: string[];
+}
+
 export interface Dictionary {
   meta: {
     title: string;
@@ -5,156 +32,76 @@ export interface Dictionary {
     keywords: string;
   };
   nav: {
-    about: string;
     work: string;
-    process: string;
     experience: string;
+    skills: string;
+    about: string;
     contact: string;
-    portfolio: string;
+    name: string;
     toggleMenu: string;
     resume: string;
   };
   common: {
-    scroll: string;
-    selected: string;
-    outcomes: string;
-    role: string;
-    duration: string;
-    of: string;
-    switchLanguage: string;
+    skipToContent: string;
     liveSite: string;
     github: string;
     caseStudy: string;
-    step: string;
-    layer: string;
+    featured: string;
   };
   hero: {
     badge: string;
-    title: string;
-    line1: string;
-    line2: string;
-    line3: string;
-    line3After: string;
-    description: string;
-    cta1: string;
-    cta2: string;
-    currentFocus: string;
-    focusLine1: string;
-    focusLine2: string;
-    opportunity: string;
-    dash: string;
-    opportunityDesc: string;
-    stats: {
-      yearsOfCraft: string;
-      shippedProducts: string;
-      industriesServed: string;
-    };
-  };
-  about: {
-    headline: string;
-    subheadline: string;
-    bio1: string;
-    bio2: string;
-    bio3: string;
-    quote: string;
-    disciplines: { title: string; items: string[] };
-    principles: { title: string; items: string[] };
+    name: string;
+    role: string;
+    tagline: string;
+    ctaWork: string;
+    ctaContact: string;
+    socialsLabel: string;
+    facts: FactItem[];
   };
   projects: {
     sectionLabel: string;
     headline1: string;
     headline2: string;
     description: string;
-    yearRange: string;
+    outcomesLabel: string;
   };
-  process: {
+  experience: {
+    sectionLabel: string;
     headline1: string;
     headline2: string;
     description: string;
-    steps: { title: string; text: string }[];
+    items: ExperienceItem[];
   };
-  engineering: {
+  skills: {
+    sectionLabel: string;
     headline1: string;
     headline2: string;
     description: string;
-    aggregate: string;
-    metrics: { value: string; label: string }[];
-    pillars: { title: string; text: string }[];
+    coreLabel: string;
+    coreStack: string[];
+    categories: SkillCategory[];
   };
-  fullstack: {
-    headline1: string;
-    headline2: string;
-    description: string;
-    layers: { title: string; text: string }[];
-  };
-  techStack: {
-    title: string;
-    subtitle: string;
-    categories: { name: string; items: string[] }[];
-  };
-  currentFocusSection: {
-    title: string;
-    description: string;
-    items: string[];
-  };
-  openToWork: {
-    title: string;
-    description: string;
-    roles: string[];
-    availability: string;
-  };
-  featuredProject: {
-    title: string;
-    subtitle: string;
-    description: string;
-    techStack: string[];
-    liveLink: string;
-  };
-  caseStudy: {
-    projectOverview: string;
-    problem: string;
-    solution: string;
-    responsibilities: string[];
-    techStack: string[];
-    challenges: { title: string; text: string }[];
-    outcome: string;
-    lessonsLearned: string[];
-  };
-  testimonials: {
-    title: string;
-    subtitle: string;
-    placeholder: string;
-  };
-  githubCta: {
-    title: string;
-    description: string;
-    button: string;
-  };
-  timeline: {
-    headline1: string;
-    headline2: string;
-    headline3: string;
-    description: string;
-    currentRole: string;
-    currentRoleDescription: string;
-    currentRoleAchievements: string[];
-  };
-  buildLog: {
-    title: string;
-    description: string;
-    entries: { date: string; text: string }[];
+  about: {
+    sectionLabel: string;
+    headline: string;
+    subheadline: string;
+    bio: string[];
+    quote: string;
+    disciplines: { title: string; items: string[] };
+    principles: { title: string; items: string[] };
   };
   contact: {
     headline1: string;
     headline2: string;
-    headline3: string;
-    headline4: string;
     badge: string;
     description: string;
     formTitle: string;
     fields: { name: string; email: string; message: string };
     placeholders: { name: string; email: string; message: string };
     submit: string;
+    sending: string;
+    sent: string;
+    error: string;
     info: {
       connect: string;
       studio: string;
@@ -174,9 +121,19 @@ export interface Dictionary {
       linkedin: string;
       email: string;
     };
-    resumeDownload: string;
-    closingLine1: string;
-    closingLine2: string;
+    resumeCta: string;
+    closingLine: string;
+  };
+  caseStudy: {
+    backToProjects: string;
+    overviewLabel: string;
+    problemLabel: string;
+    solutionLabel: string;
+    responsibilitiesLabel: string;
+    techStackLabel: string;
+    challengesLabel: string;
+    outcomeLabel: string;
+    lessonsLabel: string;
   };
   notFound: {
     title: string;
@@ -186,19 +143,21 @@ export interface Dictionary {
   resumePage: {
     meta: { title: string; description: string };
     introduction: string;
-    skillsTitle: string;
-    skillCategories: { name: string; items: string[] }[];
     backToHome: string;
     educationTitle: string;
     projectsTitle: string;
     experienceTitle: string;
+    skillsTitle: string;
+    skillCategories: SkillCategory[];
     education: { degree: string; school: string; year: string };
     projects: { name: string; tech: string[] }[];
-    experience: { role: string; period: string; description: string }[];
-    downloadCta: string;
+    experience: ExperienceItem[];
+    downloadNote: string;
   };
   footer: {
     crafted: string;
     allRights: string;
+    navigate: string;
+    elsewhere: string;
   };
 }
