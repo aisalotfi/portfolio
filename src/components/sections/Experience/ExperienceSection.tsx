@@ -31,7 +31,7 @@ export function ExperienceSection({ locale, dict }: ExperienceSectionProps) {
           {dict.experience.items.map((item) => (
             <li key={item.role}>
               <Reveal>
-                <article className="glass group relative overflow-hidden rounded-3xl p-7 transition-colors duration-500 hover:border-accent/40 md:p-9">
+                <article className="glass group relative overflow-hidden rounded-3xl p-7 transition-[border-color,background-color,transform] duration-500 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.05] md:p-9">
                   <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
                     <div className="max-w-2xl">
                       <h3 className="font-display text-[22px] leading-tight tracking-[-0.01em] text-soft-white md:text-[26px]">

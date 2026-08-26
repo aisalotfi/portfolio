@@ -14,7 +14,7 @@ interface ContactFormProps {
   locale: string;
 }
 
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "xvgkkbql";
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "mppavvbw";
 
 export function ContactForm({
   formTitle,
@@ -73,7 +73,7 @@ export function ContactForm({
                 required
                 rows={4}
                 placeholder={placeholders[field]}
-                className="w-full resize-none rounded-xl border border-border-medium bg-white/[0.03] px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 transition-colors duration-300 focus:border-accent/60 focus:outline-none"
+                className="min-h-32 w-full resize-y rounded-xl border border-border-medium bg-white/[0.03] px-4 py-3.5 text-[16px] text-soft-white placeholder:text-charcoal-400 transition-[border-color,background-color,box-shadow] duration-300 hover:bg-white/[0.045] focus:border-accent/60 focus:bg-white/[0.05] focus:outline-none focus:shadow-[0_0_0_3px_rgba(212,165,116,0.08)] md:text-[14px]"
               />
             ) : (
               <input
@@ -83,7 +83,7 @@ export function ContactForm({
                 required
                 placeholder={placeholders[field]}
                 autoComplete={field === "email" ? "email" : "name"}
-                className="w-full rounded-xl border border-border-medium bg-white/[0.03] px-4 py-3 text-[14px] text-soft-white placeholder:text-charcoal-400 transition-colors duration-300 focus:border-accent/60 focus:outline-none"
+                className="min-h-12 w-full rounded-xl border border-border-medium bg-white/[0.03] px-4 py-3 text-[16px] text-soft-white placeholder:text-charcoal-400 transition-[border-color,background-color,box-shadow] duration-300 hover:bg-white/[0.045] focus:border-accent/60 focus:bg-white/[0.05] focus:outline-none focus:shadow-[0_0_0_3px_rgba(212,165,116,0.08)] md:text-[14px]"
               />
             )}
           </div>

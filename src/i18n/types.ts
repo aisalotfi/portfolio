@@ -121,6 +121,9 @@ export interface Dictionary {
       github: string;
       linkedin: string;
       email: string;
+      phone: string;
+      telegram: string;
+      whatsapp: string;
     };
     resumeCta: string;
     closingLine: string;

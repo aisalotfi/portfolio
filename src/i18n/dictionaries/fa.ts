@@ -45,11 +45,11 @@ const fa: Dictionary = {
   },
 
   projects: {
-    sectionLabel: "نمونه‌کارهای منتخب",
+    sectionLabel: "همه پروژه‌ها",
     headline1: "پروژه‌های",
     headline2: "شاخص.",
     description:
-      "محصول‌های واقعی و پروژه‌های شخصی متمرکز — از وب‌سایت‌های کارفرمایان تا اپلیکیشن‌های فول‌استک.",
+      "مجموعه پروژه‌های من؛ از محصولات فول‌استک و اپلیکیشن موبایل تا تجربه‌های رابط کاربری.",
     outcomesLabel: "دستاوردها",
   },
 
@@ -81,8 +81,8 @@ const fa: Dictionary = {
 
   skills: {
     sectionLabel: "مهارت‌های فنی",
-    headline1: "ابزارهایی که با آن‌ها",
-    headline2: "می‌سازم.",
+    headline1: "ابزار هایی که با آنها",
+    headline2: "کار میکنم",
     description:
       "مروری بر تکنولوژی‌ها و اصولی که در توسعه وب، بک‌اند و موبایل با آن‌ها کار می‌کنم.",
     coreLabel: "استک اصلی",
@@ -256,7 +256,10 @@ const fa: Dictionary = {
     social: {
       github: "گیت‌هاب",
       linkedin: "لینکدین",
-      email: "hello@aisalotfi.ir",
+      email: "aisalotfi2706@gmail.com",
+      phone: "+98 905 060 4955",
+      telegram: "تلگرام",
+      whatsapp: "واتساپ",
     },
     resumeCta: "مشاهده رزومه",
     closingLine: "یک پیام کافی است تا چیزی بزرگ شروع شود.",

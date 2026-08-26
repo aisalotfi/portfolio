@@ -31,10 +31,28 @@ function MailIcon() {
   );
 }
 
+function TelegramIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M21.8 3.2 18.6 20c-.2 1.2-.9 1.5-1.9.9l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.2 14l-4.7-1.5c-1-.3-1-1 .2-1.5L20.1 4c.9-.3 1.9.2 1.7-.8Z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2 22l5.3-1.5A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.9.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.3 0-.4.1-.6l.4-.5.2-.5c.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z" />
+    </svg>
+  );
+}
+
 const SOCIALS = [
   { href: "https://github.com/aisalotfi", labelKey: "github" as const, Icon: GitHubIcon },
   { href: "https://linkedin.com/in/aisalotfi", labelKey: "linkedin" as const, Icon: LinkedInIcon },
-  { href: "mailto:hello@aisalotfi.ir", labelKey: "email" as const, Icon: MailIcon },
+  { href: "mailto:aisalotfi2706@gmail.com", labelKey: "email" as const, Icon: MailIcon },
+  { href: "https://t.me/aisalotfi", labelKey: "telegram" as const, Icon: TelegramIcon },
+  { href: "https://wa.me/989050604955", labelKey: "whatsapp" as const, Icon: WhatsAppIcon },
 ];
 
 export function HeroSection({ locale, dict }: HeroSectionProps) {

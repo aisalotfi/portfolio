@@ -35,11 +35,38 @@ function MailIcon() {
   );
 }
 
+function PhoneIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <path d="M6.6 3.5 9 3l2 5-2.3 1.4a14.4 14.4 0 0 0 5.9 5.9L16 13l5 2 .5 2.4a3 3 0 0 1-3 3.6C10 20.5 3.5 14 3 5.5a3 3 0 0 1 3.6-3Z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function TelegramIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M21.8 3.2 18.6 20c-.2 1.2-.9 1.5-1.9.9l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.2 14l-4.7-1.5c-1-.3-1-1 .2-1.5L20.1 4c.9-.3 1.9.2 1.7-.8Z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2 22l5.3-1.5A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.9.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.3 0-.4.1-.6l.4-.5.2-.5c.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z" />
+    </svg>
+  );
+}
+
 export function ContactSection({ locale, dict }: ContactSectionProps) {
   const socials = [
     { href: "https://github.com/aisalotfi", label: dict.contact.social.github, Icon: GitHubIcon, external: true },
     { href: "https://linkedin.com/in/aisalotfi", label: dict.contact.social.linkedin, Icon: LinkedInIcon, external: true },
-    { href: "mailto:hello@aisalotfi.ir", label: dict.contact.social.email, Icon: MailIcon, external: false },
+    { href: "mailto:aisalotfi2706@gmail.com", label: dict.contact.social.email, Icon: MailIcon, external: false },
+    { href: "tel:+989050604955", label: dict.contact.social.phone, Icon: PhoneIcon, external: false },
+    { href: "https://t.me/aisalotfi", label: dict.contact.social.telegram, Icon: TelegramIcon, external: true },
+    { href: "https://wa.me/989050604955", label: dict.contact.social.whatsapp, Icon: WhatsAppIcon, external: true },
   ];
 
   return (

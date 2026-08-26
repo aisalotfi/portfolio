@@ -32,6 +32,8 @@ export interface Project {
     /** Internal path fragment, e.g. "sadaf-stone". */
     caseStudySlug?: string;
   };
+  /** Public path for the project's showcase image. */
+  coverImage?: string;
   gallery?: string[];
   /** Localized copy keyed by locale. */
   texts: Record<Locale, ProjectTexts>;
@@ -42,163 +44,224 @@ const projectList: Project[] = [
     slug: "sadaf-stone",
     accent: "copper",
     featured: true,
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "next-intl"],
     links: {
-      live: "https://sadafstonee.ir",
+      live: "https://sadafstonee.ir/fa",
       caseStudySlug: "sadaf-stone",
     },
+    coverImage: "/projects/sadaf-stone-portfolio-showcase.png",
     texts: {
       en: {
         title: "Sadaf Stone",
-        subtitle: "Official Company Site",
+        subtitle: "Multilingual Stone Commerce Platform",
         description:
-          "Official website for Sadaf Stone factory, showcasing natural stone products and services. Goal: help customers easily browse products and connect with the company. Result: a fast, responsive, professional site.",
+          "A multilingual B2B/B2C platform for an Iranian natural-stone manufacturer, combining a searchable product catalog, detailed stone specifications, quotation workflows, and international SEO.",
         results: [
-          "Launched official site with positive client feedback",
-          "Fast load times on mobile connections",
-          "Responsive design across all devices",
+          "Four-language RTL/LTR product experience",
+          "132 indexed catalog and content routes",
+          "Production website with tested quote workflows",
         ],
       },
       fa: {
         title: "سنگ صدف",
-        subtitle: "وب‌سایت رسمی شرکت",
+        subtitle: "پلتفرم چندزبانه صنعت سنگ",
         description:
-          "وب‌سایت رسمی کارخانه سنگ صدف برای نمایش محصولات و خدمات شرکت؛ تا مشتریان به‌راحتی محصولات را ببینند و با شرکت در ارتباط باشند. نتیجه: وب‌سایتی سریع، واکنش‌گرا و حرفه‌ای.",
+          "پلتفرم B2B و B2C کارخانه سنگ صدف برای معرفی و جست‌وجوی محصولات، نمایش مشخصات فنی سنگ‌ها، ثبت درخواست قیمت و حضور حرفه‌ای در بازارهای داخلی و بین‌المللی.",
         results: [
-          "راه‌اندازی وب‌سایت رسمی با بازخورد مثبت کارفرما",
-          "بارگذاری سریع روی اینترنت موبایل",
-          "طراحی واکنش‌گرا برای تمام دستگاه‌ها",
+          "تجربه چهارزبانه با پشتیبانی کامل RTL و LTR",
+          "۱۳۲ مسیر محتوایی و محصول قابل ایندکس",
+          "وب‌سایت عملیاتی با فرایند تست‌شده درخواست قیمت",
         ],
       },
       de: {
         title: "Sadaf Stone",
-        subtitle: "Offizielle Firmenwebsite",
+        subtitle: "Mehrsprachige Naturstein-Plattform",
         description:
-          "Offizielle Website des Natursteinwerks Sadaf Stone zur Präsentation von Produkten und Dienstleistungen. Ziel: Kunden einfache Produktsuche und Kontaktaufnahme ermöglichen. Ergebnis: eine schnelle, responsive und professionelle Seite.",
+          "Eine mehrsprachige B2B/B2C-Plattform für einen iranischen Natursteinhersteller mit durchsuchbarem Katalog, technischen Produktdaten, Angebotsanfragen und internationaler SEO-Struktur.",
         results: [
-          "Launch mit positiver Kundenrückmeldung",
-          "Schnelle Ladezeiten auch auf mobilen Verbindungen",
-          "Responsives Design für alle Geräte",
+          "Vier Sprachen mit vollständiger RTL/LTR-Unterstützung",
+          "132 indexierbare Produkt- und Inhaltsrouten",
+          "Produktive Website mit getesteten Angebotsabläufen",
         ],
       },
     },
   },
   {
-    slug: "ecommerce",
+    slug: "nova",
     accent: "amethyst",
-    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    technologies: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Prisma", "TanStack Query"],
+    links: {
+      live: "https://nova.aisalotfi.ir",
+      caseStudySlug: "nova",
+    },
+    coverImage: "/projects/nova-portfolio-showcase.png",
     texts: {
       en: {
-        title: "E-commerce App",
-        subtitle: "Personal Project",
+        title: "Nova",
+        subtitle: "Personal Productivity OS",
         description:
-          "A full e-commerce app with cart, auth, and admin panel. Built to practice frontend logic, state management, and API integration.",
+          "A full-stack productivity workspace that brings tasks, projects, calendar events, notes, habits, and recoverable focus sessions into one responsive command center with secure account isolation.",
         results: [
-          "Full cart system with React Context",
-          "API integration for product management",
-          "Responsive and user-friendly design",
+          "Unified six productivity workspaces",
+          "Secure rotating sessions and owner-scoped data",
+          "Responsive desktop and mobile experience",
         ],
       },
       fa: {
-        title: "فروشگاه اینترنتی",
-        subtitle: "پروژه شخصی",
+        title: "Nova",
+        subtitle: "سیستم‌عامل بهره‌وری شخصی",
         description:
-          "یک فروشگاه اینترنتی کامل با قابلیت سبد خرید، احراز هویت و پنل مدیریت. برای تمرین منطق فرانت‌اند، مدیریت state و ارتباط با API ساخته شد.",
+          "فضای کاری فول‌استک برای مدیریت یکپارچه وظایف، پروژه‌ها، تقویم، یادداشت‌ها، عادت‌ها و جلسات تمرکز بازیابی‌پذیر؛ با داشبورد واکنش‌گرا و جداسازی امن اطلاعات هر کاربر.",
         results: [
-          "سبد خرید کامل با React Context",
-          "اتصال به API برای مدیریت محصولات",
-          "طراحی ریسپانسیو و کاربرپسند",
+          "یکپارچه‌سازی شش فضای اصلی بهره‌وری",
+          "نشست‌های چرخشی امن و داده‌های مالک‌محور",
+          "تجربه کامل دسکتاپ و موبایل",
         ],
       },
       de: {
-        title: "E-Commerce-App",
-        subtitle: "Persönliches Projekt",
+        title: "Nova",
+        subtitle: "Persönliches Produktivitäts-OS",
         description:
-          "Ein vollständiger Online-Shop mit Warenkorb, Authentifizierung und Admin-Panel. Entwickelt, um Frontend-Logik, State-Management und API-Integration zu üben.",
+          "Ein Full-Stack-Arbeitsbereich für Aufgaben, Projekte, Kalender, Notizen, Gewohnheiten und wiederherstellbare Fokus-Sitzungen – mit responsivem Dashboard und sicherer Datentrennung pro Nutzer.",
         results: [
-          "Vollständiger Warenkorb mit React Context",
-          "API-Integration für die Produktverwaltung",
-          "Responsives und benutzerfreundliches Design",
+          "Sechs Produktivitätsbereiche in einem System",
+          "Sichere rotierende Sitzungen und besitzergebundene Daten",
+          "Responsive Desktop- und Mobile-Erfahrung",
         ],
       },
     },
   },
   {
-    slug: "admin-dashboard",
+    slug: "riora",
     accent: "sapphire",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+    technologies: ["React Native", "Expo", "TypeScript", "Expo SQLite", "Supabase", "Zustand"],
+    links: {
+      caseStudySlug: "riora",
+    },
+    coverImage: "/projects/riora-portfolio-showcase.png",
     texts: {
       en: {
-        title: "Admin Dashboard",
-        subtitle: "Personal Project",
+        title: "Riora",
+        subtitle: "Local-First Life Planner",
         description:
-          "An admin dashboard with live charts, user management, and settings. Built to practice implementing clean, functional UIs for complex data.",
+          "A calm, privacy-minded Android life planner for tasks, habits, journals, health, books, media, goals, and personal insights, designed around offline-first storage and natural Persian RTL interaction.",
         results: [
-          "Dashboard with live data and charts",
-          "Clean and professional interface",
-          "Dark mode and multiple views",
+          "40 routed screens across connected life worlds",
+          "420 automated and component tests passed",
+          "Production-signed Android APK and AAB",
         ],
       },
       fa: {
-        title: "داشبورد مدیریتی",
-        subtitle: "پروژه شخصی",
+        title: "Riora",
+        subtitle: "برنامه‌ریز جامع و محلی زندگی",
         description:
-          "داشبورد مدیریتی با نمودارهای زنده، مدیریت کاربران و تنظیمات. هدف: پیاده‌سازی رابط کاربری تمیز و کاربردی برای داده‌های پیچیده.",
+          "اپلیکیشن آرام و حریم‌خصوصی‌محور اندروید برای مدیریت کارها، عادت‌ها، ژورنال، سلامت، کتاب‌ها، رسانه، اهداف و بینش‌های شخصی؛ با ذخیره‌سازی آفلاین و تجربه طبیعی فارسی و RTL.",
         results: [
-          "داشبورد با داده‌های زنده و نمودار",
-          "رابط کاربری تمیز و حرفه‌ای",
-          "حالت تاریک و نمایش‌های مختلف",
+          "۴۰ مسیر کاربردی در دنیاهای به‌هم‌پیوسته زندگی",
+          "عبور موفق از ۴۲۰ تست خودکار و کامپوننتی",
+          "خروجی APK و AAB امضاشده برای اندروید",
         ],
       },
       de: {
-        title: "Admin-Dashboard",
-        subtitle: "Persönliches Projekt",
+        title: "Riora",
+        subtitle: "Local-First-Lebensplaner",
         description:
-          "Ein Admin-Dashboard mit Live-Diagrammen, Benutzerverwaltung und Einstellungen. Entwickelt, um saubere, funktionale Oberflächen für komplexe Daten umzusetzen.",
+          "Ein ruhiger, datenschutzorientierter Android-Lebensplaner für Aufgaben, Gewohnheiten, Journal, Gesundheit, Bücher, Medien, Ziele und persönliche Einblicke – offline-first und mit natürlicher persischer RTL-Bedienung.",
         results: [
-          "Dashboard mit Live-Daten und Diagrammen",
-          "Saubere und professionelle Benutzeroberfläche",
-          "Dark Mode und verschiedene Ansichten",
+          "40 Routen in verbundenen Lebensbereichen",
+          "420 bestandene Automatisierungs- und Komponententests",
+          "Produktionssignierte Android-APK und AAB",
         ],
       },
     },
   },
   {
-    slug: "anime-website",
+    slug: "rivana",
     accent: "emerald",
-    technologies: ["Next.js", "Tailwind CSS", "REST API"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Zustand"],
+    links: {
+      live: "https://rivana.aisalotfi.ir",
+      caseStudySlug: "rivana",
+    },
+    coverImage: "/projects/rivana-portfolio-showcase.png",
     texts: {
       en: {
-        title: "Anime Website",
-        subtitle: "Personal Project",
+        title: "Rivana",
+        subtitle: "Premium RTL Commerce",
         description:
-          "An anime search and info site using a public API. Built to practice working with external APIs and smooth browsing experiences.",
+          "A Persian luxury storefront for women's bags and accessories with variant-aware products, URL-driven discovery, wishlist and cart flows, and server-authoritative checkout, coupons, pricing, and inventory.",
         results: [
-          "Advanced search with filters",
-          "Detail pages with full info",
-          "Fast client-side navigation",
+          "30 products with variant-level inventory",
+          "Tamper-resistant server-side pricing and coupons",
+          "Transactional checkout with stock protection",
         ],
       },
       fa: {
-        title: "وبسایت انیمه",
-        subtitle: "پروژه شخصی",
+        title: "Rivana",
+        subtitle: "فروشگاه لوکس فارسی",
         description:
-          "وبسایت جستجو و نمایش اطلاعات انیمه با استفاده از یک API عمومی. برای تمرین کار با APIهای بیرونی و تجربه مرور روان ساخته شد.",
+          "فروشگاه اینترنتی فارسی برای کیف و اکسسوری زنانه با تنوع واقعی رنگ و اندازه، جست‌وجو و فیلتر URLمحور، علاقه‌مندی و سبد خرید، و محاسبه امن قیمت، تخفیف و موجودی در سرور.",
         results: [
-          "جستجوی پیشرفته با فیلترهای مختلف",
-          "صفحات جزئیات با اطلاعات کامل",
-          "ناوبری سریع سمت کلاینت",
+          "۳۰ محصول با موجودی مستقل برای هر تنوع",
+          "قیمت‌گذاری و کوپن مقاوم در برابر دست‌کاری",
+          "تسویه‌حساب تراکنشی با حفاظت از موجودی",
         ],
       },
       de: {
-        title: "Anime-Website",
-        subtitle: "Persönliches Projekt",
+        title: "Rivana",
+        subtitle: "Premium-RTL-Commerce",
         description:
-          "Eine Anime-Such- und Informationsseite auf Basis einer öffentlichen API. Entwickelt, um den Umgang mit externen APIs und ein flüssiges Surferlebnis zu üben.",
+          "Ein persischer Luxus-Shop für Damenhandtaschen und Accessoires mit Varianten, URL-gesteuerter Produktsuche, Wunschliste und Warenkorb sowie serverseitig verbindlicher Preis-, Gutschein- und Bestandslogik.",
         results: [
-          "Erweiterte Suche mit Filtern",
-          "Detailseiten mit vollständigen Informationen",
-          "Schnelle Client-Navigation",
+          "30 Produkte mit Bestand auf Variantenebene",
+          "Manipulationssichere serverseitige Preise und Gutscheine",
+          "Transaktionaler Checkout mit Bestandsschutz",
+        ],
+      },
+    },
+  },
+  {
+    slug: "kansha",
+    accent: "copper",
+    coverImage: "/projects/kansha-portfolio-showcase.png",
+    technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Jikan API", "PWA"],
+    links: {
+      live: "https://kansha.aisalotfi.ir",
+      github: "https://github.com/AisaLotfi/kansha",
+      caseStudySlug: "kansha",
+    },
+    texts: {
+      en: {
+        title: "KANSHA",
+        subtitle: "Anime Discovery Experience",
+        description:
+          "A media-rich anime discovery experience with dynamic catalog browsing, search and genres, detail tabs, trailers, profiles, favorites, watchlists, resilient API data, and an installable PWA shell.",
+        results: [
+          "Responsive catalog with more than 49 titles",
+          "Search, detail tabs, trailers, and watchlists",
+          "Code splitting, API caching, and offline PWA",
+        ],
+      },
+      fa: {
+        title: "کانشا",
+        subtitle: "تجربه کشف و تماشای انیمه",
+        description:
+          "تجربه‌ای رسانه‌محور برای کشف انیمه با کاتالوگ پویا، جست‌وجو و ژانر، تب‌های جزئیات، تریلر، پروفایل، علاقه‌مندی، Watchlist، داده تاب‌آور API و پوسته PWA قابل نصب.",
+        results: [
+          "کاتالوگ واکنش‌گرا با بیش از ۴۹ عنوان",
+          "جست‌وجو، جزئیات، تریلر و Watchlist",
+          "تقسیم کد، کش API و PWA آفلاین",
+        ],
+      },
+      de: {
+        title: "KANSHA",
+        subtitle: "Anime-Discovery-Erlebnis",
+        description:
+          "Ein medienreiches Anime-Discovery-Erlebnis mit dynamischem Katalog, Suche und Genres, Detail-Tabs, Trailern, Profilen, Favoriten, Watchlist, resilienten API-Daten und installierbarer PWA.",
+        results: [
+          "Responsiver Katalog mit über 49 Titeln",
+          "Suche, Detail-Tabs, Trailer und Watchlist",
+          "Code-Splitting, API-Cache und Offline-PWA",
         ],
       },
     },
@@ -211,6 +274,7 @@ export interface ResolvedProject extends ProjectTexts {
   featured: boolean;
   technologies: string[];
   links: Project["links"];
+  coverImage?: string;
   gallery?: string[];
 }
 
@@ -221,6 +285,7 @@ export function getProjects(locale: Locale): ResolvedProject[] {
     featured: p.featured ?? false,
     technologies: p.technologies,
     links: p.links,
+    coverImage: p.coverImage,
     gallery: p.gallery,
     ...p.texts[locale],
   }));

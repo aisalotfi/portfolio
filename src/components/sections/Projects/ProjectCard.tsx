@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { ProjectAccent, ResolvedProject } from "@/data/projects";
 
@@ -160,15 +161,18 @@ export function ProjectCard({
   const accent = ACCENT_MAP[project.accent];
   const isReversed = index % 2 === 1;
   const base = `/${locale}`;
+  const mediaHref = project.links?.live
+    ?? (project.links?.caseStudySlug ? `${base}/case-study/${project.links.caseStudySlug}` : undefined);
+  const mediaIsExternal = Boolean(project.links?.live);
 
   return (
     <article
       className={cn(
-        "group relative overflow-hidden rounded-3xl border bg-surface-glass transition-colors duration-500",
+        "group relative overflow-hidden rounded-3xl border bg-surface-glass transition-[border-color,box-shadow,transform] duration-500 motion-safe:hover:-translate-y-1",
         project.featured
           ? "border-accent/20 shadow-[0_20px_70px_-35px_rgba(212,165,116,0.4)]"
           : "border-border-subtle shadow-[0_20px_60px_-30px_rgba(0,0,0,0.6)]",
-        "hover:border-accent/40",
+        "hover:border-accent/40 hover:shadow-[0_28px_90px_-42px_rgba(212,165,116,0.45)]",
       )}
       style={{ borderColor: project.featured ? accent.hairline : undefined }}
     >
@@ -220,26 +224,28 @@ export function ProjectCard({
               {project.description}
             </p>
 
-            <ul className="mb-7 flex flex-wrap gap-2" aria-label="Technologies">
-              {project.technologies.map((tech) => (
-                <li
-                  key={tech}
-                  className="rounded-full border border-border-medium bg-white/[0.03] px-3 py-1 text-[11px] tracking-[0.02em] text-charcoal-100"
-                >
-                  {tech}
-                </li>
-              ))}
-            </ul>
+            {project.technologies.length > 0 && (
+              <ul className="mb-7 flex flex-wrap gap-2" aria-label="Technologies">
+                {project.technologies.map((tech) => (
+                  <li
+                    key={tech}
+                    className="rounded-full border border-border-medium bg-white/[0.03] px-3 py-1 text-[11px] tracking-[0.02em] text-charcoal-100 transition-colors duration-300 group-hover:border-white/[0.14]"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            )}
 
             {(project.links?.live || project.links?.caseStudySlug || project.links?.github) && (
-              <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2">
+              <div className="mt-auto flex flex-wrap items-center gap-2.5">
                 {project.links?.live && (
                   <a
                     href={project.links.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-accent-light transition-colors hover:text-warm-white"
-                    style={{ color: accent.chipText }}
+                    className="inline-flex min-h-10 items-center gap-1.5 rounded-full border px-4 py-2 text-[11px] font-medium uppercase tracking-[0.12em] transition-[color,background-color,border-color,transform] hover:-translate-y-0.5 hover:bg-white/[0.06]"
+                    style={{ color: accent.chipText, borderColor: accent.hairline }}
                   >
                     {labels.liveSite} ↗
                   </a>
@@ -247,7 +253,7 @@ export function ProjectCard({
                 {project.links?.caseStudySlug && (
                   <a
                     href={`${base}/case-study/${project.links.caseStudySlug}`}
-                    className="text-[12px] font-medium uppercase tracking-[0.14em] text-charcoal-100 transition-colors hover:text-accent-light"
+                    className="inline-flex min-h-10 items-center rounded-full border border-border-medium px-4 py-2 text-[11px] font-medium uppercase tracking-[0.12em] text-charcoal-100 transition-[color,background-color,border-color,transform] hover:-translate-y-0.5 hover:border-accent/40 hover:bg-white/[0.04] hover:text-accent-light"
                   >
                     {labels.caseStudy} →
                   </a>
@@ -257,7 +263,7 @@ export function ProjectCard({
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[12px] font-medium uppercase tracking-[0.14em] text-charcoal-100 transition-colors hover:text-accent-light"
+                    className="inline-flex min-h-10 items-center rounded-full px-3 py-2 text-[11px] font-medium uppercase tracking-[0.12em] text-charcoal-100 transition-colors hover:text-accent-light"
                   >
                     {labels.github} ↗
                   </a>
@@ -276,31 +282,76 @@ export function ProjectCard({
               : "lg:border-l lg:border-l-border-subtle",
           )}
         >
-          <KeyArt accent={accent} index={index} total={total} />
+          {project.coverImage ? (
+            mediaHref ? (
+              <a
+                href={mediaHref}
+                target={mediaIsExternal ? "_blank" : undefined}
+                rel={mediaIsExternal ? "noopener noreferrer" : undefined}
+                aria-label={`${mediaIsExternal ? labels.liveSite : labels.caseStudy}: ${project.title}`}
+                className="group/media relative block h-full overflow-hidden bg-charcoal-900"
+              >
+                <Image
+                  src={project.coverImage}
+                  alt={`${project.title} portfolio showcase`}
+                  width={1920}
+                  height={1080}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="aspect-[16/10] h-full w-full object-cover transition-[transform,filter] duration-700 group-hover/media:scale-[1.035] group-hover/media:brightness-110 lg:aspect-auto lg:min-h-[320px]"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-near-black/75 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover/media:opacity-100"
+                />
+                <span
+                  aria-hidden="true"
+                  className="glass-strong pointer-events-none absolute bottom-5 end-5 inline-flex min-h-10 items-center gap-2 rounded-full px-4 py-2 text-[10px] uppercase tracking-[0.16em] text-soft-white shadow-lg transition-transform duration-500 group-hover/media:-translate-y-1"
+                >
+                  {mediaIsExternal ? labels.liveSite : labels.caseStudy}
+                  <span>{mediaIsExternal ? "↗" : "→"}</span>
+                </span>
+              </a>
+            ) : (
+              <Image
+                src={project.coverImage}
+                alt={`${project.title} portfolio showcase`}
+                width={1920}
+                height={1080}
+                loading={index === 0 ? "eager" : "lazy"}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="aspect-[16/10] h-full w-full object-cover lg:aspect-auto lg:min-h-[320px]"
+              />
+            )
+          ) : (
+            <KeyArt accent={accent} index={index} total={total} />
+          )}
         </div>
       </div>
 
       {/* Outcomes strip */}
-      <div className="border-t border-border-subtle p-6 md:p-8">
-        <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-charcoal-300">
-          {labels.outcomes}
-        </p>
-        <ul className="grid gap-2.5 sm:grid-cols-3">
-          {project.results.map((result) => (
-            <li
-              key={result}
-              className="flex items-start gap-2.5 text-[13px] leading-snug text-charcoal-100"
-            >
-              <span
-                aria-hidden="true"
-                className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
-                style={{ background: accent.bullet }}
-              />
-              {result}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {project.results.length > 0 && (
+        <div className="border-t border-border-subtle p-6 md:p-8">
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.3em] text-charcoal-300">
+            {labels.outcomes}
+          </p>
+          <ul className="grid gap-2.5 sm:grid-cols-3">
+            {project.results.map((result) => (
+              <li
+                key={result}
+                className="flex items-start gap-2.5 rounded-xl bg-white/[0.025] px-3 py-2.5 text-[13px] leading-snug text-charcoal-100"
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
+                  style={{ background: accent.bullet }}
+                />
+                {result}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </article>
   );
 }

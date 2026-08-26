@@ -145,10 +145,10 @@ export default async function ResumePage({ params }: Props) {
             <p className="text-center text-[11px] uppercase tracking-[0.18em] text-charcoal-400">
               <span className="mt-4 block">{rp.downloadNote}</span>
               <a
-                href="mailto:hello@aisalotfi.ir"
+                href="mailto:aisalotfi2706@gmail.com"
                 className="mt-2 inline-block normal-case tracking-normal transition-colors hover:text-charcoal-200"
               >
-                hello@aisalotfi.ir
+                aisalotfi2706@gmail.com
               </a>
             </p>
           </footer>

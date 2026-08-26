@@ -45,11 +45,11 @@ export const en: Dictionary = {
   },
 
   projects: {
-    sectionLabel: "Selected Work",
+    sectionLabel: "All Projects",
     headline1: "Featured",
     headline2: "projects.",
     description:
-      "Real products and focused personal builds — from client websites to full-stack applications.",
+      "My complete project collection—from full-stack products and mobile apps to focused interface experiences.",
     outcomesLabel: "Outcomes",
   },
 
@@ -256,7 +256,10 @@ export const en: Dictionary = {
     social: {
       github: "GitHub",
       linkedin: "LinkedIn",
-      email: "hello@aisalotfi.ir",
+      email: "aisalotfi2706@gmail.com",
+      phone: "+98 905 060 4955",
+      telegram: "Telegram",
+      whatsapp: "WhatsApp",
     },
     resumeCta: "View Resume",
     closingLine: "A single message can start something great.",

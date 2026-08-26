@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { isLocale, getDictionary, locales, type Locale } from "@/i18n";
 import {
@@ -24,15 +25,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cs) return {};
   const texts = cs.texts[locale];
   const baseUrl = "https://aisalotfi.ir";
+  const pageUrl = `${baseUrl}/${locale}/case-study/${slug}`;
+  const description = texts.overview.slice(0, 160);
+  const imageUrl = cs.coverImage ? `${baseUrl}${cs.coverImage}` : undefined;
   return {
     title: `${texts.title} — ${texts.subtitle}`,
-    description: texts.overview.slice(0, 160),
+    description,
     alternates: {
-      canonical: `${baseUrl}/${locale}/case-study/${slug}`,
+      canonical: pageUrl,
       languages: Object.fromEntries([
         ...locales.map((l) => [l, `${baseUrl}/${l}/case-study/${slug}`]),
         ["x-default", `${baseUrl}/fa/case-study/${slug}`],
       ]),
+    },
+    openGraph: {
+      title: `${texts.title} — ${texts.subtitle}`,
+      description,
+      url: pageUrl,
+      type: "article",
+      images: imageUrl ? [{ url: imageUrl, alt: `${texts.title} — ${texts.subtitle}` }] : [],
+    },
+    twitter: {
+      card: imageUrl ? "summary_large_image" : "summary",
+      title: `${texts.title} — ${texts.subtitle}`,
+      description,
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
@@ -80,15 +97,59 @@ export default async function CaseStudyPage({ params }: Props) {
               ))}
             </div>
 
-            {cs.links?.live && (
-              <a
-                href={cs.links.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-surface-glass px-5 py-2 text-[11px] uppercase tracking-[0.15em] text-accent-light transition-colors hover:text-warm-white"
-              >
-                {dict.common.liveSite} ↗
-              </a>
+            {(cs.links?.live || cs.links?.github) && (
+              <div className="mt-6 flex flex-wrap gap-3">
+                {cs.links?.live && (
+                  <a
+                    href={cs.links.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-surface-glass px-5 py-2 text-[11px] uppercase tracking-[0.15em] text-accent-light transition-colors hover:text-warm-white"
+                  >
+                    {dict.common.liveSite} ↗
+                  </a>
+                )}
+                {cs.links?.github && (
+                  <a
+                    href={cs.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-border-medium bg-surface-glass px-5 py-2 text-[11px] uppercase tracking-[0.15em] text-charcoal-100 transition-colors hover:text-soft-white"
+                  >
+                    {dict.common.github} ↗
+                  </a>
+                )}
+              </div>
+            )}
+
+            {cs.coverImage && (
+              cs.links?.live ? (
+                <a
+                  href={cs.links.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${dict.common.liveSite}: ${t.title}`}
+                  className="mt-8 block overflow-hidden rounded-2xl border border-border-subtle"
+                >
+                  <Image
+                    src={cs.coverImage}
+                    alt={`${t.title} — ${t.subtitle}`}
+                    width={1920}
+                    height={1080}
+                    priority
+                    className="h-auto w-full transition-transform duration-700 hover:scale-[1.015]"
+                  />
+                </a>
+              ) : (
+                <Image
+                  src={cs.coverImage}
+                  alt={`${t.title} — ${t.subtitle}`}
+                  width={1920}
+                  height={1080}
+                  priority
+                  className="mt-8 h-auto w-full rounded-2xl border border-border-subtle"
+                />
+              )
             )}
           </header>
 

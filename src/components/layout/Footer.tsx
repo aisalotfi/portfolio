@@ -18,7 +18,10 @@ export function Footer({ locale, dict }: FooterProps) {
   const socials = [
     { href: "https://github.com/aisalotfi", label: "GitHub" },
     { href: "https://linkedin.com/in/aisalotfi", label: "LinkedIn" },
-    { href: "mailto:hello@aisalotfi.ir", label: "Email" },
+    { href: "mailto:aisalotfi2706@gmail.com", label: "Email" },
+    { href: "tel:+989050604955", label: "Phone" },
+    { href: "https://t.me/aisalotfi", label: "Telegram" },
+    { href: "https://wa.me/989050604955", label: "WhatsApp" },
   ];
 
   return (

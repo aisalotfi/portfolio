@@ -45,11 +45,11 @@ const de: Dictionary = {
   },
 
   projects: {
-    sectionLabel: "Ausgewählte Arbeiten",
+    sectionLabel: "Alle Projekte",
     headline1: "Ausgewählte",
     headline2: "Projekte.",
     description:
-      "Echte Produkte und fokussierte persönliche Projekte – von Kundenwebsites bis zu Full-Stack-Anwendungen.",
+      "Meine vollständige Projektsammlung – von Full-Stack-Produkten und mobilen Apps bis zu fokussierten UI-Erlebnissen.",
     outcomesLabel: "Ergebnisse",
   },
 
@@ -256,7 +256,10 @@ const de: Dictionary = {
     social: {
       github: "GitHub",
       linkedin: "LinkedIn",
-      email: "hello@aisalotfi.ir",
+      email: "aisalotfi2706@gmail.com",
+      phone: "+98 905 060 4955",
+      telegram: "Telegram",
+      whatsapp: "WhatsApp",
     },
     resumeCta: "Lebenslauf ansehen",
     closingLine: "Eine einzelne Nachricht kann den Anfang von etwas Großem sein.",

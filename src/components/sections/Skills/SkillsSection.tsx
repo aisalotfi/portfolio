@@ -30,7 +30,7 @@ export function SkillsSection({ locale, dict }: SkillsSectionProps) {
 
         {/* Core stack — the eight technologies that define daily work */}
         <Reveal>
-          <div className="mb-8 rounded-3xl border border-accent/25 bg-surface-glass p-7 md:p-8">
+          <div className="mb-8 rounded-3xl border border-accent/25 bg-surface-glass p-7 shadow-[0_24px_70px_-48px_rgba(212,165,116,0.55)] transition-[border-color,box-shadow] duration-500 hover:border-accent/40 hover:shadow-[0_26px_80px_-44px_rgba(212,165,116,0.7)] md:p-8">
             <h3 className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent-light">
               {dict.skills.coreLabel}
             </h3>
@@ -51,7 +51,7 @@ export function SkillsSection({ locale, dict }: SkillsSectionProps) {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {dict.skills.categories.map((cat, i) => (
             <Reveal key={cat.key} delay={Math.min(i * 60, 240)}>
-              <div className="glass h-full rounded-3xl p-6 transition-colors duration-500 hover:border-accent/30 md:p-7">
+              <div className="glass h-full rounded-3xl p-6 transition-[border-color,background-color,transform] duration-500 hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.05] md:p-7">
                 <h3 className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent-light">
                   {categoryLabel(cat.key, locale)}
                 </h3>
