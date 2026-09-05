@@ -87,6 +87,51 @@ const projectList: Project[] = [
     },
   },
   {
+    slug: "studioselect",
+    accent: "emerald",
+    featured: true,
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "Cloudflare Pages"],
+    links: {
+      live: "https://demo.aisalotfi.ir",
+    },
+    coverImage: "/projects/studioselect-portfolio-showcase.svg",
+    texts: {
+      en: {
+        title: "StudioSelect",
+        subtitle: "Photo Selection SaaS for Studios",
+        description:
+          "A Persian RTL workflow for photography studios to publish private client galleries, collect final photo selections and retouching notes, and receive a clear notification when every choice is submitted.",
+        results: [
+          "Private gallery selection with watermarked previews",
+          "Final selections and retouching notes in one workflow",
+          "Studio notification immediately after submission",
+        ],
+      },
+      fa: {
+        title: "StudioSelect",
+        subtitle: "سامانه انتخاب عکس برای آتلیه‌ها",
+        description:
+          "یک محصول فارسی و RTL برای ساخت گالری خصوصی مشتری، دریافت انتخاب نهایی عکس‌ها و یادداشت‌های ادیت، و اطلاع‌رسانی روشن به آتلیه بلافاصله پس از ثبت انتخاب‌ها.",
+        results: [
+          "گالری خصوصی با پیش‌نمایش واترمارک‌شده",
+          "ثبت یکپارچه انتخاب نهایی و یادداشت ادیت",
+          "اعلان آتلیه بلافاصله پس از ثبت مشتری",
+        ],
+      },
+      de: {
+        title: "StudioSelect",
+        subtitle: "Fotoauswahl-SaaS für Studios",
+        description:
+          "Ein persischer RTL-Workflow für Fotostudios: private Kundengalerien bereitstellen, finale Bildauswahlen und Retuschewünsche erfassen und das Studio nach der Abgabe klar benachrichtigen.",
+        results: [
+          "Private Galerie mit wasserzeichenbasierten Vorschauen",
+          "Finale Auswahl und Retuschehinweise in einem Ablauf",
+          "Sofortige Studio-Benachrichtigung nach der Abgabe",
+        ],
+      },
+    },
+  },
+  {
     slug: "nova",
     accent: "amethyst",
     technologies: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Prisma", "TanStack Query"],
