@@ -4,6 +4,7 @@ import type { ProjectAccent } from "@/data/projects";
 export interface CaseStudyTexts {
   title: string;
   subtitle: string;
+  imageAlt?: string;
   overview: string;
   problem: string;
   solution: string;
@@ -27,8 +28,155 @@ export interface CaseStudy {
   technologies: string[];
   links?: { live?: string; github?: string };
   coverImage?: string;
+  coverWidth?: number;
+  coverHeight?: number;
   texts: Record<Locale, CaseStudyTexts>;
 }
+
+const nobatino: CaseStudy = {
+  slug: "nobatino",
+  accent: "sapphire",
+  technologies: [
+    "Next.js 16",
+    "React 19",
+    "TypeScript",
+    "Tailwind CSS 4",
+    "PostgreSQL",
+    "Prisma ORM",
+    "Zod",
+    "Lucide React",
+    "Vazirmatn",
+  ],
+  links: { live: "https://nobatinoo.ir" },
+  coverImage: "/projects/nobatino-portfolio-cover.png",
+  coverWidth: 3200,
+  coverHeight: 2000,
+  texts: {
+    en: {
+      title: "Nobatino",
+      subtitle: "Online Beauty Services Booking Platform",
+      imageAlt:
+        "Nobatino beauty booking platform shown across the salon dashboard and mobile customer booking screens",
+      overview:
+        "Nobatino is a Persian, right-to-left web application for managing beauty-service bookings. Customers can find a salon and service, view open times, and book and track appointments. Salon owners use a dedicated panel to manage services, staff, schedules, appointments, and discounts, while a central administration panel supports salon review and system oversight. Responsive design, a Persian calendar, and prevention of simultaneous bookings for the same time slot are central parts of the product.",
+      problem:
+        "Beauty bookings span several connected roles and time-sensitive decisions. Customers need a clear path from salon discovery to an available appointment, salons need one reliable operational view, and central administrators need tools to review salons and supervise the platform without creating conflicting records.",
+      solution:
+        "I developed a responsive Persian RTL experience with coordinated customer, salon, and central administration flows. Typed validation, PostgreSQL and Prisma-backed data, a Persian calendar, availability handling, and safeguards against overlapping reservations keep the booking journey consistent from discovery through follow-up.",
+      responsibilities: [
+        "Designed and implemented the responsive Persian RTL customer experience",
+        "Built salon discovery, service selection, availability, booking, and appointment tracking flows",
+        "Implemented the salon panel for services, staff, working schedules, appointments, and discounts",
+        "Built central administration workflows for salon review and platform oversight",
+        "Integrated typed validation, Persian calendar behavior, and overlapping-booking safeguards",
+      ],
+      challenges: [
+        {
+          title: "Reliable availability",
+          text: "Availability had to remain understandable to customers while preventing two bookings from claiming the same salon, service, staff, and time combination.",
+        },
+        {
+          title: "Three connected roles",
+          text: "Customer, salon, and central administration panels needed distinct permissions and tasks while still operating on one consistent set of services, schedules, and appointments.",
+        },
+        {
+          title: "Natural Persian interaction",
+          text: "RTL layout, Vazirmatn typography, Persian dates, compact mobile screens, and form feedback all needed to feel native rather than adapted from an LTR interface.",
+        },
+      ],
+      outcome:
+        "Nobatino delivers a unified booking workflow across responsive customer, salon, and central administration interfaces, with Persian calendar support and protection against overlapping reservations for the same time slot.",
+      lessons: [
+        "Booking interfaces are only trustworthy when availability rules are enforced beyond the screen",
+        "Role-specific panels work best when they share one clear appointment model",
+        "Persian calendar and RTL behavior belong in the product architecture from the start",
+        "Mobile booking flows benefit from short steps and continuously visible context",
+      ],
+    },
+    fa: {
+      title: "نوبتینو",
+      subtitle: "پلتفرم رزرو آنلاین خدمات زیبایی",
+      imageAlt:
+        "نمای پلتفرم رزرو خدمات زیبایی نوبتینو شامل داشبورد مدیریت سالن و صفحه‌های موبایل رزرو مشتری",
+      overview:
+        "نوبتینو یک وب‌اپلیکیشن فارسی و راست‌به‌چپ برای مدیریت فرایند رزرو خدمات زیبایی است. مشتری می‌تواند سالن و خدمت موردنظرش را پیدا کند، زمان‌های آزاد را ببیند و نوبت خود را ثبت و پیگیری کند. صاحبان سالن نیز از پنل اختصاصی برای مدیریت خدمات، کارکنان، برنامهٔ کاری، نوبت‌ها و تخفیف‌ها استفاده می‌کنند. پنل مدیریت مرکزی، بررسی سالن‌ها و نظارت بر بخش‌های مختلف سامانه را فراهم می‌کند. طراحی واکنش‌گرا، تقویم فارسی و جلوگیری از رزرو هم‌زمان یک بازه، از بخش‌های مهم پروژه هستند.",
+      problem:
+        "رزرو خدمات زیبایی چند نقش و چند تصمیم وابسته به زمان را به هم متصل می‌کند. مشتری به مسیری روشن از یافتن سالن تا انتخاب زمان آزاد نیاز دارد، سالن باید عملیات روزانه را در یک نمای قابل اعتماد مدیریت کند و مدیر مرکزی نیز باید بتواند سالن‌ها و بخش‌های سامانه را بدون ایجاد داده‌های متناقض بررسی کند.",
+      solution:
+        "تجربه‌ای واکنش‌گرا، فارسی و راست‌به‌چپ با جریان‌های هماهنگ مشتری، سالن و مدیریت مرکزی پیاده‌سازی کردم. اعتبارسنجی نوع‌دار، داده‌های مبتنی بر PostgreSQL و Prisma، تقویم فارسی، مدیریت ظرفیت و سازوکار جلوگیری از رزرو هم‌زمان، مسیر رزرو را از جست‌وجو تا پیگیری منسجم نگه می‌دارند.",
+      responsibilities: [
+        "طراحی و پیاده‌سازی تجربه واکنش‌گرای فارسی و راست‌به‌چپ مشتری",
+        "ساخت جریان جست‌وجوی سالن، انتخاب خدمت، مشاهده زمان آزاد، رزرو و پیگیری نوبت",
+        "پیاده‌سازی پنل سالن برای خدمات، کارکنان، برنامه کاری، نوبت‌ها و تخفیف‌ها",
+        "ساخت جریان‌های مدیریت مرکزی برای بررسی سالن و نظارت بر سامانه",
+        "یکپارچه‌سازی اعتبارسنجی نوع‌دار، تقویم فارسی و جلوگیری از رزرو هم‌زمان",
+      ],
+      challenges: [
+        {
+          title: "ظرفیت زمانی قابل اعتماد",
+          text: "زمان‌های آزاد باید برای مشتری شفاف می‌ماندند و هم‌زمان سامانه اجازه نمی‌داد دو رزرو، یک ترکیب سالن، خدمت، کارمند و بازه زمانی را تصاحب کنند.",
+        },
+        {
+          title: "سه نقش به‌هم‌پیوسته",
+          text: "پنل‌های مشتری، سالن و مدیریت مرکزی به وظایف و دسترسی‌های متفاوت نیاز داشتند، اما باید روی یک مدل منسجم از خدمات، برنامه‌ها و نوبت‌ها کار می‌کردند.",
+        },
+        {
+          title: "تعامل طبیعی فارسی",
+          text: "چیدمان RTL، تایپوگرافی وزیرمتن، تاریخ فارسی، صفحه‌های فشرده موبایل و بازخورد فرم‌ها باید بومی و طبیعی می‌بودند، نه نسخه‌ای برگردان‌شده از رابط LTR.",
+        },
+      ],
+      outcome:
+        "نوبتینو جریان یکپارچه رزرو را در رابط‌های واکنش‌گرای مشتری، سالن و مدیریت مرکزی فراهم می‌کند؛ همراه با تقویم فارسی و محافظت در برابر رزرو هم‌زمان یک بازه.",
+      lessons: [
+        "رابط رزرو فقط زمانی قابل اعتماد است که قواعد ظرفیت فراتر از صفحه اجرا شوند",
+        "پنل‌های نقش‌محور با یک مدل روشن و مشترک از نوبت بهتر کار می‌کنند",
+        "تقویم فارسی و رفتار RTL باید از ابتدا بخشی از معماری محصول باشند",
+        "جریان موبایل رزرو با گام‌های کوتاه و زمینه همیشه قابل مشاهده ساده‌تر می‌شود",
+      ],
+    },
+    de: {
+      title: "Nobatino",
+      subtitle: "Online-Plattform für Beauty-Termine",
+      imageAlt:
+        "Nobatino-Plattform für Beauty-Termine mit Salon-Dashboard und mobilen Buchungsansichten für Kunden",
+      overview:
+        "Nobatino ist eine persische RTL-Webanwendung für die Buchung von Beauty-Dienstleistungen. Kunden finden Salons und Leistungen, sehen freie Zeiten und buchen und verfolgen ihre Termine. Saloninhaber verwalten Leistungen, Mitarbeitende, Arbeitspläne, Termine und Rabatte in einem eigenen Bereich; eine zentrale Verwaltung unterstützt die Salonprüfung und Plattformaufsicht. Responsives Design, ein persischer Kalender und der Schutz vor gleichzeitigen Buchungen desselben Zeitfensters sind zentrale Bestandteile.",
+      problem:
+        "Beauty-Termine verbinden mehrere Rollen und zeitkritische Entscheidungen. Kunden brauchen einen klaren Weg von der Salonsuche bis zum freien Termin, Salons eine verlässliche operative Sicht und die zentrale Verwaltung Werkzeuge zur Prüfung und Aufsicht ohne widersprüchliche Datensätze.",
+      solution:
+        "Ich entwickelte eine responsive persische RTL-Oberfläche mit abgestimmten Abläufen für Kunden, Salons und zentrale Administration. Typisierte Validierung, PostgreSQL und Prisma, persischer Kalender, Verfügbarkeitslogik und Schutz vor Überschneidungen halten den Buchungsweg konsistent.",
+      responsibilities: [
+        "Responsive persische RTL-Kundenerfahrung gestaltet und umgesetzt",
+        "Salonsuche, Leistungsauswahl, Verfügbarkeit, Buchung und Terminverfolgung entwickelt",
+        "Salonbereich für Leistungen, Mitarbeitende, Arbeitspläne, Termine und Rabatte umgesetzt",
+        "Zentrale Verwaltungsabläufe für Salonprüfung und Plattformaufsicht entwickelt",
+        "Typisierte Validierung, persischen Kalender und Doppelbuchungsschutz integriert",
+      ],
+      challenges: [
+        {
+          title: "Verlässliche Verfügbarkeit",
+          text: "Freie Zeiten mussten für Kunden verständlich bleiben, während dieselbe Kombination aus Salon, Leistung, Mitarbeitenden und Zeitfenster nicht doppelt gebucht werden durfte.",
+        },
+        {
+          title: "Drei verbundene Rollen",
+          text: "Kunden-, Salon- und Adminbereiche brauchten eigene Rechte und Aufgaben, mussten aber mit einem konsistenten Modell für Leistungen, Pläne und Termine arbeiten.",
+        },
+        {
+          title: "Natürliche persische Bedienung",
+          text: "RTL-Layout, Vazirmatn-Typografie, persische Daten, kleine Mobilansichten und Formularfeedback sollten sich nativ statt aus einer LTR-Oberfläche übertragen anfühlen.",
+        },
+      ],
+      outcome:
+        "Nobatino bietet einen durchgängigen Buchungsablauf in responsiven Kunden-, Salon- und Verwaltungsoberflächen – mit persischem Kalender und Schutz vor überschneidenden Reservierungen.",
+      lessons: [
+        "Buchungsoberflächen sind nur vertrauenswürdig, wenn Verfügbarkeitsregeln auch serverseitig gelten",
+        "Rollenbereiche funktionieren am besten mit einem gemeinsamen klaren Terminmodell",
+        "Persischer Kalender und RTL-Verhalten gehören von Anfang an in die Produktarchitektur",
+        "Mobile Buchungen profitieren von kurzen Schritten und stets sichtbarem Kontext",
+      ],
+    },
+  },
+};
 
 const sadafStone: CaseStudy = {
   slug: "sadaf-stone",
@@ -667,7 +815,7 @@ const kansha: CaseStudy = {
   },
 };
 
-export const caseStudies: CaseStudy[] = [sadafStone, nova, riora, rivana, kansha];
+export const caseStudies: CaseStudy[] = [nobatino, sadafStone, nova, riora, rivana, kansha];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((cs) => cs.slug === slug);

@@ -133,9 +133,9 @@ export default async function CaseStudyPage({ params }: Props) {
                 >
                   <Image
                     src={cs.coverImage}
-                    alt={`${t.title} — ${t.subtitle}`}
-                    width={1920}
-                    height={1080}
+                    alt={t.imageAlt ?? `${t.title} — ${t.subtitle}`}
+                    width={cs.coverWidth ?? 1920}
+                    height={cs.coverHeight ?? 1080}
                     priority
                     className="h-auto w-full transition-transform duration-700 hover:scale-[1.015]"
                   />
@@ -143,9 +143,9 @@ export default async function CaseStudyPage({ params }: Props) {
               ) : (
                 <Image
                   src={cs.coverImage}
-                  alt={`${t.title} — ${t.subtitle}`}
-                  width={1920}
-                  height={1080}
+                  alt={t.imageAlt ?? `${t.title} — ${t.subtitle}`}
+                  width={cs.coverWidth ?? 1920}
+                  height={cs.coverHeight ?? 1080}
                   priority
                   className="mt-8 h-auto w-full rounded-2xl border border-border-subtle"
                 />

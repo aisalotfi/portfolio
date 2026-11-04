@@ -8,6 +8,7 @@ export interface ProjectTexts {
   subtitle: string;
   description: string;
   results: string[];
+  imageAlt?: string;
 }
 
 /**
@@ -34,12 +35,79 @@ export interface Project {
   };
   /** Public path for the project's showcase image. */
   coverImage?: string;
+  coverWidth?: number;
+  coverHeight?: number;
+  coverFit?: "cover" | "contain";
   gallery?: string[];
   /** Localized copy keyed by locale. */
   texts: Record<Locale, ProjectTexts>;
 }
 
 const projectList: Project[] = [
+  {
+    slug: "nobatino",
+    accent: "sapphire",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Zod",
+      "Lucide React",
+      "Vazirmatn",
+    ],
+    links: {
+      live: "https://nobatinoo.ir",
+      caseStudySlug: "nobatino",
+    },
+    coverImage: "/projects/nobatino-portfolio-cover.png",
+    coverWidth: 3200,
+    coverHeight: 2000,
+    coverFit: "contain",
+    texts: {
+      en: {
+        title: "Nobatino",
+        subtitle: "Full-Stack Beauty Booking Platform",
+        description:
+          "A platform for discovering beauty salons, exploring services and available times, and booking appointments online, with dedicated salon and central administration panels.",
+        results: [
+          "Responsive Persian RTL experience",
+          "Customer, salon, and central admin workflows",
+          "Persian calendar with overlapping-booking prevention",
+        ],
+        imageAlt:
+          "Nobatino beauty booking platform shown across the salon dashboard and mobile customer booking screens",
+      },
+      fa: {
+        title: "نوبتینو",
+        subtitle: "پلتفرم فول‌استک رزرو خدمات زیبایی",
+        description:
+          "پلتفرمی برای جست‌وجوی سالن‌های زیبایی، مشاهدهٔ خدمات و زمان‌های آزاد و رزرو آنلاین نوبت، همراه با پنل مدیریت سالن و مدیریت مرکزی.",
+        results: [
+          "تجربه واکنش‌گرای فارسی و راست‌به‌چپ",
+          "جریان‌های یکپارچه مشتری، سالن و مدیریت مرکزی",
+          "تقویم فارسی و جلوگیری از رزرو هم‌زمان",
+        ],
+        imageAlt:
+          "نمای پلتفرم رزرو خدمات زیبایی نوبتینو شامل داشبورد مدیریت سالن و صفحه‌های موبایل رزرو مشتری",
+      },
+      de: {
+        title: "Nobatino",
+        subtitle: "Full-Stack-Plattform für Beauty-Termine",
+        description:
+          "Eine Plattform zum Finden von Schönheitssalons, zum Vergleichen von Leistungen und freien Zeiten sowie zur Online-Terminbuchung – ergänzt durch Salon- und zentrale Verwaltungsbereiche.",
+        results: [
+          "Responsive persische RTL-Benutzeroberfläche",
+          "Abläufe für Kunden, Salons und zentrale Verwaltung",
+          "Persischer Kalender mit Schutz vor Doppelbuchungen",
+        ],
+        imageAlt:
+          "Nobatino-Plattform für Beauty-Termine mit Salon-Dashboard und mobilen Buchungsansichten für Kunden",
+      },
+    },
+  },
   {
     slug: "sadaf-stone",
     accent: "copper",
@@ -320,6 +388,9 @@ export interface ResolvedProject extends ProjectTexts {
   technologies: string[];
   links: Project["links"];
   coverImage?: string;
+  coverWidth?: number;
+  coverHeight?: number;
+  coverFit: "cover" | "contain";
   gallery?: string[];
 }
 
@@ -331,6 +402,9 @@ export function getProjects(locale: Locale): ResolvedProject[] {
     technologies: p.technologies,
     links: p.links,
     coverImage: p.coverImage,
+    coverWidth: p.coverWidth,
+    coverHeight: p.coverHeight,
+    coverFit: p.coverFit ?? "cover",
     gallery: p.gallery,
     ...p.texts[locale],
   }));

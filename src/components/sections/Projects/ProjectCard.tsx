@@ -293,12 +293,15 @@ export function ProjectCard({
               >
                 <Image
                   src={project.coverImage}
-                  alt={`${project.title} portfolio showcase`}
-                  width={1920}
-                  height={1080}
+                  alt={project.imageAlt ?? `${project.title} — ${project.subtitle}`}
+                  width={project.coverWidth ?? 1920}
+                  height={project.coverHeight ?? 1080}
                   loading={index === 0 ? "eager" : "lazy"}
                   sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="aspect-[16/10] h-full w-full object-cover transition-[transform,filter] duration-700 group-hover/media:scale-[1.035] group-hover/media:brightness-110 lg:aspect-auto lg:min-h-[320px]"
+                  className={cn(
+                    "aspect-[16/10] h-full w-full transition-[transform,filter] duration-700 group-hover/media:scale-[1.035] group-hover/media:brightness-110 lg:aspect-auto lg:min-h-[320px]",
+                    project.coverFit === "contain" ? "object-contain" : "object-cover",
+                  )}
                 />
                 <span
                   aria-hidden="true"
@@ -315,12 +318,15 @@ export function ProjectCard({
             ) : (
               <Image
                 src={project.coverImage}
-                alt={`${project.title} portfolio showcase`}
-                width={1920}
-                height={1080}
+                alt={project.imageAlt ?? `${project.title} — ${project.subtitle}`}
+                width={project.coverWidth ?? 1920}
+                height={project.coverHeight ?? 1080}
                 loading={index === 0 ? "eager" : "lazy"}
                 sizes="(min-width: 1024px) 40vw, 100vw"
-                className="aspect-[16/10] h-full w-full object-cover lg:aspect-auto lg:min-h-[320px]"
+                className={cn(
+                  "aspect-[16/10] h-full w-full lg:aspect-auto lg:min-h-[320px]",
+                  project.coverFit === "contain" ? "object-contain" : "object-cover",
+                )}
               />
             )
           ) : (
