@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">StudioSelect customer gallery and studio notification</title>
+  <desc id="desc">A cream and olive interface showing a Persian wedding photo selection gallery and studio dashboard.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6f3e8"/><stop offset="1" stop-color="#dfe5d7"/></linearGradient>
+    <linearGradient id="photo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b89a78"/><stop offset=".45" stop-color="#667568"/><stop offset="1" stop-color="#283d34"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="22" stdDeviation="28" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1420" cy="90" r="260" fill="#9fae8d" opacity=".15"/>
+  <circle cx="120" cy="900" r="310" fill="#c7a76d" opacity=".10"/>
+  <g filter="url(#shadow)">
+    <rect x="105" y="85" width="1390" height="830" rx="34" fill="#fffef9"/>
+    <rect x="105" y="85" width="1390" height="74" rx="34" fill="#344a40"/>
+    <rect x="105" y="125" width="1390" height="34" fill="#344a40"/>
+  </g>
+  <g fill="#f5f0dc" font-family="Arial, sans-serif">
+    <text x="173" y="133" font-size="26" font-weight="700">StudioSelect</text>
+    <text x="1325" y="132" font-size="17">CLIENT GALLERY</text>
+  </g>
+  <g transform="translate(155 208)">
+    <text x="0" y="20" fill="#a18757" font-size="17" font-family="Arial">WEDDING COLLECTION · PRIVATE GALLERY</text>
+    <text x="0" y="72" fill="#293c34" font-size="38" font-weight="700" font-family="Arial">Choose the moments you love.</text>
+    <rect x="0" y="105" width="510" height="8" rx="4" fill="#e5e7dc"/><rect x="0" y="105" width="340" height="8" rx="4" fill="#829375"/>
+    <text x="530" y="114" fill="#637267" font-size="18" font-family="Arial">2 / 3 selected</text>
+  </g>
+  <g transform="translate(155 355)">
+    <g><rect width="285" height="350" rx="18" fill="url(#photo)"/><circle cx="250" cy="35" r="21" fill="#fff"/><path d="M241 35l6 6 13-15" fill="none" stroke="#48604f" stroke-width="5" stroke-linecap="round"/><text x="22" y="320" fill="#fff" font-size="16" font-family="Arial">FRAME 01 · SELECTED</text></g>
+    <g transform="translate(310)"><rect width="285" height="350" rx="18" fill="#8e795f"/><circle cx="250" cy="35" r="21" fill="#fff"/><path d="M241 35l6 6 13-15" fill="none" stroke="#48604f" stroke-width="5" stroke-linecap="round"/><path d="M40 265q95-150 205 0" fill="#dec9a8" opacity=".38"/><text x="22" y="320" fill="#fff" font-size="16" font-family="Arial">FRAME 02 · SELECTED</text></g>
+    <g transform="translate(620)"><rect width="285" height="350" rx="18" fill="#bbb49f"/><circle cx="250" cy="35" r="21" fill="#ffffffdd"/><path d="M243 35c-13-12-24 8 7 25 31-17 20-37 7-25-5-8-9-8-14 0" fill="none" stroke="#526457" stroke-width="3"/><path d="M40 270q100-180 215 0" fill="#f2eadb" opacity=".55"/><text x="22" y="320" fill="#fff" font-size="16" font-family="Arial">FRAME 03 · CHOOSE</text></g>
+  </g>
+  <g transform="translate(1110 270)" filter="url(#shadow)">
+    <rect width="305" height="500" rx="26" fill="#2f443a"/>
+    <circle cx="50" cy="53" r="21" fill="#b9c8a6"/><path d="M44 52h12M50 46v12" stroke="#2f443a" stroke-width="3"/>
+    <text x="85" y="59" fill="#fff" font-size="22" font-family="Arial" font-weight="700">Studio panel</text>
+    <rect x="28" y="105" width="249" height="105" rx="16" fill="#e7efdd"/>
+    <circle cx="61" cy="141" r="16" fill="#6d826d"/><path d="M55 141l5 5 9-11" fill="none" stroke="#fff" stroke-width="3"/>
+    <text x="91" y="143" fill="#2f443a" font-size="16" font-family="Arial" font-weight="700">Selection submitted</text>
+    <text x="48" y="178" fill="#607063" font-size="13" font-family="Arial">3 photos · editor note included</text>
+    <text x="28" y="261" fill="#b9c8a6" font-size="13" font-family="Arial">SELECTED FRAMES</text>
+    <g transform="translate(28 282)"><rect width="72" height="96" rx="10" fill="#778373"/><rect x="88" width="72" height="96" rx="10" fill="#a48c70"/><rect x="176" width="72" height="96" rx="10" fill="#c0b8a2"/></g>
+    <rect x="28" y="408" width="249" height="58" rx="14" fill="#52675a"/><text x="71" y="444" fill="#fff" font-size="15" font-family="Arial">Ready for retouching →</text>
+  </g>
+  <g font-family="Arial" fill="#66746b"><text x="155" y="824" font-size="17">PRIVATE LINKS</text><text x="360" y="824" font-size="17">WATERMARKS</text><text x="565" y="824" font-size="17">FINAL SUBMISSION</text><text x="825" y="824" font-size="17">STUDIO ALERTS</text></g>
+</svg>
